@@ -18,4 +18,10 @@ public class ProdutoController {
         return lpd;
     }
 
+    public void editarProduto(List<Produto> lpd){
+        ProdutoDao pd = new ProdutoDao();
+        pd.updateProduto(lpd);
+
+    }
+
 }

@@ -8,7 +8,8 @@ public class Main {
 
         ProdutoView pv = new ProdutoView();
 
-        pv.cadastro();
-        pv.mostrarProdutos();
+//        pv.cadastro();
+//        pv.mostrarProdutos();
+        pv.alterarProduto();
     }
 }

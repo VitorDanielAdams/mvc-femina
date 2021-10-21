@@ -101,16 +101,15 @@ public class Produto {
 
     @Override
     public String toString() {
-        return "Produto{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", preco=" + preco +
-                ", qtd=" + qtd +
+        return ""+ id + ';' +
+                nome + ';' +
+                preco + ';' +
+                qtd + ';'
 //                ", modeloDosProdutos=" + modeloDosProdutos +
 //                ", cor=" + cor +
 //                ", categoria=" + categoria.getNome() +
 //                ", tamanho=" + tamanho +
-//                ", fornecedor=" + fornecedor +
-                '}';
+//                ", fornecedor=" + fornecedor
+                ;
     }
 }

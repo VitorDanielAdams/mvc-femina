@@ -47,6 +47,7 @@ public class ProdutoDao {
             }
             fileReader.close();
             bufferedReader.close();
+
             int i = 0;
             for (String s : result) {
                 String[] produts = s.split(";");
@@ -63,6 +64,24 @@ public class ProdutoDao {
             e.printStackTrace();
         }
         return produtos;
+    }
+
+    public void updateProduto(List<Produto> prod){
+        try {
+
+            FileWriter fileWriter = new FileWriter("produtos.txt", false);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+
+            for (int list = 0; list < prod.size(); list++) {
+                printWriter.println(prod.get(list));
+            }
+
+            printWriter.flush();
+            printWriter.close();
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
