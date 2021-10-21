@@ -9,6 +9,6 @@ public class Main {
         ProdutoView pv = new ProdutoView();
 
         pv.cadastro();
-
+        pv.mostrarProdutos();
     }
 }

@@ -3,6 +3,8 @@ package main.java.com.femina.produto.View;
 import main.java.com.femina.produto.Model.Produto;
 import main.java.com.femina.produto.Controller.ProdutoController;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ProdutoView {
@@ -27,6 +29,12 @@ public class ProdutoView {
 
     }
 
-
+    public void mostrarProdutos(){
+        ProdutoController pc = new ProdutoController();
+        List<Produto> lpd = pc.listarProdutos();
+        for(int i = 0; i < lpd.size();i++){
+            System.out.println(lpd.get(i));
+        }
+    }
 
 }
