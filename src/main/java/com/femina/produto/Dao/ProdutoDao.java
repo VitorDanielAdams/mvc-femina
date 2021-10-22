@@ -14,6 +14,7 @@ public class ProdutoDao {
             FileWriter fileWriter = new FileWriter("produtos.txt", true);
             PrintWriter printWriter = new PrintWriter(fileWriter);
 
+            printWriter.print(prod.getId() + ";");
             printWriter.print(prod.getNome() + ";");
             printWriter.print(prod.getPreco() + ";");
             printWriter.println(prod.getQtd());
@@ -54,9 +55,10 @@ public class ProdutoDao {
 
                 Produto p = new Produto();
                 i++;
-                p.setNome(produts[0]);
-                p.setPreco(Double.valueOf(produts[1]));
-                p.setQtd(Integer.valueOf(produts[2]));
+                p.setId(Integer.valueOf(produts[0]));
+                p.setNome(produts[1]);
+                p.setPreco(Double.valueOf(produts[2]));
+                p.setQtd(Integer.valueOf(produts[3]));
 
                 produtos.add(p);
             }

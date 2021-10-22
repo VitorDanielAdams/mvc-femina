@@ -10,6 +10,7 @@ public class Main {
 
 //        pv.cadastro();
 //        pv.mostrarProdutos();
-        pv.alterarProduto();
+//        pv.alterarProduto();
+        pv.deletarProduto();
     }
 }
