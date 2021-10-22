@@ -67,6 +67,20 @@ public class ProdutoView {
         }
 
         pc.editarProduto(lpd);
+    }
 
+    public void deletarProduto(){
+        ProdutoController pc = new ProdutoController();
+        Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
+        List<Produto> lpd = pc.listarProdutos();
+        for(int i = 0; i < lpd.size();i++){
+            System.out.println((i+1)+" - "+lpd.get(i).toString());
+        }
+        System.out.println("Escolha qual produto quer editar");
+        int select = entrada.nextInt();
+
+        lpd.remove(select - 1);
+
+        pc.removerProduto(lpd);
     }
 }

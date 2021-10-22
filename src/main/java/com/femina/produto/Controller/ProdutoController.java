@@ -20,8 +20,13 @@ public class ProdutoController {
 
     public void editarProduto(List<Produto> lpd){
         ProdutoDao pd = new ProdutoDao();
-        pd.updateProduto(lpd);
+        pd.updelProd(lpd);
 
+    }
+
+    public void removerProduto(List<Produto> lpd){
+        ProdutoDao pd = new ProdutoDao();
+        pd.updelProd(lpd);
     }
 
 }

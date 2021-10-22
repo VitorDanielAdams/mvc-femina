@@ -26,11 +26,11 @@ public class ProdutoDao {
     }
 
     public List<Produto> retornaProdutos(){
-        List<Produto> produtos = new ArrayList<Produto>();
+        List<Produto> produtos = new ArrayList<>();
         try {
             File arquivoDeTexto = new File ("produtos.txt");
 
-            if(arquivoDeTexto.isFile() ==  false){
+            if(!arquivoDeTexto.isFile()){
                 arquivoDeTexto.createNewFile();
             }
 
@@ -66,7 +66,7 @@ public class ProdutoDao {
         return produtos;
     }
 
-    public void updateProduto(List<Produto> prod){
+    public void updelProd(List<Produto> prod){
         try {
 
             FileWriter fileWriter = new FileWriter("produtos.txt", false);
