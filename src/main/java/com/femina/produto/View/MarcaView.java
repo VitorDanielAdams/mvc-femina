@@ -9,7 +9,7 @@ import java.util.*;
 
 public class MarcaView {
 
-    Scanner leitor = new Scanner(System.in);
+    Scanner leitor = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
 
     public void cadastrarMarca() {
         MarcaController marcaController = new MarcaController();
@@ -23,7 +23,8 @@ public class MarcaView {
         System.out.println("Digite o nome da marca: ");
         String nomeMarca = leitor.next();
 
-        // ENDEREÇO DA MARCA =============
+        System.out.println("----- Endereço -----");
+
         System.out.println("Digite o país da marca: ");
         enderecomarca.setPais(leitor.next());
 
@@ -42,8 +43,6 @@ public class MarcaView {
         System.out.println("Digite o número da marca: ");
         enderecomarca.setNumCasa(leitor.nextInt());
 
-        Marca marca = new Marca(idMarca,nomeMarca,enderecomarca);
-
         System.out.println("----- Contato -----");
 
         System.out.println("Digite o Id do contato");
@@ -54,6 +53,8 @@ public class MarcaView {
 
         System.out.println("Digite o e-mail principal: ");
         contatoMarca.setEmail(leitor.next());
+
+        Marca marca = new Marca(idMarca,nomeMarca,enderecomarca);
 
         marca.getContatos().add(contatoMarca);
 

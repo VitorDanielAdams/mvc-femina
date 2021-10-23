@@ -15,6 +15,6 @@ public class Main {
 //        pv.alterarProduto();
        // pv.deletarProduto();
 
-        marca.cadastrarMarca();
+     //   marca.cadastrarMarca();
     }
 }

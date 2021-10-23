@@ -2,9 +2,8 @@ package main.java.com.femina.produto.Dao;
 
 import main.java.com.femina.produto.Model.Marca;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
+import java.util.*;
 
 public class MarcaDao {
 
@@ -24,6 +23,15 @@ public class MarcaDao {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public List<Marca> mostraMarcas() {
+
+        List<Marca> marcas = new ArrayList<>();
+
+        // resto do código AQUI!!!!!
+
+        return marcas;
     }
 
 }
