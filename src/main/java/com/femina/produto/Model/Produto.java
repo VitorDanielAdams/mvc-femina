@@ -105,11 +105,12 @@ public class Produto {
                 nome + ';' +
                 preco + ';' +
                 qtd + ';'
-//                ", modeloDosProdutos=" + modeloDosProdutos +
-//                ", cor=" + cor +
-//                ", categoria=" + categoria.getNome() +
-//                ", tamanho=" + tamanho +
-//                ", fornecedor=" + fornecedor
+//              +
+//                modeloDosProdutos + ';' +
+//                cor + ';' +
+//                categoria.getNome() + ';' +
+//                tamanho + ';' +
+//                fornecedor
                 ;
     }
 }
