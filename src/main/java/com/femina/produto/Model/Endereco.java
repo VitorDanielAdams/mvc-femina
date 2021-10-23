@@ -14,6 +14,9 @@ public class Endereco {
         this.numCasa = numCasa;
     }
 
+    public Endereco() {
+    }
+
     public String getPais() {
         return pais;
     }
