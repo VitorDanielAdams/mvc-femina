@@ -11,6 +11,9 @@ public class Contatos {
         this.email = email;
     }
 
+    public Contatos() {
+    }
+
     public long getId() {
         return id;
     }
