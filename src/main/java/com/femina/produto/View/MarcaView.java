@@ -68,9 +68,15 @@ public class MarcaView {
 
         List<Marca> listaDeMarcas = mc.mostraMarcaCadastrada();
 
-        for(int i = 0; i < listaDeMarcas.size();i++) {
+        for (int i = 0; i < listaDeMarcas.size(); i++) {
             System.out.println(listaDeMarcas.get(i));
         }
+
+    }
+
+    public void editarMarcas()  throws IOException {
+
+        MarcaController mc = new MarcaController();
 
     }
 

@@ -57,4 +57,8 @@ public class MarcaDao {
         }
         return listaMarcas;
     }
+
+    public void editaMarca(List<Marca> marcas) {
+
+    }
 }
