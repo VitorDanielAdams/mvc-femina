@@ -1,22 +1,26 @@
 package main.java.com.femina.produto.Dao;
+
+import main.java.com.femina.produto.Model.Fornecedor;
+
 import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-import main.java.com.femina.produto.Model.Produto;
+public class FornecedorDao {
 
-public class ProdutoDao {
-
-    public void gravaProduto(Produto prod){
+    public void gravarFornecedor(Fornecedor forn){
+        File arq = new File("fornecedores.txt");
 
         try {
-            FileWriter fileWriter = new FileWriter("produtos.txt", true);
+            if(arq.isFile() ==  false){
+                arq.createNewFile();
+            }
+            FileWriter fileWriter = new FileWriter(arq, true);
             PrintWriter printWriter = new PrintWriter(fileWriter);
 
-            printWriter.print(prod.getId() + ";");
-            printWriter.print(prod.getNome() + ";");
-            printWriter.print(prod.getPreco() + ";");
-            printWriter.print(prod.getQtd() + ";");
-            printWriter.println(prod.getFornecedor().getNome());
+            printWriter.print(forn.getNome() + ";");
+            printWriter.println(forn.getCnpj());
+//            printWriter.println(forn.getEnderco());
 
             printWriter.flush();
             printWriter.close();
@@ -25,10 +29,10 @@ public class ProdutoDao {
         }
     }
 
-    public List<Produto> retornaProdutos(){
-        List<Produto> produtos = new ArrayList<>();
+    public List<Fornecedor> retornaFornecedores(){
+        List<Fornecedor> fornecedores = new ArrayList<>();
         try {
-            File arquivoDeTexto = new File ("produtos.txt");
+            File arquivoDeTexto = new File ("fornecedores.txt");
 
             if(!arquivoDeTexto.isFile()){
                 arquivoDeTexto.createNewFile();
@@ -50,32 +54,30 @@ public class ProdutoDao {
 
             int i = 0;
             for (String s : result) {
-                String[] produts = s.split(";");
+                String[] forncedores = s.split(";");
 
-                Produto p = new Produto();
+                Fornecedor fornecedor = new Fornecedor();
                 i++;
-                p.setId(Integer.valueOf(produts[0]));
-                p.setNome(produts[1]);
-                p.setPreco(Double.valueOf(produts[2]));
-                p.setQtd(Integer.valueOf(produts[3]));
+                fornecedor.setNome(forncedores[1]);
+                fornecedor.setCnpj(forncedores[2]);
+//                fornecedor.setEndereco();
 
-
-                produtos.add(p);
+                fornecedores.add(fornecedor);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return produtos;
+        return fornecedores;
     }
 
-    public void updelProd(List<Produto> prod){
+    public void updelFornecedor(List<Fornecedor> forn){
         try {
 
-            FileWriter fileWriter = new FileWriter("produtos.txt", false);
+            FileWriter fileWriter = new FileWriter("fornecedores.txt", false);
             PrintWriter printWriter = new PrintWriter(fileWriter);
 
-            for (int list = 0; list < prod.size(); list++) {
-                printWriter.println(prod.get(list));
+            for (int list = 0; list < forn.size(); list++) {
+                printWriter.println(forn.get(list));
             }
 
             printWriter.flush();
@@ -85,5 +87,4 @@ public class ProdutoDao {
             e.printStackTrace();
         }
     }
-
 }

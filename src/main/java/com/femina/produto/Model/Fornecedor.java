@@ -12,6 +12,9 @@ public class Fornecedor {
 
     private List<Contatos> contatos = new ArrayList<Contatos>(); // lista de contatos
 
+    public Fornecedor() {
+    }
+
     public Fornecedor(long id, String nome, String cnpj, Endereco endereco) {
         this.id = id;
         this.nome = nome;
@@ -61,12 +64,10 @@ public class Fornecedor {
 
     @Override
     public String toString() {
-        return "Fornecedor{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", cnpj='" + cnpj + '\'' +
-                ", endereco=" + endereco +
-                ", contatos=" + contatos +
-                '}';
+        return "" + id + ';' +
+                nome + ';' +
+                cnpj;
+//                endereco + ';' +
+//                contatos;
     }
 }

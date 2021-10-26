@@ -104,12 +104,12 @@ public class Produto {
         return ""+ id + ';' +
                 nome + ';' +
                 preco + ';' +
-                qtd + ';'
+                qtd + ';' +
 //                ", modeloDosProdutos=" + modeloDosProdutos +
 //                ", cor=" + cor +
 //                ", categoria=" + categoria.getNome() +
 //                ", tamanho=" + tamanho +
-//                ", fornecedor=" + fornecedor
+                fornecedor.getNome()
                 ;
     }
 }

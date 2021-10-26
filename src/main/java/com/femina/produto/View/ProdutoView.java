@@ -76,7 +76,7 @@ public class ProdutoView {
         for(int i = 0; i < lpd.size();i++){
             System.out.println((i+1)+" - "+lpd.get(i).toString());
         }
-        System.out.println("Escolha qual produto quer editar");
+        System.out.println("Escolha qual produto quer Deletar");
         int select = entrada.nextInt();
 
         lpd.remove(select - 1);
