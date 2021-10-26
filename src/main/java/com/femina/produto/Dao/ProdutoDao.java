@@ -2,7 +2,9 @@ package main.java.com.femina.produto.Dao;
 import java.io.*;
 import java.util.*;
 
+import main.java.com.femina.produto.Model.Fornecedor;
 import main.java.com.femina.produto.Model.Produto;
+import main.java.com.femina.produto.Controller.FornecedorController;
 
 public class ProdutoDao {
 
@@ -16,7 +18,7 @@ public class ProdutoDao {
             printWriter.print(prod.getNome() + ";");
             printWriter.print(prod.getPreco() + ";");
             printWriter.print(prod.getQtd() + ";");
-            printWriter.println(prod.getFornecedor().getNome());
+            printWriter.println(prod.getFornecedor().getId());
 
             printWriter.flush();
             printWriter.close();
@@ -58,7 +60,9 @@ public class ProdutoDao {
                 p.setNome(produts[1]);
                 p.setPreco(Double.valueOf(produts[2]));
                 p.setQtd(Integer.valueOf(produts[3]));
-
+                FornecedorController fc = new FornecedorController();
+                List<Fornecedor> lfd = fc.listarFornecedores();
+                p.setFornecedor(lfd.get(Integer.valueOf(produts[4])));
 
                 produtos.add(p);
             }
