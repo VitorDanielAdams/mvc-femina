@@ -18,7 +18,12 @@ public class Main {
 //        pv.alterarProduto();
        // pv.deletarProduto();
 
+
      //   marca.cadastrarMarca();
 //        marca.mostrarMarcas();
+
+       // marca.cadastrarMarca();
+        marca.editarMarcas();
+
     }
 }

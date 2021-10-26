@@ -19,8 +19,8 @@ public class MarcaController {
         return listaMarcas;
     }
 
-    public void editaMarca(List<Marca> marcas) {
+    public void editaMarca(List<Marca> marcas) throws IOException {
         MarcaDao marcaDao = new MarcaDao();
-        marcaDao.editaMarca(marcas);
+        marcaDao.editaDeletaMarca(marcas);
     }
 }
