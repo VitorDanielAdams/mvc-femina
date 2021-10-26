@@ -99,18 +99,37 @@ public class Produto {
         this.fornecedor = fornecedor;
     }
 
+    public String toMostra() {
+        return  "Produto: \n" +
+                "Id - "+ id + "\n" +
+               "Nome - " + nome + "\n" +
+               "Preço - " + preco + "\n" +
+               "Quantidade - " + qtd + "\n" +
+//                modeloDosProdutos + ';' +
+//                cor + ';' +
+//                categoria.getNome() + ';' +
+//                tamanho + ';' +
+//                ", modeloDosProdutos=" + modeloDosProdutos +
+//                ", cor=" + cor +
+//                ", categoria=" + categoria.getNome() +
+//                ", tamanho=" + tamanho +
+                fornecedor.toMostra();
+    }
+
     @Override
     public String toString() {
         return ""+ id + ';' +
                 nome + ';' +
                 preco + ';' +
-                qtd + ';'
-//              +
+                qtd + ';' +
 //                modeloDosProdutos + ';' +
 //                cor + ';' +
 //                categoria.getNome() + ';' +
 //                tamanho + ';' +
-//                fornecedor
-                ;
+//                ", modeloDosProdutos=" + modeloDosProdutos +
+//                ", cor=" + cor +
+//                ", categoria=" + categoria.getNome() +
+//                ", tamanho=" + tamanho +
+                fornecedor.getId();
     }
 }

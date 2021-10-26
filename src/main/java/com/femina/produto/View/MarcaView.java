@@ -5,6 +5,7 @@ import main.java.com.femina.produto.Model.Endereco;
 import main.java.com.femina.produto.Model.Marca;
 import main.java.com.femina.produto.Controller.MarcaController;
 
+import java.io.*;
 import java.util.*;
 
 public class MarcaView {
@@ -59,6 +60,24 @@ public class MarcaView {
         marca.getContatos().add(contatoMarca);
 
         marcaController.cadastraMarca(marca);
+    }
+
+    public void mostrarMarcas() throws IOException {
+
+        MarcaController mc = new MarcaController();
+
+        List<Marca> listaDeMarcas = mc.mostraMarcaCadastrada();
+
+        for (int i = 0; i < listaDeMarcas.size(); i++) {
+            System.out.println(listaDeMarcas.get(i));
+        }
+
+    }
+
+    public void editarMarcas()  throws IOException {
+
+        MarcaController mc = new MarcaController();
+
     }
 
 }

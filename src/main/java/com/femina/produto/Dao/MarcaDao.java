@@ -10,7 +10,7 @@ public class MarcaDao {
     public void cadastraMarca(Marca marca) {
         try {
 
-            FileWriter fileWriter = new FileWriter("produtos.txt", true);
+            FileWriter fileWriter = new FileWriter("marcas.txt", true);
             PrintWriter printWriter = new PrintWriter(fileWriter);
 
             printWriter.print(marca.getId() + ";");
@@ -25,13 +25,40 @@ public class MarcaDao {
         }
     }
 
-    public List<Marca> mostraMarcas() {
+    public List<Marca> mostraMarcas() throws IOException {
 
-        List<Marca> marcas = new ArrayList<>();
+        FileReader fileReader = new FileReader("marcas.txt");
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-        // resto do código AQUI!!!!!
+        List<String> tranformToString = new ArrayList<>();
 
-        return marcas;
+        List<Marca> listaMarcas = new ArrayList<>();
+
+        String linha = " ";
+
+        while((linha = bufferedReader.readLine()) != null) {
+            if(linha != null) {
+                tranformToString.add(linha);
+            }
+        }
+
+        fileReader.close();
+        bufferedReader.close();
+
+        for (String i: tranformToString) {
+            String[] marc = i.split(";");
+
+            Marca marc2 = new Marca();
+
+            marc2.setId(Long.valueOf(marc[0]));
+            marc2.setNome(marc[1]);
+
+            listaMarcas.add(marc2);
+        }
+        return listaMarcas;
     }
 
+    public void editaMarca(List<Marca> marcas) {
+
+    }
 }

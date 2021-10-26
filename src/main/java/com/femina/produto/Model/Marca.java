@@ -19,6 +19,9 @@ public class Marca {
         this.enderecoMarca = enderecoMarca;
     }
 
+    public Marca() {
+    }
+
     public long getId() {
         return id;
     }

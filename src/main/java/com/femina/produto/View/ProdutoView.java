@@ -1,18 +1,21 @@
 package main.java.com.femina.produto.View;
 
+import main.java.com.femina.produto.Model.Fornecedor;
 import main.java.com.femina.produto.Model.Produto;
 import main.java.com.femina.produto.Controller.ProdutoController;
+import main.java.com.femina.produto.Controller.FornecedorController;
+import main.java.com.femina.produto.View.FornecedorView;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 
 public class ProdutoView {
 
     public void cadastro(){
 
         ProdutoController pc = new ProdutoController();
+        FornecedorController fc = new FornecedorController();
+        FornecedorView fv = new FornecedorView();
+
         Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
 
         Produto prod = new Produto();
@@ -26,6 +29,13 @@ public class ProdutoView {
         System.out.println("Informe a Quantidade:");
         prod.setQtd(entrada.nextInt());
 
+        System.out.println("Selecione um Fornecedor");
+
+        fv.mostrarFornecedores();
+        List<Fornecedor> lfd = fc.listarFornecedores();
+
+        prod.setFornecedor(lfd.get(entrada.nextInt() - 1));
+
         pc.cadastrarProduto(prod);
 
     }
@@ -34,7 +44,7 @@ public class ProdutoView {
         ProdutoController pc = new ProdutoController();
         List<Produto> lpd = pc.listarProdutos();
         for(int i = 0; i < lpd.size();i++){
-            System.out.println((i+1) + " - " + lpd.get(i).toString());
+            System.out.println((i+1) + " - " + lpd.get(i).toMostra());
         }
     }
 
@@ -76,7 +86,7 @@ public class ProdutoView {
         for(int i = 0; i < lpd.size();i++){
             System.out.println((i+1)+" - "+lpd.get(i).toString());
         }
-        System.out.println("Escolha qual produto quer editar");
+        System.out.println("Escolha qual produto quer Deletar");
         int select = entrada.nextInt();
 
         lpd.remove(select - 1);
