@@ -40,11 +40,7 @@ public class Contatos {
 
     @Override
     public String toString() {
-        return "Contatos{" +
-                "id=" + id +
-                ", tel='" + tel + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+        return id + ";" +  tel + ";" + email;
     }
 
 }
