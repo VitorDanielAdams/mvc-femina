@@ -38,6 +38,13 @@ public class Contatos {
         this.email = email;
     }
 
+    public String toMostra() {
+        return  "Contato: " +
+                "Telefone - " + tel + "; " +
+                "Email - " + email;
+
+    }
+
     @Override
     public String toString() {
         return id + ";" +  tel + ";" + email;

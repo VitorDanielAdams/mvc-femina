@@ -14,11 +14,12 @@ public class ContatoDao {
 
     public void cadastraContato(Contatos contato) throws IOException {
 
-        FileWriter localDoArquivo = new FileWriter("C:\\Users\\maria\\listaDeContatos.txt", true);
+        FileWriter localDoArquivo = new FileWriter("listaDeContatos.txt", true);
         PrintWriter escreveArquivo = new PrintWriter(localDoArquivo);
 
-        escreveArquivo.print(contato.getEmail());
-        escreveArquivo.print(contato.getTel());
+        escreveArquivo.print(contato.getId() + ";");
+        escreveArquivo.print(contato.getEmail()+ ";");
+        escreveArquivo.print(contato.getTel() + ";");
         escreveArquivo.println(contato.getId());
 
         localDoArquivo.close();
@@ -29,7 +30,7 @@ public class ContatoDao {
 
     public List<Contatos> mostraContato() throws IOException {
 
-        FileReader arquivoTxt1 = new FileReader("C:\\Users\\maria\\listaDeContatos.txt");
+        FileReader arquivoTxt1 = new FileReader("listaDeContatos.txt");
         BufferedReader lerArq = new BufferedReader(arquivoTxt1);
 
         List<String> ListString = new ArrayList<>();
@@ -65,7 +66,7 @@ public class ContatoDao {
 
     public void editContatos(List <Contatos> contatos) throws IOException {
 
-        FileWriter arquivoTxt = new FileWriter("C:\\Users\\maria\\listaDeContatos.txt",false);
+        FileWriter arquivoTxt = new FileWriter("listaDeContatos.txt",false);
         PrintWriter gravaArq = new PrintWriter(arquivoTxt);
 
 
@@ -81,7 +82,7 @@ public class ContatoDao {
 
     public void deletContatos (List<Contatos> contatos) throws IOException {
 
-        FileWriter arquivoTxt = new FileWriter("C:\\Users\\maria\\listaDeContatos.txt",false);
+        FileWriter arquivoTxt = new FileWriter("listaDeContatos.txt",false);
         PrintWriter gravaArq = new PrintWriter(arquivoTxt);
 
         for (int l = 0; l < contatos.size();l++ ) {

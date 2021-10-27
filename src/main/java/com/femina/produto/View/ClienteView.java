@@ -27,7 +27,7 @@ public class ClienteView {
         cliente.setSenha(entrada.next());
 
         Contatos contato = cv.cadastraContato();
-        cliente.getContatos().add(contato);
+        cliente.setContatos(contato);
 //        System.out.println("Confirme sua senha");
 
         cc.cadastrarCliente(cliente);
@@ -37,7 +37,7 @@ public class ClienteView {
         ClienteController cc = new ClienteController();
         List<Cliente> ldc = cc.listarClientes();
         for(int i = 0; i < ldc.size();i++){
-            System.out.println((i+1) + " - " + ldc.get(i).toString());
+            System.out.println((i+1) + " - " + ldc.get(i).toMostra());
         }
     }
 

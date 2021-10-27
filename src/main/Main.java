@@ -1,5 +1,6 @@
 package main;
 
+import main.java.com.femina.produto.Model.Cliente;
 import main.java.com.femina.produto.View.*;
 
 import java.io.IOException;
@@ -11,7 +12,10 @@ public class Main {
         ProdutoView pv = new ProdutoView();
         FornecedorView fv = new FornecedorView();
         MarcaView marca = new MarcaView();
+        ClienteView cv = new ClienteView();
 
+        cv.cadastro();
+        cv.mostrarClientes();
 //        fv.cadastro();
         pv.cadastro();
         pv.mostrarProdutos();

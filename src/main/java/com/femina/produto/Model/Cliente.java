@@ -71,6 +71,15 @@ public class Cliente {
         this.endereco = endereco;
     }
 
+    public String toMostra() {
+        return  "Cliente: " +
+                "Id - " + id + "\n" +
+                "Nome - " + nome + "\n" +
+                "Idade - " + idade + "\n" +
+                "Contato - " + contatos.toMostra() +
+                "\n";
+    }
+
     @Override
     public String toString() {
         return  "" + id + ';' +

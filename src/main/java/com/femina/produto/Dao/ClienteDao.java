@@ -1,6 +1,9 @@
 package main.java.com.femina.produto.Dao;
 
+import main.java.com.femina.produto.Controller.ContatoController;
 import main.java.com.femina.produto.Model.Cliente;
+import main.java.com.femina.produto.Model.Contatos;
+import main.java.com.femina.produto.Model.Fornecedor;
 
 import java.io.*;
 import java.util.*;
@@ -21,7 +24,7 @@ public class ClienteDao {
             printWriter.print(cliente.getNome() + ";");
             printWriter.print(cliente.getIdade() + ";");
             printWriter.print(cliente.getSenha() + ";");
-            printWriter.println(cliente.getContatos());
+            printWriter.println(cliente.getContatos().getId());
 
             printWriter.flush();
             printWriter.close();
@@ -63,6 +66,9 @@ public class ClienteDao {
                 cliente.setNome(cl[1]);
                 cliente.setIdade(Integer.valueOf(cl[2]));
                 cliente.setSenha(cl[3]);
+                ContatoController cc = new ContatoController();
+                List<Contatos> ldc = cc.mostraContato();
+                cliente.setContatos(ldc.get(Integer.valueOf(cl[4])));
 
                 clientes.add(cliente);
             }
