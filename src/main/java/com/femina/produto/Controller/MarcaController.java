@@ -23,4 +23,9 @@ public class MarcaController {
         MarcaDao marcaDao = new MarcaDao();
         marcaDao.editaDeletaMarca(marcas);
     }
+
+    public void deletaMarca(List<Marca> marcas) throws IOException {
+        MarcaDao marcaDao = new MarcaDao();
+        marcaDao.editaDeletaMarca(marcas);
+    }
 }

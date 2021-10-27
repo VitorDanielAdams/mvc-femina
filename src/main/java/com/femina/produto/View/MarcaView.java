@@ -104,4 +104,23 @@ public class MarcaView {
 
     }
 
+    public void deletaMarca() throws IOException {
+
+        MarcaController mc = new MarcaController();
+
+        List<Marca> listaDeMarcas = mc.mostraMarcaCadastrada();
+
+        for (int i = 0; i < listaDeMarcas.size();i++) {
+            System.out.println(listaDeMarcas.get(i));
+        }
+
+        System.out.println("Escolha qual marca você quer deletar: ");
+        int opMarca = leitor.nextInt();
+
+        listaDeMarcas.remove(opMarca - 1);
+
+        mc.deletaMarca(listaDeMarcas);
+
+    }
+
 }
