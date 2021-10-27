@@ -23,12 +23,13 @@ public class FornecedorView {
         fc.cadastrarFornecedor(forn);
     }
 
-    public void mostrarFornecedores(){
+    public List<Fornecedor> mostrarFornecedores(){
         FornecedorController fc = new FornecedorController();
         List<Fornecedor> lfd = fc.listarFornecedores();
         for(int i = 0; i < lfd.size();i++){
-            System.out.println((i+1) + " - " + lfd.get(i).toString());
+            System.out.println((i+1) + " - " + lfd.get(i).toMostra());
         }
+        return lfd;
     }
 
     public void alterarFornecedor(){
@@ -48,7 +49,7 @@ public class FornecedorView {
                 lfd.get(select-1).setNome(entrada.next());
                 break;
             case 2:
-                System.out.print("Preço-" + lfd.get(select - 1).getCnpj() + ": ");
+                System.out.print("Cnpj-" + lfd.get(select - 1).getCnpj() + ": ");
                 lfd.get(select-1).setCnpj(entrada.next());
                 break;
             case 3:

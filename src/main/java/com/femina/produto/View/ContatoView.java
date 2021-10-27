@@ -6,12 +6,9 @@ import java.util.*;
 
 public class ContatoView {
 
-
-    public class ProdutoView {
-
         Scanner leitor = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
 
-        public void cadastraProduto() throws IOException {
+        public Contatos cadastraContato() throws IOException {
 
             System.out.println("Digite o Id do Contato ");
             long id2 = leitor.nextLong();
@@ -27,6 +24,7 @@ public class ContatoView {
             ContatoController contatoController = new ContatoController();
             contatoController.cadastraContato(contato);
 
+            return contato;
         }
 
         public void mostraContato() throws IOException {
@@ -94,10 +92,6 @@ public class ContatoView {
             produtoController.deletaContatos(listaContatos);
 
         }
-
-
-    }
-
 
 }
 

@@ -13,6 +13,8 @@ public class Cliente {
 
     private Endereco endereco;
 
+    public Cliente() {}
+
     public Cliente(long id, String nome, String senha, int idade, Endereco endereco) {
         this.id = id;
         this.nome = nome;
@@ -71,13 +73,12 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", senha='" + senha + '\'' +
-                ", idade=" + idade +
-                ", contatos=" + contatos +
-                ", endereco=" + endereco +
-                '}';
+        return  "" + id + ';' +
+                nome + ';' +
+                idade + ';' +
+                senha + ';' +
+                contatos;
+//                ", endereco=" + endereco +
+//                '}';
     }
 }
