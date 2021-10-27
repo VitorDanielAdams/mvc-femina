@@ -62,6 +62,14 @@ public class Fornecedor {
         this.contatos = contatos;
     }
 
+    public String toMostra() {
+        return  "Fornecedor: " +
+                "Id - " + id + "; " +
+                "Nome - " + nome + "; " +
+                "Cnpj - " + cnpj + "\n";
+
+    }
+
     @Override
     public String toString() {
         return "" + id + ';' +

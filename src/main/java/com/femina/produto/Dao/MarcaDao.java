@@ -9,13 +9,15 @@ public class MarcaDao {
 
     public Marca cadastraMarca(Marca marca) {
         try {
-            FileWriter fileWriter = new FileWriter("produtos.txt", true);
+
+            FileWriter fileWriter = new FileWriter("marcas.txt", true);
+
             PrintWriter printWriter = new PrintWriter(fileWriter);
 
             printWriter.print(marca.getId() + ";");
             printWriter.print(marca.getNome() + ";");
             printWriter.print(marca.getEnderecoMarca() + ";");
-            printWriter.print(marca.getContatos());
+            printWriter.println(marca.getContatos());
 
             printWriter.flush();
             printWriter.close();
@@ -28,7 +30,7 @@ public class MarcaDao {
 
     public List<Marca> mostraMarcas() throws IOException {
 
-        FileReader fileReader = new FileReader("produtos.txt");
+        FileReader fileReader = new FileReader("marcas.txt");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
 
         List<String> tranformToString = new ArrayList<>();
@@ -59,7 +61,18 @@ public class MarcaDao {
         return listaMarcas;
     }
 
-    public void editaMarca(List<Marca> marcas) {
+    public void editaDeletaMarca(List<Marca> marcas) throws IOException {
+
+        FileWriter fileWriter = new FileWriter("marcas.txt",false);
+        PrintWriter printWriter = new PrintWriter(fileWriter);
+
+        for (int listMarcas = 0; listMarcas < marcas.size(); listMarcas++) {
+            printWriter.println(marcas.get(listMarcas));
+        }
+
+        printWriter.flush();
+        printWriter.close();
+        fileWriter.close();
 
     }
 }

@@ -1,2 +1,2 @@
-0;terte;22.0;2;
-1;vitoriaSecrets;Endereco{pais='inglaterra', estado='londres', cidade='londres', rua='45', cep='ggg', numCasa=45};[Contatos{id=4, tel='55555', email='lalala'}]
+0;terte;22.0;2;0
+0;test;23.0;4;1

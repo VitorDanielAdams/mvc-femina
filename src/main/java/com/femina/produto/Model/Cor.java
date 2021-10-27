@@ -5,6 +5,9 @@ public class Cor {
    private String nome;
    private String hexadecimal;
 
+    public Cor() {
+    }
+
     public Cor(String nome, String hexadecimal) {
         this.nome = nome;
         this.hexadecimal = hexadecimal;

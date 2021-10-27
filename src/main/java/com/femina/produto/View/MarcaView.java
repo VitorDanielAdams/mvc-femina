@@ -74,9 +74,33 @@ public class MarcaView {
 
     }
 
-    public void editarMarcas()  throws IOException {
+    public void editarMarcas() throws IOException {
 
         MarcaController mc = new MarcaController();
+
+        List<Marca> listaDeMarcas = mc.mostraMarcaCadastrada();
+
+        for(int i = 0; i < listaDeMarcas.size(); i++) {
+            System.out.println(listaDeMarcas.get(i));
+        }
+
+        System.out.println("Escolha qual marca você quer editar: ");
+        int opMarca = leitor.nextInt();
+        System.out.println("1 - Nome da marca");
+        // editar endereço da marca
+        // editar contato da marca
+
+        switch (opMarca) {
+            case 1:
+                listaDeMarcas.get(opMarca - 1).setNome(leitor.next());
+                break;
+
+            default:
+                System.out.println("Opção inválida");
+                break;
+        }
+
+        mc.editaMarca(listaDeMarcas);
 
     }
 

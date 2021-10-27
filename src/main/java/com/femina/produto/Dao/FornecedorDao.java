@@ -18,6 +18,7 @@ public class FornecedorDao {
             FileWriter fileWriter = new FileWriter(arq, true);
             PrintWriter printWriter = new PrintWriter(fileWriter);
 
+            printWriter.print(forn.getId() + ";");
             printWriter.print(forn.getNome() + ";");
             printWriter.println(forn.getCnpj());
 //            printWriter.println(forn.getEnderco());
@@ -58,6 +59,7 @@ public class FornecedorDao {
 
                 Fornecedor fornecedor = new Fornecedor();
                 i++;
+                fornecedor.setId(Integer.valueOf(forncedores[0]));
                 fornecedor.setNome(forncedores[1]);
                 fornecedor.setCnpj(forncedores[2]);
 //                fornecedor.setEndereco();

@@ -10,6 +10,9 @@ public class ModelosDosProdutos {
         this.nomeTipo = nomeTipo;
     }
 
+    public ModelosDosProdutos() {
+    }
+
     public long getId() {
         return id;
     }
