@@ -24,7 +24,7 @@ public class CorDao {
     }
 
     public List<Cor> mostraCor() throws IOException {
-        FileReader fileReader = new FileReader("cor.txt");
+        FileReader fileReader = new FileReader("cor.txt.txt");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
 
         List<String> tranformToString = new ArrayList<>();

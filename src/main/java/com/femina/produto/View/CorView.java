@@ -15,7 +15,7 @@ public class CorView {
         Scanner entrada  = new Scanner(System.in);
         CorController cc = new CorController();
 
-        System.out.println("Informe a cor:");
+        System.out.println("Informe a cor.txt:");
         cor.setNome(entrada.next());
 
         System.out.println("Informe o Hexadecimal:");

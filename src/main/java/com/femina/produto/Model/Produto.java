@@ -106,11 +106,11 @@ public class Produto {
                "Preço - " + preco + "\n" +
                "Quantidade - " + qtd + "\n" +
 //                modeloDosProdutos + ';' +
-//                cor + ';' +
+//                cor.txt + ';' +
 //                categoria.getNome() + ';' +
 //                tamanho + ';' +
 //                ", modeloDosProdutos=" + modeloDosProdutos +
-//                ", cor=" + cor +
+//                ", cor.txt=" + cor.txt +
 //                ", categoria=" + categoria.getNome() +
 //                ", tamanho=" + tamanho +
                 fornecedor.toMostra();
@@ -123,11 +123,11 @@ public class Produto {
                 preco + ';' +
                 qtd + ';' +
 //                modeloDosProdutos + ';' +
-//                cor + ';' +
+//                cor.txt + ';' +
 //                categoria.getNome() + ';' +
 //                tamanho + ';' +
 //                ", modeloDosProdutos=" + modeloDosProdutos +
-//                ", cor=" + cor +
+//                ", cor.txt=" + cor.txt +
 //                ", categoria=" + categoria.getNome() +
 //                ", tamanho=" + tamanho +
                 fornecedor.getId();
