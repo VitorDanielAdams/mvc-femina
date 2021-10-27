@@ -14,7 +14,7 @@ public class ContatoDao {
 
     public void cadastraContato(Contatos contato) throws IOException {
 
-        FileWriter localDoArquivo = new FileWriter("C:\\Users\\maria\\listaDeProdutos.txt", true);
+        FileWriter localDoArquivo = new FileWriter("C:\\Users\\maria\\listaDeContatos.txt", true);
         PrintWriter escreveArquivo = new PrintWriter(localDoArquivo);
 
         escreveArquivo.print(contato.getEmail());
@@ -29,7 +29,7 @@ public class ContatoDao {
 
     public List<Contatos> mostraContato() throws IOException {
 
-        FileReader arquivoTxt1 = new FileReader("C:\\Users\\maria\\listaDeProdutos.txt");
+        FileReader arquivoTxt1 = new FileReader("C:\\Users\\maria\\listaDeContatos.txt");
         BufferedReader lerArq = new BufferedReader(arquivoTxt1);
 
         List<String> ListString = new ArrayList<>();
@@ -65,7 +65,7 @@ public class ContatoDao {
 
     public void editContatos(List <Contatos> contatos) throws IOException {
 
-        FileWriter arquivoTxt = new FileWriter("C:\\Users\\maria\\listaDeProdutos.txt",false);
+        FileWriter arquivoTxt = new FileWriter("C:\\Users\\maria\\listaDeContatos.txt",false);
         PrintWriter gravaArq = new PrintWriter(arquivoTxt);
 
 
@@ -81,7 +81,7 @@ public class ContatoDao {
 
     public void deletContatos (List<Contatos> contatos) throws IOException {
 
-        FileWriter arquivoTxt = new FileWriter("C:\\Users\\maria\\listaDeProdutos.txt",false);
+        FileWriter arquivoTxt = new FileWriter("C:\\Users\\maria\\listaDeContatos.txt",false);
         PrintWriter gravaArq = new PrintWriter(arquivoTxt);
 
         for (int l = 0; l < contatos.size();l++ ) {

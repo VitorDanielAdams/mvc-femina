@@ -7,8 +7,6 @@ import java.util.*;
 public class ContatoView {
 
 
-    public class ProdutoView {
-
         Scanner leitor = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
 
         public void cadastraProduto() throws IOException {
@@ -99,7 +97,7 @@ public class ContatoView {
     }
 
 
-}
+
 
 
 
