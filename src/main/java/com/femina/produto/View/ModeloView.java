@@ -4,6 +4,7 @@ import main.java.com.femina.produto.Controller.ModeloController;
 import main.java.com.femina.produto.Model.ModelosDosProdutos;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
@@ -57,6 +58,23 @@ public class ModeloView {
         modeloController.editaModelo(listaDeModelos);
     }
 
+    public void deletaModelo () throws IOException {
 
+        ModeloController modeloController = new ModeloController();
+
+        List<ModelosDosProdutos> modelosDosProdutos = modeloController.mostraModelos();
+
+        for (int i = 0; i < modelosDosProdutos.size();i++) {
+            System.out.println(modelosDosProdutos.get(i));
+        }
+
+        System.out.println("Escolha qual modelo você quer deletar: ");
+        int opModelo = leitor.nextInt();
+
+        modelosDosProdutos.remove(opModelo - 1);
+
+        modeloController.deletaModelo(modelosDosProdutos);
+
+    }
 
 }

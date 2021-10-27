@@ -24,4 +24,9 @@ public class ModeloController {
         modeloDao.editaDeletaModelo(modelosDosProdutos);
     }
 
+    public void deletaModelo(List<ModelosDosProdutos> modelosDosProdutos) throws IOException {
+        ModeloDao modeloDao = new ModeloDao();
+        modeloDao.editaDeletaModelo(modelosDosProdutos);
+    }
+
 }
