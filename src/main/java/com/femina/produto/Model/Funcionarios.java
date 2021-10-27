@@ -3,16 +3,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Funcionarios {
-    private long id;
+    private int id;
     private String nome, cargo;
     private Endereco endereco;
+    private int idEmpresa;
     private List<Contatos> contatos = new ArrayList<Contatos>();
 
-    public Funcionarios(long id, String nome, String cargo, Endereco endereco) {
+    public Funcionarios(int id, String nome, String cargo, Endereco endereco, int idEmpresa) {
         this.id = id;
         this.nome = nome;
         this.cargo = cargo;
         this.endereco = endereco;
+        this.idEmpresa = idEmpresa;
+    }
+
+    public Funcionarios() {
     }
 
     public Endereco getEndereco() {
@@ -35,7 +40,7 @@ public class Funcionarios {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -63,14 +68,23 @@ public class Funcionarios {
         this.contatos = contatos;
     }
 
+    public int getIdEmpresa() {
+        return idEmpresa;
+    }
+
+    public void setIdEmpresa(int idEmpresa) {
+        this.idEmpresa = idEmpresa;
+    }
+
+    public String mostrar(){
+
+        return  "id: " + id + " Nome: " + nome + " Cargo: " + cargo + "\n"
+                + " Endereço: " + endereco + " Id Empresa: " + idEmpresa + " Contatos: " + contatos;
+
+    }
+
     @Override
     public String toString() {
-        return "Funcionarios{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", cargo='" + cargo + '\'' +
-                ", endereco=" + endereco +
-                ", contatos=" + contatos +
-                '}';
+        return id + ";" + nome + ";" + cargo + ";" + endereco + ";" +idEmpresa +";" + contatos;
     }
 }

@@ -59,7 +59,7 @@ public class MarcaView {
 
         marca.getContatos().add(contatoMarca);
 
-        marcaController.cadastraMarca(marca);
+        System.out.println("Marca cadastrada com sucesso" + marcaController.cadastraMarca(marca));
     }
 
     public void mostrarMarcas() throws IOException {

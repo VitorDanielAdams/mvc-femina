@@ -8,9 +8,9 @@ import java.util.*;
 
 public class MarcaController {
 
-    public void cadastraMarca (Marca marca) {
+    public Marca cadastraMarca (Marca marca) {
         MarcaDao marcaDao = new MarcaDao();
-        marcaDao.cadastraMarca(marca);
+        return marcaDao.cadastraMarca(marca);
     }
 
     public List<Marca> mostraMarcaCadastrada() throws IOException {

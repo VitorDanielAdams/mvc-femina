@@ -7,9 +7,8 @@ import java.util.*;
 
 public class MarcaDao {
 
-    public void cadastraMarca(Marca marca) {
+    public Marca cadastraMarca(Marca marca) {
         try {
-
             FileWriter fileWriter = new FileWriter("produtos.txt", true);
             PrintWriter printWriter = new PrintWriter(fileWriter);
 
@@ -23,6 +22,8 @@ public class MarcaDao {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        return marca;
     }
 
     public List<Marca> mostraMarcas() throws IOException {
