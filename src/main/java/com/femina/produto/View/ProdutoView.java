@@ -3,7 +3,6 @@ package main.java.com.femina.produto.View;
 import main.java.com.femina.produto.Model.Fornecedor;
 import main.java.com.femina.produto.Model.Produto;
 import main.java.com.femina.produto.Controller.ProdutoController;
-import main.java.com.femina.produto.Controller.FornecedorController;
 import main.java.com.femina.produto.View.FornecedorView;
 
 import java.util.*;
@@ -13,7 +12,6 @@ public class ProdutoView {
     public void cadastro(){
 
         ProdutoController pc = new ProdutoController();
-        FornecedorController fc = new FornecedorController();
         FornecedorView fv = new FornecedorView();
 
         Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
@@ -31,8 +29,7 @@ public class ProdutoView {
 
         System.out.println("Selecione um Fornecedor");
 
-        fv.mostrarFornecedores();
-        List<Fornecedor> lfd = fc.listarFornecedores();
+        List<Fornecedor> lfd = fv.mostrarFornecedores();
 
         prod.setFornecedor(lfd.get(entrada.nextInt() - 1));
 
