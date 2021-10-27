@@ -20,7 +20,8 @@ public class ClienteDao {
             printWriter.print(cliente.getId() + ";");
             printWriter.print(cliente.getNome() + ";");
             printWriter.print(cliente.getIdade() + ";");
-            printWriter.println(cliente.getSenha());
+            printWriter.print(cliente.getSenha() + ";");
+            printWriter.println(cliente.getContatos());
 
             printWriter.flush();
             printWriter.close();

@@ -22,7 +22,7 @@ public class CorController {
 
     public void editaCores(List<Cor> cor) {
         CorDao corDao = new CorDao();
-        cor.editacor(cor);
+        corDao.editaCores(cor);
     }
 }
 

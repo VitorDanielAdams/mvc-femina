@@ -9,7 +9,7 @@ public class Cliente {
     private String nome,senha;
     private int idade;
 
-    private List<Contatos> contatos = new ArrayList<Contatos>();
+    private Contatos contatos = new Contatos();
 
     private Endereco endereco;
 
@@ -55,11 +55,11 @@ public class Cliente {
         this.idade = idade;
     }
 
-    public List<Contatos> getContatos() {
+    public Contatos getContatos() {
         return contatos;
     }
 
-    public void setContatos(List<Contatos> contatos) {
+    public void setContatos(Contatos contatos) {
         this.contatos = contatos;
     }
 
@@ -77,7 +77,7 @@ public class Cliente {
                 nome + ';' +
                 idade + ';' +
                 senha + ';' +
-                contatos;
+                contatos.getId();
 //                ", endereco=" + endereco +
 //                '}';
     }
