@@ -1,8 +1,10 @@
 package main.java.com.femina.produto.Dao;
 
 import main.java.com.femina.produto.Controller.ContatoController;
+import main.java.com.femina.produto.Controller.EnderecoController;
 import main.java.com.femina.produto.Model.Cliente;
 import main.java.com.femina.produto.Model.Contatos;
+import main.java.com.femina.produto.Model.Endereco;
 import main.java.com.femina.produto.Model.Fornecedor;
 
 import java.io.*;
@@ -24,7 +26,8 @@ public class ClienteDao {
             printWriter.print(cliente.getNome() + ";");
             printWriter.print(cliente.getIdade() + ";");
             printWriter.print(cliente.getSenha() + ";");
-            printWriter.println(cliente.getContatos().getId());
+            printWriter.print(cliente.getContatos().getId() + ";");
+            printWriter.println(cliente.getEndereco().getIdEndereco());
 
             printWriter.flush();
             printWriter.close();
@@ -69,6 +72,9 @@ public class ClienteDao {
                 ContatoController cc = new ContatoController();
                 List<Contatos> ldc = cc.mostraContato();
                 cliente.setContatos(ldc.get(Integer.valueOf(cl[4])));
+                EnderecoController ec = new EnderecoController();
+                List<Endereco> lde = ec.mostraEndereco();
+                cliente.setEndereco(lde.get(Integer.valueOf(cl[5])-1));
 
                 clientes.add(cliente);
             }

@@ -3,6 +3,7 @@ package main.java.com.femina.produto.View;
 import main.java.com.femina.produto.Controller.ClienteController;
 import main.java.com.femina.produto.Model.Cliente;
 import main.java.com.femina.produto.Model.Contatos;
+import main.java.com.femina.produto.Model.Endereco;
 import main.java.com.femina.produto.View.ContatoView;
 
 import java.io.IOException;
@@ -13,6 +14,7 @@ public class ClienteView {
 
         ClienteController cc = new ClienteController();
         ContatoView cv = new ContatoView();
+        EndereçoView ev = new EndereçoView();
         Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
 
         Cliente cliente = new Cliente();
@@ -28,6 +30,10 @@ public class ClienteView {
 
         Contatos contato = cv.cadastraContato();
         cliente.setContatos(contato);
+
+        Endereco endereco = ev.cadastraEndereco();
+        cliente.setEndereco(endereco);
+
 //        System.out.println("Confirme sua senha");
 
         cc.cadastrarCliente(cliente);

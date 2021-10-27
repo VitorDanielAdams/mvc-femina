@@ -14,7 +14,7 @@ public class Main {
         MarcaView marca = new MarcaView();
         ClienteView cv = new ClienteView();
 
-        cv.cadastro();
+//       cv.cadastro();
         cv.mostrarClientes();
 //        fv.cadastro();
         pv.cadastro();

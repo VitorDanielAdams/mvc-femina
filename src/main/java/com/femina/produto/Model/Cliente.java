@@ -75,8 +75,9 @@ public class Cliente {
         return  "Cliente: " +
                 "Id - " + id + "\n" +
                 "Nome - " + nome + "\n" +
-                "Idade - " + idade + "\n" +
-                "Contato - " + contatos.toMostra() +
+                "Idade - " + idade +
+                "\n" + contatos.toMostra() +
+                "\n" + endereco.toMostra() +
                 "\n";
     }
 
@@ -86,8 +87,7 @@ public class Cliente {
                 nome + ';' +
                 idade + ';' +
                 senha + ';' +
-                contatos.getId();
-//                ", endereco=" + endereco +
-//                '}';
+                contatos.getId() + ';' +
+                endereco.getIdEndereco();
     }
 }

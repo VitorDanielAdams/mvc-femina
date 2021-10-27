@@ -11,25 +11,24 @@ public class EnderecoDao {
 
     public void cadastraEndereco(Endereco endereco) throws IOException {
 
-        FileWriter localDoArquivo = new FileWriter("C:\\Users\\maria\\listaDeEndereços.txt", true);
+        FileWriter localDoArquivo = new FileWriter("listaDeEndereços.txt", true);
         PrintWriter escreveArquivo = new PrintWriter(localDoArquivo);
 
-        escreveArquivo.print(endereco.getPais());
-        escreveArquivo.print(endereco.getEstado());
-        escreveArquivo.println(endereco.getCidade());
-        escreveArquivo.print(endereco.getRua());
-        escreveArquivo.print(endereco.getCep());
+        escreveArquivo.print(endereco.getIdEndereco() + ";");
+        escreveArquivo.print(endereco.getPais() + ";");
+        escreveArquivo.print(endereco.getEstado() + ";");
+        escreveArquivo.print(endereco.getCidade() + ";");
+        escreveArquivo.print(endereco.getRua() + ";");
+        escreveArquivo.print(endereco.getCep() + ";");
         escreveArquivo.println(endereco.getNumCasa());
 
         localDoArquivo.close();
         escreveArquivo.flush();
-
-
     }
 
     public List<Endereco> mostraEndereco() throws IOException {
 
-        FileReader arquivoTxt1 = new FileReader("C:\\Users\\maria\\listaDeEndereços.txt");
+        FileReader arquivoTxt1 = new FileReader("listaDeEndereços.txt");
         BufferedReader lerArq = new BufferedReader(arquivoTxt1);
 
         List<String> ListString = new ArrayList<>();
@@ -52,12 +51,13 @@ public class EnderecoDao {
             String[] prod = i.split(";");
             Endereco endereco = new Endereco();
 
-            endereco.setPais(prod[0]);
-            endereco.setEstado(prod[1]);
-            endereco.setCidade(prod[2]);
-            endereco.setRua(prod[3]);
-            endereco.setCep(prod[4]);
-            endereco.setNumCasa(Integer.valueOf(prod[5]));
+            endereco.setIdEndereco(Long.valueOf(prod[0]));
+            endereco.setPais(prod[1]);
+            endereco.setEstado(prod[2]);
+            endereco.setCidade(prod[3]);
+            endereco.setRua(prod[4]);
+            endereco.setCep(prod[5]);
+            endereco.setNumCasa(Integer.valueOf(prod[6]));
 
 
             listaEndereco.add(endereco);
@@ -67,20 +67,20 @@ public class EnderecoDao {
     }
 
 
-        public void editEndereco (List <Endereco> endereco) throws IOException {
+    public void editEndereco (List <Endereco> endereco) throws IOException {
 
-            FileWriter arquivoTxt = new FileWriter("C:\\Users\\maria\\listaDeEndereços.txt",false);
-            PrintWriter gravaArq = new PrintWriter(arquivoTxt);
+        FileWriter arquivoTxt = new FileWriter("listaDeEndereços.txt",false);
+        PrintWriter gravaArq = new PrintWriter(arquivoTxt);
 
 
-            for (int l = 0; l < endereco.size();l++ ) {
-                gravaArq.println(endereco.get(l));
-            }
+        for (int l = 0; l < endereco.size();l++ ) {
+            gravaArq.println(endereco.get(l));
+        }
 
-            gravaArq.flush();
-            gravaArq.close();
-            arquivoTxt.close();
+        gravaArq.flush();
+        gravaArq.close();
+        arquivoTxt.close();
 
-       }
+   }
 
 }

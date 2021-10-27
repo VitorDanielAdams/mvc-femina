@@ -2,10 +2,12 @@ package main.java.com.femina.produto.Model;
 
 public class Endereco {
 
+    private Long idEndereco;
     private String pais,estado,cidade,rua,cep;
     private int numCasa;
 
-    public Endereco(String pais, String estado, String cidade, String rua, String cep, int numCasa) {
+    public Endereco(Long idEndereco,String pais, String estado, String cidade, String rua, String cep, int numCasa) {
+        this.idEndereco = idEndereco;
         this.pais = pais;
         this.estado = estado;
         this.cidade = cidade;
@@ -15,6 +17,14 @@ public class Endereco {
     }
 
     public Endereco() {
+    }
+
+    public Long getIdEndereco() {
+        return idEndereco;
+    }
+
+    public void setIdEndereco(Long idEndereco) {
+        this.idEndereco = idEndereco;
     }
 
     public String getPais() {
@@ -65,16 +75,25 @@ public class Endereco {
         this.numCasa = numCasa;
     }
 
+    public String toMostra() {
+        return  "Endereco: " +
+                "Pais - " + pais + "; " +
+                "Estado - " + estado + "; " +
+                "Cidade - " + cidade + "; " +
+                "Rua - " + rua + "; " +
+                "Cep - " + cep+ "; " +
+                "Numero da casa - " + numCasa;
+    }
+
     @Override
     public String toString() {
-        return  pais +
+        return  ""+ idEndereco +
+                ";"+ pais +
                 ";" + estado +
                 ";" + cidade +
                 ";" + rua  +
                 ";" + cep +
                 ";" + cep +
                 ";" + numCasa;
-
-
     }
 }

@@ -10,7 +10,10 @@ public class EndereçoView {
 
     Scanner leitor = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
 
-    public void cadastraEndereco() throws IOException{
+    public Endereco cadastraEndereco() throws IOException{
+
+        System.out.println("Digite o ID");
+        Long id= leitor.nextLong();
 
         System.out.println("Digite o seu pais");
         String pais= leitor.next();
@@ -18,10 +21,10 @@ public class EndereçoView {
         System.out.println("Digite o seu estado:");
         String estado = leitor.next();
 
-        System.out.println("Digite sua idade: ");
+        System.out.println("Digite sua cidade: ");
         String cidade  = leitor.next();
 
-        System.out.println("Digite o seu pais");
+        System.out.println("Digite sua Rua");
         String rua = leitor.next();
 
         System.out.println("Digite o seu cep:");
@@ -30,11 +33,12 @@ public class EndereçoView {
         System.out.println("Digite o numero da sua casa: ");
         int numCasa  = leitor.nextInt();
 
-        Endereco endereco = new Endereco(pais, estado, cidade, rua, cep,numCasa);
+        Endereco endereco = new Endereco(id,pais, estado, cidade, rua, cep,numCasa);
 
         EnderecoController enderecoController = new EnderecoController();
         enderecoController.cadastraEndereco(endereco);
 
+        return endereco;
     }
 
     public void mostraEndereco()throws IOException{
