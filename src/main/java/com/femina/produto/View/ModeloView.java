@@ -38,4 +38,25 @@ public class ModeloView {
 
     }
 
+    public void editaModelo() throws IOException {
+
+        ModeloController modeloController = new ModeloController();
+
+        List<ModelosDosProdutos> listaDeModelos = modeloController.mostraModelos();
+
+        for (int i = 0; i < listaDeModelos.size();i++) {
+            System.out.println(listaDeModelos.get(i));
+        }
+
+        System.out.println("Escolha qual modelo você quer editar: ");
+        int opModelo = leitor.nextInt();
+
+        System.out.println("Digite o novo nome do modelo:");
+        listaDeModelos.get(opModelo - 1).setNomeTipo(leitor.next());
+
+        modeloController.editaModelo(listaDeModelos);
+    }
+
+
+
 }

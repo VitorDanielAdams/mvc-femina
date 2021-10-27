@@ -19,4 +19,9 @@ public class ModeloController {
         return listaDeModelos;
     }
 
+    public void editaModelo(List<ModelosDosProdutos> modelosDosProdutos) throws IOException {
+        ModeloDao modeloDao = new ModeloDao();
+        modeloDao.editaDeletaModelo(modelosDosProdutos);
+    }
+
 }

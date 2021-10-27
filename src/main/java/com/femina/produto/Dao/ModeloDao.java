@@ -52,4 +52,17 @@ public class ModeloDao {
         return listaDeModelos;
     }
 
+    public void editaDeletaModelo(List<ModelosDosProdutos> modelosDosProdutos) throws IOException {
+        FileWriter fileWriter = new FileWriter("modeloDosProdutos.txt",false);
+        PrintWriter printWriter = new PrintWriter(fileWriter);
+
+        for (int listModelos = 0; listModelos < modelosDosProdutos.size(); listModelos++) {
+            printWriter.println(modelosDosProdutos.get(listModelos));
+        }
+
+        printWriter.flush();
+        printWriter.close();
+        fileWriter.close();
+    }
+
 }
