@@ -11,6 +11,8 @@ public class Lojas {
     private List<Funcionarios> funcionarios = new ArrayList<Funcionarios>();
     private List<Produto> produtos = new ArrayList<Produto>();
 
+    public Lojas() {
+    }
 
     public Lojas(long id, String nome) {
         this.id = id;
@@ -73,13 +75,6 @@ public class Lojas {
 
     @Override
     public String toString() {
-        return "Lojas{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", endereco=" + endereco +
-                ", contatos=" + contatos +
-                ", funcionarios=" + funcionarios +
-                ", produtos=" + produtos +
-                '}';
+        return id + ";" + nome + ";" + endereco + ";" + contatos + ";" + funcionarios + ";" + produtos ;
     }
 }

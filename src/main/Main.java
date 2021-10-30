@@ -13,12 +13,13 @@ public class Main {
         FornecedorView fv = new FornecedorView();
         MarcaView marca = new MarcaView();
         ClienteView cv = new ClienteView();
+        LojasView lojasView = new LojasView();
 
 //       cv.cadastro();
-        cv.mostrarClientes();
+        //cv.mostrarClientes();
 //        fv.cadastro();
-        pv.cadastro();
-        pv.mostrarProdutos();
+        //pv.cadastro();
+       // pv.mostrarProdutos();
 //        pv.alterarProduto();
        // pv.deletarProduto();
 
@@ -27,7 +28,9 @@ public class Main {
 //        marca.mostrarMarcas();
 
        // marca.cadastrarMarca();
-        marca.editarMarcas();
+       // marca.editarMarcas();
+
+        lojasView.cadastrarLoja();
 
     }
 }
