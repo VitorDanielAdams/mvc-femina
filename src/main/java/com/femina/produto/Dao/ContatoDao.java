@@ -18,8 +18,8 @@ public class ContatoDao {
         PrintWriter escreveArquivo = new PrintWriter(localDoArquivo);
 
         escreveArquivo.print(contato.getId() + ";");
-        escreveArquivo.print(contato.getEmail()+ ";");
-        escreveArquivo.println(contato.getTel());
+        escreveArquivo.print(contato.getTel());
+        escreveArquivo.println(contato.getEmail()+ ";");
 
         localDoArquivo.close();
         escreveArquivo.flush();

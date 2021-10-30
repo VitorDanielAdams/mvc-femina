@@ -1,2 +1,0 @@
-Marca{id=555, nome='nanana', enderecoMarca=null, contatos=[]}
-1;kakaka;Endereco{pais='kkk', estado='tgdggd', cidade='nnbddd', rua='skndndn', cep='', numCasa=14};[Contatos{id=74, tel='458', email='kdkdkdkd'}]45;f,ff;Endereco{pais='nncncnc', estado='mdmdmdm', cidade='smkmlnln', rua='anlnls', cep='', numCasa=45};[Contatos{id=447, tel='884665', email='mmmcmcmcmc'}]
