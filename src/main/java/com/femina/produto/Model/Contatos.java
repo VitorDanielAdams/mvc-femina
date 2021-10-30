@@ -42,7 +42,6 @@ public class Contatos {
         return  "Contato: " +
                 "Telefone - " + tel + "; " +
                 "Email - " + email;
-
     }
 
     @Override

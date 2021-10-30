@@ -71,7 +71,7 @@ public class ClienteDao {
                 cliente.setSenha(cl[3]);
                 ContatoController cc = new ContatoController();
                 List<Contatos> ldc = cc.mostraContato();
-                cliente.setContatos(ldc.get(Integer.valueOf(cl[4])));
+                cliente.setContatos(ldc.get(Integer.valueOf(cl[4])-1));
                 EnderecoController ec = new EnderecoController();
                 List<Endereco> lde = ec.mostraEndereco();
                 cliente.setEndereco(lde.get(Integer.valueOf(cl[5])-1));
