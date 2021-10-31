@@ -16,4 +16,22 @@ public class LojasController {
 
     }
 
+    public List<Lojas> listarLojas() throws IOException {
+
+        return lojasDAO.listarLojas();
+
+    }
+
+    public Lojas validarId(Lojas lojas) throws IOException{
+
+        return lojasDAO.validarId(lojas);
+
+    }
+
+    public void editarLojas(){
+
+
+
+    }
+
 }

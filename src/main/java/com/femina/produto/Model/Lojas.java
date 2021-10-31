@@ -25,6 +25,8 @@ public class Lojas {
         this.endereco = endereco;
     }
 
+
+
     public long getId() {
         return id;
     }
