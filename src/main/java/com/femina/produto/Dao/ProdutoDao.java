@@ -50,12 +50,11 @@ public class ProdutoDao {
             fileReader.close();
             bufferedReader.close();
 
-            int i = 0;
             for (String s : result) {
                 String[] produts = s.split(";");
 
                 Produto p = new Produto();
-                i++;
+
                 p.setId(Integer.valueOf(produts[0]));
                 p.setNome(produts[1]);
                 p.setPreco(Double.valueOf(produts[2]));

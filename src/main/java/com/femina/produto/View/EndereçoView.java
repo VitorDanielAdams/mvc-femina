@@ -1,6 +1,8 @@
 package main.java.com.femina.produto.View;
 
+import main.java.com.femina.produto.Controller.ContatoController;
 import main.java.com.femina.produto.Controller.EnderecoController;
+import main.java.com.femina.produto.Model.Contatos;
 import main.java.com.femina.produto.Model.Endereco;
 
 import java.io.*;
@@ -54,20 +56,14 @@ public class EndereçoView {
 
     }
 
-    public void editEndereco() throws IOException{
+    public void editEndereco(int opProduto) throws IOException{
 
         EnderecoController enderecoController = new EnderecoController();
 
         List<Endereco> listaEndereco = enderecoController.mostraEndereco();
 
-        // mostro a lista de produtos
-        for (int i = 0; i < listaEndereco.size(); i++) {
-            System.out.println(listaEndereco.get(i));
-        }
-
         System.out.println("Escolha qual atributo você quer editar: ");
 
-        int opProduto = leitor.nextInt();
         System.out.println(" 1 - pais");
         System.out.println(" 2 - estado");
         System.out.println(" 3 - cidade");
@@ -111,6 +107,16 @@ public class EndereçoView {
 
     }
 
+    public void deletEndereco(int opDelete) throws IOException {
 
+        EnderecoController enderecoController = new EnderecoController();
+
+        List<Endereco> listaEndereco = enderecoController.mostraEndereco();
+
+        listaEndereco.remove(opDelete - 1);
+
+        enderecoController.deletaEndereco(listaEndereco);
+        System.out.print(".");
+    }
 
 }

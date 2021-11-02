@@ -53,12 +53,11 @@ public class FornecedorDao {
             fileReader.close();
             bufferedReader.close();
 
-            int i = 0;
             for (String s : result) {
                 String[] forncedores = s.split(";");
 
                 Fornecedor fornecedor = new Fornecedor();
-                i++;
+
                 fornecedor.setId(Integer.valueOf(forncedores[0]));
                 fornecedor.setNome(forncedores[1]);
                 fornecedor.setCnpj(forncedores[2]);

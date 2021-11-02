@@ -59,22 +59,29 @@ public class ClienteDao {
             fileReader.close();
             bufferedReader.close();
 
-            int i = 0;
             for (String s : result) {
                 String[] cl = s.split(";");
 
                 Cliente cliente = new Cliente();
-                i++;
+
                 cliente.setId(Integer.valueOf(cl[0]));
                 cliente.setNome(cl[1]);
                 cliente.setIdade(Integer.valueOf(cl[2]));
                 cliente.setSenha(cl[3]);
                 ContatoController cc = new ContatoController();
                 List<Contatos> ldc = cc.mostraContato();
-                cliente.setContatos(ldc.get(Integer.valueOf(cl[4])-1));
+                for(int i = 0;i < ldc.size();i++){
+                    if(ldc.get(i).getId() == Integer.valueOf(cl[4])){
+                        cliente.setContatos(ldc.get(i));
+                    }
+                }
                 EnderecoController ec = new EnderecoController();
                 List<Endereco> lde = ec.mostraEndereco();
-                cliente.setEndereco(lde.get(Integer.valueOf(cl[5])-1));
+                for(int i = 0;i < lde.size();i++){
+                    if(lde.get(i).getIdEndereco() == Long.valueOf(cl[5])){
+                        cliente.setEndereco(lde.get(i));
+                    }
+                }
 
                 clientes.add(cliente);
             }

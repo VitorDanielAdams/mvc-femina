@@ -29,7 +29,12 @@ public class EnderecoController {
         enderecoDao.editEndereco(endereco);
     }
 
+    public void deletaEndereco(List<Endereco> endereco) throws IOException {
 
+        EnderecoDao enderecoDao = new EnderecoDao();
+        enderecoDao.delEndereco(endereco);
     }
+
+}
 
 

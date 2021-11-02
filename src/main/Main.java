@@ -15,6 +15,13 @@ public class Main {
         ClienteView cv = new ClienteView();
         LojasView lojasView = new LojasView();
 
+//        cv.deletarClientes();
+//
+//        cv.mostrarClientes();
+
+
+//        cv.mostrarClientes();
+
 //       cv.cadastro();
         //cv.mostrarClientes();
 //        fv.cadastro();
@@ -30,7 +37,7 @@ public class Main {
        // marca.cadastrarMarca();
        // marca.editarMarcas();
 
-        lojasView.cadastrarLoja();
+//        lojasView.cadastrarLoja();
 
     }
 }

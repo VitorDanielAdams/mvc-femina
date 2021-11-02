@@ -1,4 +1,5 @@
 package main.java.com.femina.produto.View;
+
 import main.java.com.femina.produto.Controller.ContatoController;
 import main.java.com.femina.produto.Model.Contatos;
 import java.io.*;
@@ -37,22 +38,14 @@ public class ContatoView {
 
         }
 
-        public void editContato() throws IOException {
+        public void editContato(int opProduto) throws IOException {
 
-            ContatoController produtoController = new ContatoController();
+            ContatoController contatoController = new ContatoController();
 
-            List<Contatos> listaContato = produtoController.mostraContato();
+            List<Contatos> listaContato = contatoController.mostraContato();
 
-            // mostro a lista de produtos
-            for (int i = 0; i < listaContato.size(); i++) {
-                System.out.println(listaContato.get(i));
-            }
-
-            System.out.println("Escolha qual produto você quer editar: ");
-
-            int opProduto = leitor.nextInt();
             System.out.println(" 1 - telefone");
-            System.out.println(" 2 - imail");
+            System.out.println(" 2 - email");
 
             int opAtributo = leitor.nextInt();
 
@@ -69,28 +62,20 @@ public class ContatoView {
                     System.out.println("Opção inválida");
             }
 
-            produtoController.editaContato(listaContato);
+            contatoController.editaContato(listaContato);
 
         }
 
-        public void deletProduto() throws IOException {
+        public void deletContato(int opDelete) throws IOException {
 
-            ContatoController produtoController = new ContatoController();
+            ContatoController contatoController = new ContatoController();
 
-            List<Contatos> listaContatos = produtoController.mostraContato();
-
-            // mostro a lista de produtos
-            for (int i = 0; i < listaContatos.size(); i++) {
-                System.out.println(listaContatos.get(i));
-            }
-
-            System.out.println("Escolha qual contato você quer deletar: ");
-            int opDelete = leitor.nextInt();
+            List<Contatos> listaContatos = contatoController.mostraContato();
 
             listaContatos.remove(opDelete - 1);
 
-            produtoController.deletaContatos(listaContatos);
-
+            contatoController.deletaContatos(listaContatos);
+            System.out.print(".");
         }
 
 

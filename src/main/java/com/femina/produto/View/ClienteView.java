@@ -42,22 +42,26 @@ public class ClienteView {
     public void mostrarClientes(){
         ClienteController cc = new ClienteController();
         List<Cliente> ldc = cc.listarClientes();
+
         for(int i = 0; i < ldc.size();i++){
             System.out.println((i+1) + " - " + ldc.get(i).toMostra());
         }
     }
 
-    public void alterarClientes(){
+    public void alterarClientes() throws IOException {
         ClienteController cc = new ClienteController();
+        ContatoView cv = new ContatoView();
+        EndereçoView ev = new EndereçoView();
         Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
 
         List<Cliente> ldc = cc.listarClientes();
+
         for(int i = 0; i < ldc.size();i++){
-            System.out.println((i+1) + " - " + ldc.get(i).toString());
+            System.out.println((i+1) + " - " + ldc.get(i).toMostra());
         }
         System.out.println("Escolha qual Cliente você quer editar");
         int select = entrada.nextInt();
-        System.out.println("Selecione: 1-Nome;2-Idade;3-Senha");
+        System.out.println("Selecione: 1-Nome;2-Idade;3-Senha;4-Contato;5-Endereço");
         int selectItem = entrada.nextInt();
         switch (selectItem) {
             case 1:
@@ -69,8 +73,14 @@ public class ClienteView {
                 ldc.get(select-1).setIdade(entrada.nextInt());
                 break;
             case 3:
-                System.out.print("Senha-" + ldc.get(select - 1).getSenha() + ": ");
+                System.out.print("Nova senha: ");
                 ldc.get(select-1).setSenha(entrada.next());
+                break;
+            case 4:
+                cv.editContato(select);
+                break;
+            case 5:
+                ev.editEndereco(select);
                 break;
             default:
                 System.out.println("Opção Inválida");
@@ -79,19 +89,24 @@ public class ClienteView {
         cc.editarCliente(ldc);
     }
 
-    public void deletarClientes(){
+    public void deletarClientes() throws IOException {
         ClienteController cc = new ClienteController();
+        ContatoView cv = new ContatoView();
+        EndereçoView ev = new EndereçoView();
         Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
 
         List<Cliente> ldc = cc.listarClientes();
         for(int i = 0; i < ldc.size();i++){
-            System.out.println((i+1) + " - " + ldc.get(i).toString());
+            System.out.println((i+1) + " - " + ldc.get(i).toMostra());
         }
         System.out.println("Escolha qual cliente você quer deletar");
         int select = entrada.nextInt();
 
         ldc.remove(select - 1);
+        cv.deletContato(select);
+        ev.deletEndereco(select);
 
         cc.removerCliente(ldc);
+        System.out.println(".\nCliente deletado com sucesso!");
     }
 }

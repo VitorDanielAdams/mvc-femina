@@ -83,4 +83,19 @@ public class EnderecoDao {
 
    }
 
+    public void delEndereco (List <Endereco> endereco) throws IOException {
+
+        FileWriter arquivoTxt = new FileWriter("listaDeEndereços.txt",false);
+        PrintWriter gravaArq = new PrintWriter(arquivoTxt);
+
+
+        for (int l = 0; l < endereco.size();l++ ) {
+            gravaArq.println(endereco.get(l));
+        }
+
+        gravaArq.flush();
+        gravaArq.close();
+        arquivoTxt.close();
+
+    }
 }
