@@ -9,10 +9,10 @@ import java.util.List;
 
 public class EnderecoController {
 
-    public void cadastraEndereco(Endereco endereco) throws IOException {
+    public void cadastraEndereco(List<Endereco> listEndereco) throws IOException {
 
         EnderecoDao enderecoDao = new EnderecoDao();
-        enderecoDao.cadastraEndereco(endereco);
+        enderecoDao.cadastraEndereco(listEndereco);
 
     }
 

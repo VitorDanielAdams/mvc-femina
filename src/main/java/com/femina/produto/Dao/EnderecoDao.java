@@ -9,19 +9,17 @@ import java.util.List;
 
 public class EnderecoDao {
 
-    public void cadastraEndereco(Endereco endereco) throws IOException {
+    public void cadastraEndereco(List<Endereco> listEndereco) throws IOException {
 
         FileWriter localDoArquivo = new FileWriter("listaDeEndereços.txt", true);
         PrintWriter escreveArquivo = new PrintWriter(localDoArquivo);
 
-        escreveArquivo.print(endereco.getIdEndereco() + ";");
-        escreveArquivo.print(endereco.getPais() + ";");
-        escreveArquivo.print(endereco.getEstado() + ";");
-        escreveArquivo.print(endereco.getCidade() + ";");
-        escreveArquivo.print(endereco.getRua() + ";");
-        escreveArquivo.print(endereco.getCep() + ";");
-        escreveArquivo.println(endereco.getNumCasa());
-
+        for(int i = 0;i < listEndereco.size();i++) {
+            if(listEndereco.get(i).getIdEndereco() != Long.valueOf(i)+1) {
+                listEndereco.get(i).setIdEndereco(Long.valueOf(i)+1);
+                escreveArquivo.println(listEndereco.get(i));
+            }
+        }
         localDoArquivo.close();
         escreveArquivo.flush();
     }
@@ -59,7 +57,6 @@ public class EnderecoDao {
             endereco.setCep(prod[5]);
             endereco.setNumCasa(Integer.valueOf(prod[6]));
 
-
             listaEndereco.add(endereco);
         }
 
@@ -88,9 +85,11 @@ public class EnderecoDao {
         FileWriter arquivoTxt = new FileWriter("listaDeEndereços.txt",false);
         PrintWriter gravaArq = new PrintWriter(arquivoTxt);
 
-
         for (int l = 0; l < endereco.size();l++ ) {
-            gravaArq.println(endereco.get(l));
+            if(endereco.get(l).getIdEndereco() != Long.valueOf(l)+1) {
+                endereco.get(l).setIdEndereco(Long.valueOf(l)+1);
+                gravaArq.println(endereco.get(l));
+            }
         }
 
         gravaArq.flush();

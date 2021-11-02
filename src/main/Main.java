@@ -15,14 +15,14 @@ public class Main {
         ClienteView cv = new ClienteView();
         LojasView lojasView = new LojasView();
 
-//        cv.deletarClientes();
-//
-//        cv.mostrarClientes();
+        cv.cadastro();
 
+        cv.deletarClientes();
 
-//        cv.mostrarClientes();
+        cv.alterarClientes();
 
-//       cv.cadastro();
+        cv.mostrarClientes();
+
         //cv.mostrarClientes();
 //        fv.cadastro();
         //pv.cadastro();

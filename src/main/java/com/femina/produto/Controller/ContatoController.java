@@ -10,7 +10,7 @@ import java.util.List;
 public class ContatoController {
 
 
-    public void cadastraContato (Contatos contato) throws IOException {
+    public void cadastraContato (List<Contatos> contato) throws IOException {
 
         ContatoDao contatoDao = new ContatoDao();
         contatoDao.cadastraContato(contato);

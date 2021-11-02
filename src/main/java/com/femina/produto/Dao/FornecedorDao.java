@@ -20,8 +20,9 @@ public class FornecedorDao {
 
             printWriter.print(forn.getId() + ";");
             printWriter.print(forn.getNome() + ";");
-            printWriter.println(forn.getCnpj());
-//            printWriter.println(forn.getEnderco());
+            printWriter.print(forn.getCnpj() + ";");
+            printWriter.print(forn.getContatos().getId() + ";");
+            printWriter.println(forn.getEndereco().getIdEndereco());
 
             printWriter.flush();
             printWriter.close();

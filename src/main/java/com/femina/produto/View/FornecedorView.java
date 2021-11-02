@@ -1,15 +1,20 @@
 package main.java.com.femina.produto.View;
 
+import main.java.com.femina.produto.Model.Contatos;
+import main.java.com.femina.produto.Model.Endereco;
 import main.java.com.femina.produto.Model.Fornecedor;
 import main.java.com.femina.produto.Controller.FornecedorController;
 
+import java.io.IOException;
 import java.util.*;
 
 public class FornecedorView {
 
-    public void cadastro(){
+    public void cadastro() throws IOException {
 
         FornecedorController fc = new FornecedorController();
+        ContatoView cv = new ContatoView();
+        EndereçoView ev = new EndereçoView();
         Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
 
         Fornecedor forn = new Fornecedor();
@@ -19,6 +24,12 @@ public class FornecedorView {
 
         System.out.println("Informe o CNPJ do fornecedor");
         forn.setCnpj(entrada.next());
+
+        Contatos contato = cv.cadastraContato();
+        forn.setContatos(contato);
+
+        Endereco endereco = ev.cadastraEndereco();
+        forn.setEndereco(endereco);
 
         fc.cadastrarFornecedor(forn);
     }
@@ -32,9 +43,12 @@ public class FornecedorView {
         return lfd;
     }
 
-    public void alterarFornecedor(){
+    public void alterarFornecedor() throws IOException {
         FornecedorController fc = new FornecedorController();
+        ContatoView cv = new ContatoView();
+        EndereçoView ev = new EndereçoView();
         Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
+
         List<Fornecedor> lfd = fc.listarFornecedores();
         for(int i = 0; i < lfd.size();i++){
             System.out.println((i+1) + " - " + lfd.get(i).toString());
@@ -53,6 +67,10 @@ public class FornecedorView {
                 lfd.get(select-1).setCnpj(entrada.next());
                 break;
             case 3:
+                cv.editContato(select);
+                break;
+            case 4:
+                ev.editEndereco(select);
                 break;
             default:
                 System.out.println("Opção Inválida");
@@ -61,9 +79,12 @@ public class FornecedorView {
         fc.editarFornecedor(lfd);
     }
 
-    public void deletarFornecedor(){
-        Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
+    public void deletarFornecedor() throws IOException {
         FornecedorController fc = new FornecedorController();
+        ContatoView cv = new ContatoView();
+        EndereçoView ev = new EndereçoView();
+        Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
+
         List<Fornecedor> lfd = fc.listarFornecedores();
         for(int i = 0; i < lfd.size();i++){
             System.out.println((i+1) + " - " + lfd.get(i).toString());
@@ -72,6 +93,8 @@ public class FornecedorView {
         int select = entrada.nextInt();
 
         lfd.remove(select - 1);
+        cv.deletContato(select);
+        ev.deletEndereco(select);
 
         fc.removerFornecedor(lfd);
     }

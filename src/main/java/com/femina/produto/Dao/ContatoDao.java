@@ -12,15 +12,17 @@ import java.io.PrintWriter;
 public class ContatoDao {
 
 
-    public void cadastraContato(Contatos contato) throws IOException {
+    public void cadastraContato(List<Contatos> contato) throws IOException {
 
         FileWriter localDoArquivo = new FileWriter("listaDeContatos.txt", true);
         PrintWriter escreveArquivo = new PrintWriter(localDoArquivo);
 
-        escreveArquivo.print(contato.getId() + ";");
-        escreveArquivo.print(contato.getTel() + ";");
-        escreveArquivo.println(contato.getEmail());
-
+        for (int i = 0;i < contato.size();i++) {
+            if(contato.get(i).getId() != i+1) {
+                contato.get(i).setId(Long.valueOf(i)+1);
+                escreveArquivo.println(contato.get(i));
+            }
+        }
         localDoArquivo.close();
         escreveArquivo.flush();
 
@@ -68,7 +70,6 @@ public class ContatoDao {
         FileWriter arquivoTxt = new FileWriter("listaDeContatos.txt",false);
         PrintWriter gravaArq = new PrintWriter(arquivoTxt);
 
-
         for (int l = 0; l < contatos.size();l++ ) {
             gravaArq.println(contatos.get(l));
         }
@@ -85,7 +86,10 @@ public class ContatoDao {
         PrintWriter gravaArq = new PrintWriter(arquivoTxt);
 
         for (int l = 0; l < contatos.size();l++ ) {
-            gravaArq.println(contatos.get(l));
+            if(contatos.get(l).getId() != l+1) {
+                contatos.get(l).setId(Long.valueOf(l)+1);
+                gravaArq.println(contatos.get(l));
+            }
         }
 
         gravaArq.flush();

@@ -2,12 +2,11 @@ package main.java.com.femina.produto.Model;
 
 public class Endereco {
 
-    private Long idEndereco;
+    private long idEndereco;
     private String pais,estado,cidade,rua,cep;
     private int numCasa;
 
-    public Endereco(Long idEndereco,String pais, String estado, String cidade, String rua, String cep, int numCasa) {
-        this.idEndereco = idEndereco;
+    public Endereco(String pais, String estado, String cidade, String rua, String cep, int numCasa) {
         this.pais = pais;
         this.estado = estado;
         this.cidade = cidade;
@@ -19,11 +18,11 @@ public class Endereco {
     public Endereco() {
     }
 
-    public Long getIdEndereco() {
+    public long getIdEndereco() {
         return idEndereco;
     }
 
-    public void setIdEndereco(Long idEndereco) {
+    public void setIdEndereco(long idEndereco) {
         this.idEndereco = idEndereco;
     }
 
@@ -92,7 +91,6 @@ public class Endereco {
                 ";" + estado +
                 ";" + cidade +
                 ";" + rua  +
-                ";" + cep +
                 ";" + cep +
                 ";" + numCasa;
     }

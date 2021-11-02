@@ -102,9 +102,10 @@ public class ClienteView {
         System.out.println("Escolha qual cliente você quer deletar");
         int select = entrada.nextInt();
 
-        ldc.remove(select - 1);
         cv.deletContato(select);
         ev.deletEndereco(select);
+
+        ldc.remove(select - 1);
 
         cc.removerCliente(ldc);
         System.out.println(".\nCliente deletado com sucesso!");

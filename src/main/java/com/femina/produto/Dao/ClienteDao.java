@@ -91,13 +91,35 @@ public class ClienteDao {
         return clientes;
     }
 
-    public void updelCliente(List<Cliente> ldc){
+    public void editCliente(List<Cliente> ldc){
         try {
 
             FileWriter fileWriter = new FileWriter("clientes.txt", false);
             PrintWriter printWriter = new PrintWriter(fileWriter);
 
             for (int list = 0; list < ldc.size(); list++) {
+                printWriter.println(ldc.get(list));
+            }
+
+            printWriter.flush();
+            printWriter.close();
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void delCliente(List<Cliente> ldc){
+        try {
+
+            FileWriter fileWriter = new FileWriter("clientes.txt", false);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+
+            for (int list = 0; list < ldc.size(); list++) {
+                long idEnd = ldc.get(list).getEndereco().getIdEndereco();
+                long idCont = ldc.get(list).getContatos().getId();
+                ldc.get(list).getEndereco().setIdEndereco(idEnd-1);
+                ldc.get(list).getContatos().setId(idCont-1);
                 printWriter.println(ldc.get(list));
             }
 

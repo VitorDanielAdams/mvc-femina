@@ -5,8 +5,7 @@ public class Contatos {
     private long id;
     private String tel,email;
 
-    public Contatos(long id, String tel, String email) {
-        this.id = id;
+    public Contatos(String tel, String email) {
         this.tel = tel;
         this.email = email;
     }

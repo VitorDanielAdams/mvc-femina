@@ -11,19 +11,20 @@ public class ContatoView {
 
         public Contatos cadastraContato() throws IOException {
 
-            System.out.println("Digite o Id do Contato ");
-            long id2 = leitor.nextLong();
-
             System.out.println("Digite o Numero de contato: ");
             String telefone = leitor.next();
 
             System.out.println("Digite o e-mail de contato: ");
             String email  = leitor.next();
 
-            Contatos contato = new Contatos(id2, telefone, email);
+            Contatos contato = new Contatos(telefone, email);
 
             ContatoController contatoController = new ContatoController();
-            contatoController.cadastraContato(contato);
+
+            List<Contatos> listaDeContatos  = contatoController.mostraContato();
+            listaDeContatos.add(contato);
+
+            contatoController.cadastraContato(listaDeContatos);
 
             return contato;
         }
@@ -77,8 +78,6 @@ public class ContatoView {
             contatoController.deletaContatos(listaContatos);
             System.out.print(".");
         }
-
-
 
     }
 

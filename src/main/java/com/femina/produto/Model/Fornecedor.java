@@ -1,25 +1,22 @@
 package main.java.com.femina.produto.Model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Fornecedor {
 
     private long id;
     private String nome;
     private String cnpj;
     private Endereco endereco; // OBJETO -> endereço
-
-    private List<Contatos> contatos = new ArrayList<Contatos>(); // lista de contatos
+    private Contatos contatos = new Contatos(); // lista de contatos
 
     public Fornecedor() {
     }
 
-    public Fornecedor(long id, String nome, String cnpj, Endereco endereco) {
+    public Fornecedor(long id, String nome, String cnpj, Endereco endereco, Contatos contatos) {
         this.id = id;
         this.nome = nome;
         this.cnpj = cnpj;
         this.endereco = endereco;
+        this.contatos = contatos;
     }
 
     public long getId() {
@@ -54,11 +51,11 @@ public class Fornecedor {
         this.endereco = endereco;
     }
 
-    public List<Contatos> getContatos() {
+    public Contatos getContatos() {
         return contatos;
     }
 
-    public void setContatos(List<Contatos> contatos) {
+    public void setContatos(Contatos contatos) {
         this.contatos = contatos;
     }
 
@@ -66,16 +63,18 @@ public class Fornecedor {
         return  "Fornecedor: " +
                 "Id - " + id + "; " +
                 "Nome - " + nome + "; " +
-                "Cnpj - " + cnpj + "\n";
-
+                "Cnpj - " + cnpj +
+                "\n" + contatos.toMostra() +
+                "\n" + endereco.toMostra() +
+                "\n";
     }
 
     @Override
     public String toString() {
         return "" + id + ';' +
                 nome + ';' +
-                cnpj;
-//                endereco + ';' +
-//                contatos;
+                cnpj + ';' +
+                contatos.getId() + ';' +
+                endereco.getIdEndereco();
     }
 }

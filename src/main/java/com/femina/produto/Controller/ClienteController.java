@@ -20,12 +20,12 @@ public class ClienteController {
 
     public void editarCliente(List<Cliente> ldc){
         ClienteDao cd = new ClienteDao();
-        cd.updelCliente(ldc);
+        cd.editCliente(ldc);
     }
 
     public void removerCliente(List<Cliente> ldc){
         ClienteDao cd = new ClienteDao();
-        cd.updelCliente(ldc);
+        cd.delCliente(ldc);
     }
 
 }
