@@ -116,10 +116,9 @@ public class ClienteDao {
             PrintWriter printWriter = new PrintWriter(fileWriter);
 
             for (int list = 0; list < ldc.size(); list++) {
-                long idEnd = ldc.get(list).getEndereco().getIdEndereco();
-                long idCont = ldc.get(list).getContatos().getId();
-                ldc.get(list).getEndereco().setIdEndereco(idEnd-1);
-                ldc.get(list).getContatos().setId(idCont-1);
+                ldc.get(list).getEndereco().setIdEndereco(ldc.get(list).getEndereco().getIdEndereco()-1);
+                ldc.get(list).getContatos().setId(ldc.get(list).getContatos().getId()-1);
+                ldc.get(list).setId(list+1);
                 printWriter.println(ldc.get(list));
             }
 

@@ -31,7 +31,12 @@ public class FornecedorView {
         Endereco endereco = ev.cadastraEndereco();
         forn.setEndereco(endereco);
 
-        fc.cadastrarFornecedor(forn);
+        List<Fornecedor> ldf = fc.listarFornecedores();
+        ldf.add(forn);
+
+        fc.cadastrarFornecedor(ldf);
+
+        System.out.println("Fornecedor cadastrado com sucesso!\n");
     }
 
     public List<Fornecedor> mostrarFornecedores(){
@@ -51,11 +56,11 @@ public class FornecedorView {
 
         List<Fornecedor> lfd = fc.listarFornecedores();
         for(int i = 0; i < lfd.size();i++){
-            System.out.println((i+1) + " - " + lfd.get(i).toString());
+            System.out.println((i+1) + " - " + lfd.get(i).toMostra());
         }
         System.out.println("Escolha qual fornecedor quer editar");
         int select = entrada.nextInt();
-        System.out.println("Selecione: 1-Nome;2-CNPJ;3-Endereço");
+        System.out.println("Selecione: 1-Nome;2-CNPJ;3-Contato;4-Endereço");
         int selectItem = entrada.nextInt();
         switch (selectItem) {
             case 1:
@@ -67,16 +72,18 @@ public class FornecedorView {
                 lfd.get(select-1).setCnpj(entrada.next());
                 break;
             case 3:
-                cv.editContato(select);
+                cv.editContato((int) lfd.get(select-1).getContatos().getId());
                 break;
             case 4:
-                ev.editEndereco(select);
+                ev.editEndereco((int) lfd.get(select-1).getEndereco().getIdEndereco());
                 break;
             default:
                 System.out.println("Opção Inválida");
         }
 
         fc.editarFornecedor(lfd);
+
+        System.out.println("Fornecedor editado com sucesso!\n");
     }
 
     public void deletarFornecedor() throws IOException {
@@ -87,16 +94,18 @@ public class FornecedorView {
 
         List<Fornecedor> lfd = fc.listarFornecedores();
         for(int i = 0; i < lfd.size();i++){
-            System.out.println((i+1) + " - " + lfd.get(i).toString());
+            System.out.println((i+1) + " - " + lfd.get(i).toMostra());
         }
         System.out.println("Escolha qual fornecedor quer Deletar");
         int select = entrada.nextInt();
 
-        lfd.remove(select - 1);
         cv.deletContato(select);
         ev.deletEndereco(select);
+        lfd.remove(select - 1);
 
         fc.removerFornecedor(lfd);
+
+        System.out.println(".\nFornecedor deletado com sucesso!");
     }
 
 }

@@ -1,5 +1,9 @@
 package main.java.com.femina.produto.Dao;
 
+import main.java.com.femina.produto.Controller.ContatoController;
+import main.java.com.femina.produto.Controller.EnderecoController;
+import main.java.com.femina.produto.Model.Contatos;
+import main.java.com.femina.produto.Model.Endereco;
 import main.java.com.femina.produto.Model.Fornecedor;
 
 import java.io.*;
@@ -8,7 +12,7 @@ import java.util.List;
 
 public class FornecedorDao {
 
-    public void gravarFornecedor(Fornecedor forn){
+    public void gravarFornecedor(List<Fornecedor> forn){
         File arq = new File("fornecedores.txt");
 
         try {
@@ -18,11 +22,12 @@ public class FornecedorDao {
             FileWriter fileWriter = new FileWriter(arq, true);
             PrintWriter printWriter = new PrintWriter(fileWriter);
 
-            printWriter.print(forn.getId() + ";");
-            printWriter.print(forn.getNome() + ";");
-            printWriter.print(forn.getCnpj() + ";");
-            printWriter.print(forn.getContatos().getId() + ";");
-            printWriter.println(forn.getEndereco().getIdEndereco());
+            for(int i = 0;i < forn.size();i++){
+                if(forn.get(i).getId() != i+1){
+                    forn.get(i).setId(i+1);
+                    printWriter.println(forn.get(i));
+                }
+            }
 
             printWriter.flush();
             printWriter.close();
@@ -62,7 +67,20 @@ public class FornecedorDao {
                 fornecedor.setId(Integer.valueOf(forncedores[0]));
                 fornecedor.setNome(forncedores[1]);
                 fornecedor.setCnpj(forncedores[2]);
-//                fornecedor.setEndereco();
+                ContatoController cc = new ContatoController();
+                List<Contatos> ldc = cc.mostraContato();
+                for(int i = 0;i < ldc.size();i++){
+                    if(ldc.get(i).getId() == Integer.valueOf(forncedores[3])){
+                        fornecedor.setContatos(ldc.get(i));
+                    }
+                }
+                EnderecoController ec = new EnderecoController();
+                List<Endereco> lde = ec.mostraEndereco();
+                for(int i = 0;i < lde.size();i++){
+                    if(lde.get(i).getIdEndereco() == Long.valueOf(forncedores[4])){
+                        fornecedor.setEndereco(lde.get(i));
+                    }
+                }
 
                 fornecedores.add(fornecedor);
             }
@@ -72,13 +90,34 @@ public class FornecedorDao {
         return fornecedores;
     }
 
-    public void updelFornecedor(List<Fornecedor> forn){
+    public void editFornecedor(List<Fornecedor> forn){
         try {
 
             FileWriter fileWriter = new FileWriter("fornecedores.txt", false);
             PrintWriter printWriter = new PrintWriter(fileWriter);
 
             for (int list = 0; list < forn.size(); list++) {
+                printWriter.println(forn.get(list));
+            }
+
+            printWriter.flush();
+            printWriter.close();
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void delFornecedor(List<Fornecedor> forn){
+        try {
+
+            FileWriter fileWriter = new FileWriter("fornecedores.txt", false);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+
+            for (int list = 0; list < forn.size(); list++) {
+                forn.get(list).getEndereco().setIdEndereco(forn.get(list).getEndereco().getIdEndereco()-1);
+                forn.get(list).getContatos().setId(forn.get(list).getContatos().getId()-1);
+                forn.get(list).setId(list+1);
                 printWriter.println(forn.get(list));
             }
 

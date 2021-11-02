@@ -8,7 +8,7 @@ import java.util.List;
 
 public class FornecedorController {
 
-    public void cadastrarFornecedor(Fornecedor forn){
+    public void cadastrarFornecedor(List<Fornecedor> forn){
         FornecedorDao fd = new FornecedorDao();
         fd.gravarFornecedor(forn);
     }
@@ -21,12 +21,11 @@ public class FornecedorController {
 
     public void editarFornecedor(List<Fornecedor> lfd){
         FornecedorDao fd = new FornecedorDao();
-        fd.updelFornecedor(lfd);
-
+        fd.editFornecedor(lfd);
     }
 
     public void removerFornecedor(List<Fornecedor> lfd){
         FornecedorDao fd = new FornecedorDao();
-        fd.updelFornecedor(lfd);
+        fd.delFornecedor(lfd);
     }
 }

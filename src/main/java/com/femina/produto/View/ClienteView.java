@@ -37,6 +37,8 @@ public class ClienteView {
 //        System.out.println("Confirme sua senha");
 
         cc.cadastrarCliente(cliente);
+
+        System.out.println("Cliente cadastrado com sucesso!\n");
     }
 
     public void mostrarClientes(){
@@ -77,16 +79,18 @@ public class ClienteView {
                 ldc.get(select-1).setSenha(entrada.next());
                 break;
             case 4:
-                cv.editContato(select);
+                cv.editContato((int) ldc.get(select-1).getContatos().getId());
                 break;
             case 5:
-                ev.editEndereco(select);
+                ev.editEndereco((int) ldc.get(select-1).getEndereco().getIdEndereco());
                 break;
             default:
                 System.out.println("Opção Inválida");
         }
 
         cc.editarCliente(ldc);
+
+        System.out.println("Cliente editado com sucesso!\n");
     }
 
     public void deletarClientes() throws IOException {
