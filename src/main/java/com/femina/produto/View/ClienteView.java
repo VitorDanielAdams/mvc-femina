@@ -28,15 +28,17 @@ public class ClienteView {
         System.out.println("Informe a sua Senha");
         cliente.setSenha(entrada.next());
 
-        Contatos contato = cv.cadastraContato();
+        Contatos contato = cv.cadastraContato("cliente");
         cliente.setContatos(contato);
 
-        Endereco endereco = ev.cadastraEndereco();
+        Endereco endereco = ev.cadastraEndereco("cliente");
         cliente.setEndereco(endereco);
 
 //        System.out.println("Confirme sua senha");
+        List<Cliente> clientes = cc.listarClientes();
+        clientes.add(cliente);
 
-        cc.cadastrarCliente(cliente);
+        cc.cadastrarCliente(clientes);
 
         System.out.println("Cliente cadastrado com sucesso!\n");
     }
@@ -79,10 +81,10 @@ public class ClienteView {
                 ldc.get(select-1).setSenha(entrada.next());
                 break;
             case 4:
-                cv.editContato((int) ldc.get(select-1).getContatos().getId());
+                cv.editContato((int) ldc.get(select-1).getContatos().getId(),"cliente");
                 break;
             case 5:
-                ev.editEndereco((int) ldc.get(select-1).getEndereco().getIdEndereco());
+                ev.editEndereco((int) ldc.get(select-1).getEndereco().getIdEndereco(),"cliente");
                 break;
             default:
                 System.out.println("Opção Inválida");
@@ -106,8 +108,8 @@ public class ClienteView {
         System.out.println("Escolha qual cliente você quer deletar");
         int select = entrada.nextInt();
 
-        cv.deletContato(select);
-        ev.deletEndereco(select);
+        cv.deletContato(select,"cliente");
+        ev.deletEndereco(select,"cliente");
 
         ldc.remove(select - 1);
 

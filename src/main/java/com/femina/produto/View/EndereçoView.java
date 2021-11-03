@@ -12,7 +12,7 @@ public class EndereçoView {
 
     Scanner leitor = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
 
-    public Endereco cadastraEndereco() throws IOException{
+    public Endereco cadastraEndereco(String arq) throws IOException{
 
         System.out.println("Digite o seu pais");
         String pais= leitor.next();
@@ -35,17 +35,17 @@ public class EndereçoView {
         Endereco endereco = new Endereco(pais, estado, cidade, rua, cep,numCasa);
 
         EnderecoController enderecoController = new EnderecoController();
-        List<Endereco> listaEndereco = enderecoController.mostraEndereco();
+        List<Endereco> listaEndereco = enderecoController.mostraEndereco(arq);
         listaEndereco.add(endereco);
-        enderecoController.cadastraEndereco(listaEndereco);
+        enderecoController.cadastraEndereco(listaEndereco,arq);
 
         return endereco;
     }
 
-    public void mostraEndereco()throws IOException{
+    public void mostraEndereco(String arq)throws IOException{
 
         EnderecoController cc = new EnderecoController();
-        List<Endereco> listaEndereco = cc.mostraEndereco();
+        List<Endereco> listaEndereco = cc.mostraEndereco(arq);
 
         for(int i = 0; i < listaEndereco.size(); i++) {
             System.out.println(listaEndereco.get(i));
@@ -53,11 +53,11 @@ public class EndereçoView {
 
     }
 
-    public void editEndereco(int opProduto) throws IOException{
+    public void editEndereco(int opProduto,String arq) throws IOException{
 
         EnderecoController enderecoController = new EnderecoController();
 
-        List<Endereco> listaEndereco = enderecoController.mostraEndereco();
+        List<Endereco> listaEndereco = enderecoController.mostraEndereco(arq);
 
         System.out.println("Escolha qual atributo você quer editar: ");
 
@@ -100,19 +100,19 @@ public class EndereçoView {
                 System.out.println("Opção inválida");
         }
 
-        enderecoController.editaEndereco(listaEndereco);
+        enderecoController.editaEndereco(listaEndereco,arq);
 
     }
 
-    public void deletEndereco(int opDelete) throws IOException {
+    public void deletEndereco(int opDelete,String arq) throws IOException {
 
         EnderecoController enderecoController = new EnderecoController();
 
-        List<Endereco> listaEndereco = enderecoController.mostraEndereco();
-
+        List<Endereco> listaEndereco = enderecoController.mostraEndereco(arq);
+        System.out.println(listaEndereco);
         listaEndereco.remove(opDelete - 1);
-
-        enderecoController.deletaEndereco(listaEndereco);
+        System.out.println(listaEndereco);
+        enderecoController.deletaEndereco(listaEndereco,arq);
         System.out.print(".");
     }
 

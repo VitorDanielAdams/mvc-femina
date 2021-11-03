@@ -12,7 +12,7 @@ import java.util.*;
 
 public class ClienteDao {
 
-    public void gravarCliente(Cliente cliente){
+    public void gravarCliente(List<Cliente> cliente){
         File arq = new File("clientes.txt");
 
         try {
@@ -22,12 +22,12 @@ public class ClienteDao {
             FileWriter fileWriter = new FileWriter(arq, true);
             PrintWriter printWriter = new PrintWriter(fileWriter);
 
-            printWriter.print(cliente.getId() + ";");
-            printWriter.print(cliente.getNome() + ";");
-            printWriter.print(cliente.getIdade() + ";");
-            printWriter.print(cliente.getSenha() + ";");
-            printWriter.print(cliente.getContatos().getId() + ";");
-            printWriter.println(cliente.getEndereco().getIdEndereco());
+            for(int i = 0;i < cliente.size();i++) {
+                if(cliente.get(i).getId() != Long.valueOf(i)+1) {
+                    cliente.get(i).setId(Long.valueOf(i)+1);
+                    printWriter.println(cliente.get(i));
+                }
+            }
 
             printWriter.flush();
             printWriter.close();
@@ -69,14 +69,14 @@ public class ClienteDao {
                 cliente.setIdade(Integer.valueOf(cl[2]));
                 cliente.setSenha(cl[3]);
                 ContatoController cc = new ContatoController();
-                List<Contatos> ldc = cc.mostraContato();
+                List<Contatos> ldc = cc.mostraContato("cliente");
                 for(int i = 0;i < ldc.size();i++){
                     if(ldc.get(i).getId() == Integer.valueOf(cl[4])){
                         cliente.setContatos(ldc.get(i));
                     }
                 }
                 EnderecoController ec = new EnderecoController();
-                List<Endereco> lde = ec.mostraEndereco();
+                List<Endereco> lde = ec.mostraEndereco("cliente");
                 for(int i = 0;i < lde.size();i++){
                     if(lde.get(i).getIdEndereco() == Long.valueOf(cl[5])){
                         cliente.setEndereco(lde.get(i));
@@ -116,8 +116,12 @@ public class ClienteDao {
             PrintWriter printWriter = new PrintWriter(fileWriter);
 
             for (int list = 0; list < ldc.size(); list++) {
-                ldc.get(list).getEndereco().setIdEndereco(ldc.get(list).getEndereco().getIdEndereco()-1);
-                ldc.get(list).getContatos().setId(ldc.get(list).getContatos().getId()-1);
+                if(ldc.get(list).getEndereco().getIdEndereco() != 1){
+                    ldc.get(list).getEndereco().setIdEndereco(ldc.get(list).getEndereco().getIdEndereco()-1);
+                }
+                if(ldc.get(list).getContatos().getId() != 1){
+                    ldc.get(list).getContatos().setId(ldc.get(list).getContatos().getId()-1);
+                }
                 ldc.get(list).setId(list+1);
                 printWriter.println(ldc.get(list));
             }

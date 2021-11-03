@@ -12,13 +12,18 @@ import java.io.PrintWriter;
 public class ContatoDao {
 
 
-    public void cadastraContato(List<Contatos> contato) throws IOException {
+    public void cadastraContato(List<Contatos> contato,String arq) throws IOException {
+        File arquivo = new File("listaDeContatos"+arq+".txt");
 
-        FileWriter localDoArquivo = new FileWriter("listaDeContatos.txt", true);
+        if(arquivo.isFile() ==  false){
+            arquivo.createNewFile();
+        }
+
+        FileWriter localDoArquivo = new FileWriter(arquivo, true);
         PrintWriter escreveArquivo = new PrintWriter(localDoArquivo);
 
         for (int i = 0;i < contato.size();i++) {
-            if(contato.get(i).getId() != i+1) {
+            if(contato.get(i).getId() != Long.valueOf(i)+1) {
                 contato.get(i).setId(Long.valueOf(i)+1);
                 escreveArquivo.println(contato.get(i));
             }
@@ -29,9 +34,15 @@ public class ContatoDao {
     }
 
 
-    public List<Contatos> mostraContato() throws IOException {
+    public List<Contatos> mostraContato(String arq) throws IOException {
 
-        FileReader arquivoTxt1 = new FileReader("listaDeContatos.txt");
+        File arquivo = new File("listaDeContatos"+arq+".txt");
+
+        if(arquivo.isFile() ==  false){
+            arquivo.createNewFile();
+        }
+
+        FileReader arquivoTxt1 = new FileReader(arquivo);
         BufferedReader lerArq = new BufferedReader(arquivoTxt1);
 
         List<String> ListString = new ArrayList<>();
@@ -65,9 +76,9 @@ public class ContatoDao {
 
     }
 
-    public void editContatos(List <Contatos> contatos) throws IOException {
+    public void editContatos(List <Contatos> contatos,String arq) throws IOException {
 
-        FileWriter arquivoTxt = new FileWriter("listaDeContatos.txt",false);
+        FileWriter arquivoTxt = new FileWriter("listaDeContatos"+arq+".txt",false);
         PrintWriter gravaArq = new PrintWriter(arquivoTxt);
 
         for (int l = 0; l < contatos.size();l++ ) {
@@ -80,22 +91,19 @@ public class ContatoDao {
 
     }
 
-    public void deletContatos (List<Contatos> contatos) throws IOException {
+    public void deletContatos (List<Contatos> contatos,String arq) throws IOException {
 
-        FileWriter arquivoTxt = new FileWriter("listaDeContatos.txt",false);
+        FileWriter arquivoTxt = new FileWriter("listaDeContatos"+arq+".txt",false);
         PrintWriter gravaArq = new PrintWriter(arquivoTxt);
 
         for (int l = 0; l < contatos.size();l++ ) {
-            if(contatos.get(l).getId() != l+1) {
-                contatos.get(l).setId(Long.valueOf(l)+1);
-                gravaArq.println(contatos.get(l));
-            }
+            contatos.get(l).setId(Long.valueOf(l)+1);
+            gravaArq.println(contatos.get(l));
         }
 
         gravaArq.flush();
         gravaArq.close();
         arquivoTxt.close();
-
 
     }
 

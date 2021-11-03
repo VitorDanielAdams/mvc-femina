@@ -9,33 +9,30 @@ import java.util.List;
 
 public class ContatoController {
 
-
-    public void cadastraContato (List<Contatos> contato) throws IOException {
+    public void cadastraContato (List<Contatos> contato,String arq) throws IOException {
 
         ContatoDao contatoDao = new ContatoDao();
-        contatoDao.cadastraContato(contato);
+        contatoDao.cadastraContato(contato, arq);
     }
 
-    public List<Contatos> mostraContato() throws IOException {
+    public List<Contatos> mostraContato(String arq) throws IOException {
 
         ContatoDao contatoDao = new ContatoDao();
-        List<Contatos> listaContato = contatoDao.mostraContato();
+        List<Contatos> listaContato = contatoDao.mostraContato(arq);
         return listaContato;
     }
 
-    public void editaContato(List<Contatos> contatos) throws IOException {
-        
-        ContatoDao contatoDao = new ContatoDao();
-        contatoDao.editContatos(contatos);
-    }
-
-    public void deletaContatos (List <Contatos> contatos) throws IOException {
+    public void editaContato(List<Contatos> contatos,String arq) throws IOException {
 
         ContatoDao contatoDao = new ContatoDao();
-        contatoDao.deletContatos(contatos);
-
+        contatoDao.editContatos(contatos,arq);
     }
 
+    public void deletaContatos (List <Contatos> contatos,String arq) throws IOException {
 
+        ContatoDao contatoDao = new ContatoDao();
+        contatoDao.deletContatos(contatos,arq);
+
+    }
 
 }

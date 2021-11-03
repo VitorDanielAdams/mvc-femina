@@ -9,32 +9,30 @@ import java.util.List;
 
 public class EnderecoController {
 
-    public void cadastraEndereco(List<Endereco> listEndereco) throws IOException {
+    public void cadastraEndereco(List<Endereco> listEndereco,String arq) throws IOException {
 
         EnderecoDao enderecoDao = new EnderecoDao();
-        enderecoDao.cadastraEndereco(listEndereco);
+        enderecoDao.cadastraEndereco(listEndereco,arq);
 
     }
 
-    public List<Endereco> mostraEndereco() throws IOException {
+    public List<Endereco> mostraEndereco(String arq) throws IOException {
 
         EnderecoDao contatoDao = new EnderecoDao();
-        List<Endereco> listaEndereco = contatoDao.mostraEndereco();
+        List<Endereco> listaEndereco = contatoDao.mostraEndereco(arq);
         return listaEndereco;
     }
 
-    public void editaEndereco(List<Endereco> endereco) throws IOException {
+    public void editaEndereco(List<Endereco> endereco,String arq) throws IOException {
 
         EnderecoDao enderecoDao = new EnderecoDao();
-        enderecoDao.editEndereco(endereco);
+        enderecoDao.editEndereco(endereco,arq);
     }
 
-    public void deletaEndereco(List<Endereco> endereco) throws IOException {
+    public void deletaEndereco(List<Endereco> endereco,String arq) throws IOException {
 
         EnderecoDao enderecoDao = new EnderecoDao();
-        enderecoDao.delEndereco(endereco);
+        enderecoDao.delEndereco(endereco,arq);
     }
 
 }
-
-

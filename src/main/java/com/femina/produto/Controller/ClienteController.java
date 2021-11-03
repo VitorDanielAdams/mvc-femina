@@ -7,7 +7,7 @@ import java.util.*;
 
 public class ClienteController {
 
-    public void cadastrarCliente(Cliente cliente){
+    public void cadastrarCliente(List<Cliente> cliente){
         ClienteDao cd = new ClienteDao();
         cd.gravarCliente(cliente);
     }

@@ -9,9 +9,14 @@ import java.util.List;
 
 public class EnderecoDao {
 
-    public void cadastraEndereco(List<Endereco> listEndereco) throws IOException {
+    public void cadastraEndereco(List<Endereco> listEndereco,String arq) throws IOException {
+        File arquivo = new File("listaDeEndereços"+arq+".txt");
 
-        FileWriter localDoArquivo = new FileWriter("listaDeEndereços.txt", true);
+        if(arquivo.isFile() ==  false){
+            arquivo.createNewFile();
+        }
+
+        FileWriter localDoArquivo = new FileWriter(arquivo, true);
         PrintWriter escreveArquivo = new PrintWriter(localDoArquivo);
 
         for(int i = 0;i < listEndereco.size();i++) {
@@ -24,9 +29,15 @@ public class EnderecoDao {
         escreveArquivo.flush();
     }
 
-    public List<Endereco> mostraEndereco() throws IOException {
+    public List<Endereco> mostraEndereco(String arq) throws IOException {
 
-        FileReader arquivoTxt1 = new FileReader("listaDeEndereços.txt");
+        File arquivo = new File("listaDeEndereços"+arq+".txt");
+
+        if(arquivo.isFile() ==  false){
+            arquivo.createNewFile();
+        }
+
+        FileReader arquivoTxt1 = new FileReader(arquivo);
         BufferedReader lerArq = new BufferedReader(arquivoTxt1);
 
         List<String> ListString = new ArrayList<>();
@@ -64,9 +75,9 @@ public class EnderecoDao {
     }
 
 
-    public void editEndereco (List <Endereco> endereco) throws IOException {
+    public void editEndereco (List <Endereco> endereco,String arq) throws IOException {
 
-        FileWriter arquivoTxt = new FileWriter("listaDeEndereços.txt",false);
+        FileWriter arquivoTxt = new FileWriter("listaDeEndereços"+arq+".txt",false);
         PrintWriter gravaArq = new PrintWriter(arquivoTxt);
 
 
@@ -78,18 +89,18 @@ public class EnderecoDao {
         gravaArq.close();
         arquivoTxt.close();
 
-   }
+    }
 
-    public void delEndereco (List <Endereco> endereco) throws IOException {
+    public void delEndereco (List <Endereco> endereco,String arq) throws IOException {
 
-        FileWriter arquivoTxt = new FileWriter("listaDeEndereços.txt",false);
+        FileWriter arquivoTxt = new FileWriter("listaDeEndereços"+arq+".txt",false);
         PrintWriter gravaArq = new PrintWriter(arquivoTxt);
 
+        System.out.println(endereco);
+
         for (int l = 0; l < endereco.size();l++ ) {
-            if(endereco.get(l).getIdEndereco() != Long.valueOf(l)+1) {
-                endereco.get(l).setIdEndereco(Long.valueOf(l)+1);
-                gravaArq.println(endereco.get(l));
-            }
+            endereco.get(l).setIdEndereco(Long.valueOf(l)+1);
+            gravaArq.println(endereco.get(l));
         }
 
         gravaArq.flush();

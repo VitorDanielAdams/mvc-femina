@@ -25,10 +25,10 @@ public class FornecedorView {
         System.out.println("Informe o CNPJ do fornecedor");
         forn.setCnpj(entrada.next());
 
-        Contatos contato = cv.cadastraContato();
+        Contatos contato = cv.cadastraContato("fornecedor");
         forn.setContatos(contato);
 
-        Endereco endereco = ev.cadastraEndereco();
+        Endereco endereco = ev.cadastraEndereco("fornecedor");
         forn.setEndereco(endereco);
 
         List<Fornecedor> ldf = fc.listarFornecedores();
@@ -72,10 +72,10 @@ public class FornecedorView {
                 lfd.get(select-1).setCnpj(entrada.next());
                 break;
             case 3:
-                cv.editContato((int) lfd.get(select-1).getContatos().getId());
+                cv.editContato((int) lfd.get(select-1).getContatos().getId(),"fornecedor");
                 break;
             case 4:
-                ev.editEndereco((int) lfd.get(select-1).getEndereco().getIdEndereco());
+                ev.editEndereco((int) lfd.get(select-1).getEndereco().getIdEndereco(),"fornecedor");
                 break;
             default:
                 System.out.println("Opção Inválida");
@@ -99,8 +99,8 @@ public class FornecedorView {
         System.out.println("Escolha qual fornecedor quer Deletar");
         int select = entrada.nextInt();
 
-        cv.deletContato(select);
-        ev.deletEndereco(select);
+        cv.deletContato(select,"fornecedor");
+        ev.deletEndereco(select,"fornecedor");
         lfd.remove(select - 1);
 
         fc.removerFornecedor(lfd);
