@@ -14,6 +14,7 @@ public class Main {
         MarcaView marca = new MarcaView();
         ClienteView cv = new ClienteView();
         LojasView lojasView = new LojasView();
+        TamanhoView tamanhoView = new TamanhoView();
 
 
 //        cv.cadastro();
@@ -26,10 +27,11 @@ public class Main {
 
 //        marca.cadastrarMarca();
 //        marca.cadastrarMarca();
-        marca.editarMarcas();
-        marca.deletaMarca();
-        marca.mostrarMarcas();
+//        marca.editarMarcas();
+//        marca.deletaMarca();
+//        marca.mostrarMarcas();
 //        lojasView.cadastrarLoja();
+        tamanhoView.cadastrarTamanho();
 
     }
 }

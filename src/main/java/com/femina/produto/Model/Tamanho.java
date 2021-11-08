@@ -1,12 +1,16 @@
 package main.java.com.femina.produto.Model;
 
 public class Tamanho {
-    private String tam;
-    private long id;
 
-    public Tamanho(String tam, long id) {
+    private int id;
+    private String tam;
+
+    public Tamanho(String tam, int id) {
         this.tam = tam;
         this.id = id;
+    }
+
+    public Tamanho() {
     }
 
     public String getTam() {
@@ -21,15 +25,12 @@ public class Tamanho {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
     @Override
     public String toString() {
-        return "Tamanho{" +
-                "tam='" + tam + '\'' +
-                ", id=" + id +
-                '}';
+        return id + ";" + tam;
     }
 }
