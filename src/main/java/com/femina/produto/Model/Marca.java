@@ -11,13 +11,7 @@ public class Marca {
     private long id;
     private String nome;
     private Endereco enderecoMarca;
-    private List<Contatos> contatos = new ArrayList<Contatos>();
-
-    public Marca(long id, String nome, Endereco enderecoMarca) {
-        this.id = id;
-        this.nome = nome;
-        this.enderecoMarca = enderecoMarca;
-    }
+    private Contatos contatos;
 
     public Marca() {
     }
@@ -46,21 +40,28 @@ public class Marca {
         this.enderecoMarca = enderecoMarca;
     }
 
-    public List<Contatos> getContatos() {
+    public Contatos getContatos() {
         return contatos;
     }
 
-    public void setContatos(List<Contatos> contatos) {
+    public void setContatos(Contatos contatos) {
         this.contatos = contatos;
+    }
+
+    public String toMostra() {
+        return  "Marca: " +
+                "Id - " + id + "; " +
+                "Nome - " + nome +  "\n  [" +
+                "" + contatos.toMostra() +
+                " | " + enderecoMarca.toMostra() + "]" +
+                "\n";
     }
 
     @Override
     public String toString() {
-        return "Marca{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", enderecoMarca=" + enderecoMarca +
-                ", contatos=" + contatos +
-                '}';
+        return "" + id + ';' +
+                nome + ';' +
+                contatos.getId()+ ';' +
+                enderecoMarca.getIdEndereco();
     }
 }

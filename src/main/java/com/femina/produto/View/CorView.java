@@ -12,10 +12,10 @@ public class CorView {
     public void cadastro(){
 
         Cor cor = new Cor();
-        Scanner entrada  = new Scanner(System.in);
+        Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);;
         CorController cc = new CorController();
 
-        System.out.println("Informe a cor.txt:");
+        System.out.println("Informe a cor:");
         cor.setNome(entrada.next());
 
         System.out.println("Informe o Hexadecimal:");
@@ -36,6 +36,7 @@ public class CorView {
     }
     public void editaCor()  throws IOException {
 
+        Scanner leitor = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
         CorController cd = new CorController();
 
     }

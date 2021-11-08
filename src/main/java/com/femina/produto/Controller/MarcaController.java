@@ -8,9 +8,9 @@ import java.util.*;
 
 public class MarcaController {
 
-    public Marca cadastraMarca (Marca marca) {
+    public void cadastraMarca (List<Marca> marca) {
         MarcaDao marcaDao = new MarcaDao();
-        return marcaDao.cadastraMarca(marca);
+        marcaDao.cadastraMarca(marca);
     }
 
     public List<Marca> mostraMarcaCadastrada() throws IOException {
@@ -21,11 +21,11 @@ public class MarcaController {
 
     public void editaMarca(List<Marca> marcas) throws IOException {
         MarcaDao marcaDao = new MarcaDao();
-        marcaDao.editaDeletaMarca(marcas);
+        marcaDao.editaMarca(marcas);
     }
 
     public void deletaMarca(List<Marca> marcas) throws IOException {
         MarcaDao marcaDao = new MarcaDao();
-        marcaDao.editaDeletaMarca(marcas);
+        marcaDao.deletaMarca(marcas);
     }
 }

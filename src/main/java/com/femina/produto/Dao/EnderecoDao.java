@@ -96,8 +96,6 @@ public class EnderecoDao {
         FileWriter arquivoTxt = new FileWriter("listaDeEndereços"+arq+".txt",false);
         PrintWriter gravaArq = new PrintWriter(arquivoTxt);
 
-        System.out.println(endereco);
-
         for (int l = 0; l < endereco.size();l++ ) {
             endereco.get(l).setIdEndereco(Long.valueOf(l)+1);
             gravaArq.println(endereco.get(l));

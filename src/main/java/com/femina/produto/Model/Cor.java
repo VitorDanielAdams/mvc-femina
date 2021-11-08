@@ -2,8 +2,8 @@ package main.java.com.femina.produto.Model;
 
 public class Cor {
 
-   private String nome;
-   private String hexadecimal;
+    private long id;
+    private String nome, hexadecimal;
 
     public Cor() {
     }
@@ -11,6 +11,14 @@ public class Cor {
     public Cor(String nome, String hexadecimal) {
         this.nome = nome;
         this.hexadecimal = hexadecimal;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -29,11 +37,18 @@ public class Cor {
         this.hexadecimal = hexadecimal;
     }
 
+    public String toMostra() {
+        return  "Cor: \n" +
+                "Id - " + id + "; " +
+                "Nome - " + nome +  "; " +
+                "Hexadecimal - " + hexadecimal +
+                "\n";
+    }
+
     @Override
     public String toString() {
-        return "Cor{" +
-                "nome='" + nome + '\'' +
-                ", hexadecimal='" + hexadecimal + '\'' +
-                '}';
+        return "" + id + ';'+
+                nome + ';' +
+                hexadecimal;
     }
 }

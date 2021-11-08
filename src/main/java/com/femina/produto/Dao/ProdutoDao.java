@@ -15,6 +15,7 @@ public class ProdutoDao {
             PrintWriter printWriter = new PrintWriter(fileWriter);
 
             printWriter.print(prod.getId() + ";");
+            printWriter.print(prod.getCodigo() + ";");
             printWriter.print(prod.getNome() + ";");
             printWriter.print(prod.getPreco() + ";");
             printWriter.print(prod.getQtd() + ";");
@@ -56,12 +57,17 @@ public class ProdutoDao {
                 Produto p = new Produto();
 
                 p.setId(Integer.valueOf(produts[0]));
-                p.setNome(produts[1]);
-                p.setPreco(Double.valueOf(produts[2]));
-                p.setQtd(Integer.valueOf(produts[3]));
+                p.setCodigo(Integer.valueOf(produts[1]));
+                p.setNome(produts[2]);
+                p.setPreco(Double.valueOf(produts[3]));
+                p.setQtd(Integer.valueOf(produts[4]));
                 FornecedorController fc = new FornecedorController();
                 List<Fornecedor> lfd = fc.listarFornecedores();
-                p.setFornecedor(lfd.get(Integer.valueOf(produts[4])));
+                for (int i = 0;i < lfd.size();i++){
+                    if(lfd.get(i).getId() == Integer.valueOf(produts[5])){
+                        p.setFornecedor(lfd.get(i));
+                    }
+                }
 
                 produtos.add(p);
             }

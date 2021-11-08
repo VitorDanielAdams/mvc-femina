@@ -9,7 +9,7 @@ public class Cliente {
     private String nome,senha;
     private int idade;
 
-    private Contatos contatos = new Contatos();
+    private Contatos contatos;
 
     private Endereco endereco;
 

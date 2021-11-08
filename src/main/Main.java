@@ -15,28 +15,20 @@ public class Main {
         ClienteView cv = new ClienteView();
         LojasView lojasView = new LojasView();
 
-//        cv.deletarClientes();
-//
-//        cv.mostrarClientes();
-//        fv.mostrarFornecedores();
-//        cv.alterarClientes();
-//        cv.mostrarClientes();
 
 //        cv.cadastro();
         //cv.mostrarClientes();
-//        fv.cadastro();
-        //pv.cadastro();
-       // pv.mostrarProdutos();
+//        pv.cadastro();
+//        pv.mostrarProdutos();
 //        pv.alterarProduto();
-       // pv.deletarProduto();
+//        pv.deletarProduto();
+//        pv.mostrarProdutos();
 
-
-     //   marca.cadastrarMarca();
-//        marca.mostrarMarcas();
-
-       // marca.cadastrarMarca();
-       // marca.editarMarcas();
-
+//        marca.cadastrarMarca();
+//        marca.cadastrarMarca();
+        marca.editarMarcas();
+        marca.deletaMarca();
+        marca.mostrarMarcas();
 //        lojasView.cadastrarLoja();
 
     }

@@ -8,7 +8,7 @@ public class Produto {
     private long id;
     private String nome;
     private Double preco;
-    private int qtd;
+    private int codigo,qtd;
     private Categoria categoria;
     private Fornecedor fornecedor; // obj
 
@@ -18,7 +18,7 @@ public class Produto {
 
     public Produto() {}
 
-    public Produto(long id, String nome, Double preco, int qtd, Fornecedor fornecedor, Categoria categoria) {
+    public Produto(long id, int codigo, String nome, Double preco, int qtd, Fornecedor fornecedor, Categoria categoria) {
         this.id = id;
         this.nome = nome;
         this.preco = preco;
@@ -33,6 +33,14 @@ public class Produto {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public String getNome() {
@@ -102,6 +110,7 @@ public class Produto {
     public String toMostra() {
         return  "Produto: \n" +
                 "Id - "+ id + "\n" +
+                "Código do Produto:" + codigo + "\n" +
                "Nome - " + nome + "\n" +
                "Preço - " + preco + "\n" +
                "Quantidade - " + qtd + "\n" +
@@ -110,7 +119,6 @@ public class Produto {
 //                categoria.getNome() + ';' +
 //                tamanho + ';' +
 //                ", modeloDosProdutos=" + modeloDosProdutos +
-//                ", cor.txt=" + cor.txt +
 //                ", categoria=" + categoria.getNome() +
 //                ", tamanho=" + tamanho +
                 fornecedor.toMostra();
@@ -119,6 +127,7 @@ public class Produto {
     @Override
     public String toString() {
         return ""+ id + ';' +
+                codigo + ';' +
                 nome + ';' +
                 preco + ';' +
                 qtd + ';' +
@@ -127,7 +136,6 @@ public class Produto {
 //                categoria.getNome() + ';' +
 //                tamanho + ';' +
 //                ", modeloDosProdutos=" + modeloDosProdutos +
-//                ", cor.txt=" + cor.txt +
 //                ", categoria=" + categoria.getNome() +
 //                ", tamanho=" + tamanho +
                 fornecedor.getId();

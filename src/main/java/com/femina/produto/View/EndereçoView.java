@@ -109,9 +109,9 @@ public class EndereçoView {
         EnderecoController enderecoController = new EnderecoController();
 
         List<Endereco> listaEndereco = enderecoController.mostraEndereco(arq);
-        System.out.println(listaEndereco);
+
         listaEndereco.remove(opDelete - 1);
-        System.out.println(listaEndereco);
+
         enderecoController.deletaEndereco(listaEndereco,arq);
         System.out.print(".");
     }

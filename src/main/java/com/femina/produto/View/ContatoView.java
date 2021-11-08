@@ -75,8 +75,6 @@ public class ContatoView {
 
         listaContatos.remove(opDelete - 1);
 
-        System.out.println(listaContatos);
-
         contatoController.deletaContatos(listaContatos,arq);
         System.out.print(".");
     }

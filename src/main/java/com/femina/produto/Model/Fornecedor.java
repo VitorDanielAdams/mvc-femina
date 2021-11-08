@@ -6,7 +6,7 @@ public class Fornecedor {
     private String nome;
     private String cnpj;
     private Endereco endereco; // OBJETO -> endereço
-    private Contatos contatos = new Contatos(); // lista de contatos
+    private Contatos contatos;
 
     public Fornecedor() {
     }
@@ -63,9 +63,9 @@ public class Fornecedor {
         return  "Fornecedor: " +
                 "Id - " + id + "; " +
                 "Nome - " + nome + "; " +
-                "Cnpj - " + cnpj +
-                "\n" + contatos.toMostra() +
-                "\n" + endereco.toMostra() +
+                "Cnpj - " + cnpj + "\n  [" +
+                "" + contatos.toMostra() +
+                " | " + endereco.toMostra() + "]" +
                 "\n";
     }
 

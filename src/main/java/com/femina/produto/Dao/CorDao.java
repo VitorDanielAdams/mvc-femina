@@ -46,8 +46,9 @@ public class CorDao {
 
             Cor cores = new Cor();
 
-            cores.setNome(cs[0]);
-            cores.setHexadecimal(cs[1]);
+            cores.setId(Long.valueOf(cs[0]));
+            cores.setNome(cs[1]);
+            cores.setHexadecimal(cs[2]);
 
        }
         return listaCores;
