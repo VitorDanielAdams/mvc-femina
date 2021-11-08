@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class CorView {
-    public void cadastro(){
+    public void cadastro() throws IOException {
 
         Cor cor = new Cor();
         Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);;
@@ -21,7 +21,12 @@ public class CorView {
         System.out.println("Informe o Hexadecimal:");
         cor.setHexadecimal(entrada.next());
 
-        cc.cadastraCor(cor);
+        List<Cor> ldc = cc.mostraCorCadastrada();
+        ldc.add(cor);
+
+        cc.cadastraCor(ldc);
+
+        System.out.println("Cor cadastrada com sucesso" );
     }
     public void mostrarCor() throws IOException {
 
@@ -30,14 +35,60 @@ public class CorView {
         List<Cor> listaCores = cd.mostraCorCadastrada();
 
         for (int i = 0; i < listaCores.size(); i++) {
-            System.out.println(listaCores.get(i));
+            System.out.println(listaCores.get(i).toMostra());
         }
 
     }
     public void editaCor()  throws IOException {
 
-        Scanner leitor = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
+        Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
         CorController cd = new CorController();
 
+        List<Cor> cores = cd.mostraCorCadastrada();
+
+        for(int i = 0;i < cores.size();i++){
+            System.out.println((i+1) + " - " + cores.get(i).toMostra());
+        }
+
+        System.out.println("Escolha qual cor quer editar");
+        int select = entrada.nextInt();
+        System.out.println("Selecione: 1-cor;2-hexadecimal");
+        int selectItem = entrada.nextInt();
+        switch (selectItem) {
+            case 1:
+                cores.get(select-1).setNome(entrada.next());
+                break;
+            case 2:
+                cores.get(select-1).setHexadecimal(entrada.next());
+                break;
+            default:
+                System.out.println("Opção inválida");
+        }
+
+        cd.editaCores(cores);
+        System.out.println("Cor editada com sucesso!");
     }
+
+    public void removeCor() throws IOException {
+
+        Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
+        CorController cd = new CorController();
+
+        List<Cor> cores = cd.mostraCorCadastrada();
+
+        for(int i = 0;i < cores.size();i++){
+            System.out.println((i+1) + " - " + cores.get(i).toMostra());
+        }
+
+        System.out.println("Escolha qual cor quer deletar:");
+        int select = entrada.nextInt();
+
+        cores.remove(select - 1);
+
+        cd.apagaCores(cores);
+
+        System.out.println("Cor deletada com sucesso!");
+
+    }
+
 }

@@ -10,7 +10,7 @@ import java.util.List;
 
 public class CorController {
 
-    public void cadastraCor(Cor cor) {
+    public void cadastraCor(List<Cor> cor) {
         CorDao cd = new CorDao();
         cd.cadastraCor(cor);
     }
@@ -23,6 +23,11 @@ public class CorController {
     public void editaCores(List<Cor> cor) {
         CorDao corDao = new CorDao();
         corDao.editaCores(cor);
+    }
+
+    public void apagaCores(List<Cor> cor) throws IOException {
+        CorDao corDao = new CorDao();
+        corDao.delCor(cor);
     }
 }
 
