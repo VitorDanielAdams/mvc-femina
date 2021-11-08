@@ -14,7 +14,10 @@ public class Main {
         MarcaView marca = new MarcaView();
         ClienteView cv = new ClienteView();
         LojasView lojasView = new LojasView();
+
         CorView corView = new CorView();
+
+        TamanhoView tamanhoView = new TamanhoView();
 
 
 //        corView.cadastro();
@@ -36,6 +39,7 @@ public class Main {
 //        marca.deletaMarca();
 //        marca.mostrarMarcas();
 //        lojasView.cadastrarLoja();
+        tamanhoView.cadastrarTamanho();
 
     }
 }
