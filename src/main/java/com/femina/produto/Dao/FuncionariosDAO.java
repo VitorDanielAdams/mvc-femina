@@ -36,44 +36,27 @@ public class FuncionariosDAO {
     }
 
     public List<Funcionarios> mostrarFuncionarios() throws IOException {
-
         int dadosInt = 0;
-
         List<String> listaDoArquivoFuncionarios = new ArrayList<>();
         List<Funcionarios> listaDeFuncionarios = new ArrayList<>();
-
-        FileReader arquivoFuncionarios = new FileReader("funcionarios.txt");
-        BufferedReader leArquivoFuncionarios = new BufferedReader(arquivoFuncionarios);
-
         Path path = Paths.get("funcionarios.txt");
         listaDoArquivoFuncionarios = Files.readAllLines(path);
-
         for(int i = 0; i < listaDoArquivoFuncionarios.size(); i++){
-
             String func = listaDoArquivoFuncionarios.get(i);
             String[] dadosFuncionario = func.split(";");
-
             if(isNumeric(dadosFuncionario[i])){
-
                 dadosInt = (Integer.parseInt(dadosFuncionario[i]));
-
                 Funcionarios funcionarios = new Funcionarios();
-
                 funcionarios.setId(dadosInt);
                 funcionarios.setNome(dadosFuncionario[1]);
                 funcionarios.setCargo(dadosFuncionario[2]);
                 //funcionarios.setEndereco(dadosFuncionario[3]); passar endereço como string vai ajudar aqui!!!
                 funcionarios.setIdEmpresa(dadosInt);
                 //funcionarios.setContatos(dadosFuncionario[5]); mesma coisa de endereco
-
                 listaDeFuncionarios.add(funcionarios);
-
             }
-
         }
-
         return listaDeFuncionarios;
-
     }
 
     public List<Funcionarios> editar(List<Funcionarios> listaFuncionarios) throws IOException {

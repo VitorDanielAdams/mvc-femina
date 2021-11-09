@@ -39,7 +39,7 @@ public class Main {
 //        marca.deletaMarca();
 //        marca.mostrarMarcas();
 //        lojasView.cadastrarLoja();
-        tamanhoView.cadastrarTamanho();
+//        tamanhoView.cadastrarTamanho();
 
     }
 }
