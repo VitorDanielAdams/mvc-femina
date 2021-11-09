@@ -26,20 +26,19 @@ public class Main {
 //        corView.removeCor();
 //        corView.mostrarCor();
 //        cv.cadastro();
-        //cv.mostrarClientes();
+//        cv.mostrarClientes();
 //        pv.cadastro();
 //        pv.mostrarProdutos();
 //        pv.alterarProduto();
 //        pv.deletarProduto();
 //        pv.mostrarProdutos();
-
 //        marca.cadastrarMarca();
 //        marca.cadastrarMarca();
 //        marca.editarMarcas();
 //        marca.deletaMarca();
 //        marca.mostrarMarcas();
 //        lojasView.cadastrarLoja();
-//        tamanhoView.cadastrarTamanho();
+        tamanhoView.cadastrarTamanho();
 
     }
 }

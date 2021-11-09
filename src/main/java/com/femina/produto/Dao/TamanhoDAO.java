@@ -15,6 +15,9 @@ import java.util.List;
 
 public class TamanhoDAO {
 
+    List<Tamanho> listaValidacao = new ArrayList<>();
+    Tamanho tamanho = new Tamanho();
+
     public void cadastrarTamanho(List<Tamanho> tamanhos){
 
         File file = new File("tamanhos.txt");
@@ -23,9 +26,11 @@ public class TamanhoDAO {
                 FileWriter fileWriter = new FileWriter(file, true);
                 PrintWriter printWriter = new PrintWriter(fileWriter);
                 for(int i = 0; i < tamanhos.size(); i++){
-                    tamanhos.get(i).setId(i);
-                    printWriter.println(tamanhos.get(i));
+                    printWriter.println(validarId(tamanhos.get(i)));
                 }
+                printWriter.flush();
+                fileWriter.close();
+                printWriter.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -43,7 +48,7 @@ public class TamanhoDAO {
         int dadosInt = 0;
         List<String> listaDoArquivoTamanhos = new ArrayList<>();
         List<Tamanho> listaDeTamanhos = new ArrayList<>();
-        Path path = Paths.get("funcionarios.txt");
+        Path path = Paths.get("tamanhos.txt");
         try {
             listaDoArquivoTamanhos = Files.readAllLines(path);
         } catch (IOException e) {
@@ -57,15 +62,26 @@ public class TamanhoDAO {
                 Tamanho tamanho = new Tamanho();
                 tamanho.setId(dadosInt);
                 tamanho.setTam(dadosFuncionario[1]);
+                listaDeTamanhos.add(tamanho);
             }
         }
         return listaDeTamanhos;
     }
 
-    public List<Tamanho> validarId(){
+    public Tamanho validarId(Tamanho tamanho){
 
+        listaValidacao = listarTamanhos();
 
-        return null;
+        for(int i = 0; i<listaValidacao.size();i++){
+            if(tamanho.getId() == listaValidacao.get(i).getId()){
+                tamanho.setId(i+1);
+//                if (tamanho.getTam() == listaValidacao.get(i).getTam()) {
+//                    System.out.println("aaa");
+//                }
+                return tamanho;
+            }
+        }
+        return tamanho;
     }
 
     public static boolean isNumeric(String strNum) {

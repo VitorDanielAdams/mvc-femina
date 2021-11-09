@@ -95,9 +95,7 @@ public class LojasDAO {
         for(int i = 0; i<lojasListParaEditar.size();i++){
 
             if(lojas.getId() == lojasListParaEditar.get(i).getId()){
-
                 lojas.setId(i+1);
-
             }
         }
 
