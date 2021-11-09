@@ -5,6 +5,7 @@ import main.java.com.femina.produto.Model.Tamanho;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class TamanhoView {
@@ -18,7 +19,7 @@ public class TamanhoView {
         Tamanho tamanho = new Tamanho();
         System.out.println("Tamanho:");
         String tamanhoValue = entrada.next();
-        tamanho.setTam(tamanhoValue);
+        tamanho.setTam(tamanhoValue.toUpperCase(Locale.ROOT));
         tamanhos.add(tamanho);
         System.out.println("Deseja continuar?\n1 - SIM\n2 - NÃO");
         int continuar = entrada.nextInt();
