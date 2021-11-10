@@ -41,7 +41,7 @@ public class Main {
 //        marca.mostrarMarcas();
 //        lojasView.cadastrarLoja();
 //        tamanhoView.cadastrarTamanho();
-        
+
         //produtosComDescontoView.cadastrarDesconto();
 
         produtosComDescontoView.cadastrarDesconto();
