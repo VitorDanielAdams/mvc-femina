@@ -16,7 +16,6 @@ public class ProdutosComDescontoView {
     ProdutoDescontoController produtoDescontoController = new ProdutoDescontoController();
 
     public void cadastrarDesconto() throws IOException {
-
         ProdutoDesconto produtoDesconto = new ProdutoDesconto();
         ProdutoController produtoController = new ProdutoController();
         List<Produto> listaDeProdutos = produtoController.listarProdutos();
@@ -46,6 +45,21 @@ public class ProdutosComDescontoView {
         List<ProdutoDesconto> listaDeDescontos = produtoDescontoController.mostrarListaDeDescontos();
         System.out.println(listaDeDescontos);
         return listaDeDescontos;
+    }
+
+    public void editarDescontoByIdProduto() throws IOException {
+        ProdutoController produtoController = new ProdutoController();
+        List<Produto> listaDeProdutos = produtoController.listarProdutos();
+
+        System.out.println(listaDeProdutos);
+
+        System.out.println("Qual produto você quer editar o desconto: ");
+        int idProdutoSelecionado = leitor.nextInt();
+
+        System.out.println("Qual o novo desconto: ");
+        Double novoDesconto = leitor.nextDouble();
+
+        listaDeProdutos.get(idProdutoSelecionado).setPreco(novoDesconto);
     }
 
 

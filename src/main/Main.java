@@ -48,5 +48,6 @@ public class Main {
       //  produtosComDescontoView.mostraListaDeDescontos();
         ofertasView.excluirOferta();
 
+        produtosComDescontoView.editarDescontoByIdProduto();
     }
 }
