@@ -4,34 +4,38 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProdutoDesconto {
-    private Double preco;
-    private List<Produto> produto = new ArrayList<Produto>(); // lista de produtos
+    private Double precoDesconto;
+    private Long idProduto;
 
-    public ProdutoDesconto(Double preco) {
-        this.preco = preco;
+    public ProdutoDesconto(Double preco, Long idProduto) {
+        this.precoDesconto = preco;
+        this.idProduto = idProduto;
+    }
+
+    public ProdutoDesconto() {
     }
 
     public Double getPreco() {
-        return preco;
+        return precoDesconto;
     }
 
     public void setPreco(Double preco) {
-        this.preco = preco;
+        this.precoDesconto = preco;
     }
 
-    public List<Produto> getProduto() {
-        return produto;
+    public Long getIdProduto() {
+        return idProduto;
     }
 
-    public void setProduto(List<Produto> produto) {
-        this.produto = produto;
+    public void setIdProduto(Long idProduto) {
+        this.idProduto = idProduto;
     }
 
     @Override
     public String toString() {
         return "ProdutoDesconto{" +
-                "preco=" + preco +
-                ", produto=" + produto +
+                "preco=" + precoDesconto +
+                ", idProduto=" + idProduto +
                 '}';
     }
 }
