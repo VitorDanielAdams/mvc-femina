@@ -29,9 +29,6 @@ public class Favoritos {
 
     @Override
     public String toString() {
-        return "Favoritos{" +
-                "Produtos=" + Produtos +
-                ", Cliente=" + Cliente +
-                '}';
+        return "" + Produtos + ";" + Cliente;
     }
 }

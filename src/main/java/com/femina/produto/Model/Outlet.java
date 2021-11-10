@@ -26,9 +26,6 @@ public class Outlet {
 
     @Override
     public String toString() {
-        return "Outlet{" +
-                "produtoComDesconto=" + produtoComDesconto +
-                ", lojas=" + lojas +
-                '}';
+        return "" + produtoComDesconto + ";" + lojas;
     }
 }

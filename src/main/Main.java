@@ -33,8 +33,8 @@ public class Main {
 //        pv.mostrarProdutos();
 //        pv.alterarProduto();
 //        corView.cadastro(pv.acessarProduto());
-        pv.deletarProduto();
-        pv.mostrarProdutos();
+//        pv.deletarProduto();
+//        pv.mostrarProdutos();
         //corView.cadastro(pv.acessarProduto());
 //        pv.deletarProduto();
 //        pv.mostrarProdutos();
@@ -52,8 +52,8 @@ public class Main {
         //produtosComDescontoView.cadastrarDesconto();
 
       //  produtosComDescontoView.mostraListaDeDescontos();
-        ofertasView.cadastrarOfertas();
+//        ofertasView.cadastrarOfertas();
 
-        produtosComDescontoView.editarDescontoByIdProduto();
+//        produtosComDescontoView.editarDescontoByIdProduto();
     }
 }

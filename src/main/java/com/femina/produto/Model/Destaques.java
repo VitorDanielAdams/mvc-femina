@@ -33,10 +33,7 @@ public class Destaques {
 
     @Override
     public String toString() {
-        return "Destaques{" +
-                "nomeColecao='" + nomeColecao + '\'' +
-                ", produto =" + produto +
-                '}';
+        return "" + nomeColecao + ';' + produto;
     }
 }
 
