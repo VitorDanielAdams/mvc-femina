@@ -1,7 +1,1 @@
-15.0;1
-52.0;2
-45.0;4
-ProdutoDesconto{preco=3.4499999999999997, idProduto=0}
-ProdutoDesconto{preco=4.6000000000000005, idProduto=0}
-ProdutoDesconto{preco=3.4499999999999997, idProduto=0}
-ProdutoDesconto{preco=3.4499999999999997, idProduto=0}
+0.88;1

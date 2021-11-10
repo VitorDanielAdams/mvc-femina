@@ -23,6 +23,10 @@ public class ProdutoDescontoController {
     }
 
     public void editaDesconto(List<ProdutoDesconto> produtoDescontos) throws IOException {
-        produtosComDescontoDao.editaDesconto(produtoDescontos);
+        produtosComDescontoDao.editaDeletaDesconto(produtoDescontos);
+    }
+
+    public void removeDesconto(List<ProdutoDesconto> produtoDescontos) throws IOException {
+        produtosComDescontoDao.editaDeletaDesconto(produtoDescontos);
     }
 }

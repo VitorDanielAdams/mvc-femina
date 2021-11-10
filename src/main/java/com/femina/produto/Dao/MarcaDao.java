@@ -92,7 +92,6 @@ public class MarcaDao {
         printWriter.flush();
         printWriter.close();
         fileWriter.close();
-
     }
 
     public void deletaMarca(List<Marca> marcas) throws IOException {

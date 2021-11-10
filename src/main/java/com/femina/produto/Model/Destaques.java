@@ -6,7 +6,6 @@ import java.util.List;
 public class Destaques {
 
     private String nomeColecao;
-
     private List<Produto> produto = new ArrayList<Produto>();
 
     public Destaques() {
