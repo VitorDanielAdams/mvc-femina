@@ -67,15 +67,15 @@ public class FornecedorDao {
                 fornecedor.setId(Integer.valueOf(forncedores[0]));
                 fornecedor.setNome(forncedores[1]);
                 fornecedor.setCnpj(forncedores[2]);
-                ContatoController cc = new ContatoController();
-                List<Contatos> ldc = cc.mostraContato("fornecedor");
+                ContatoDao cd = new ContatoDao();
+                List<Contatos> ldc = cd.mostraContato("fornecedor");
                 for(int i = 0;i < ldc.size();i++){
                     if(ldc.get(i).getId() == Integer.valueOf(forncedores[3])){
                         fornecedor.setContatos(ldc.get(i));
                     }
                 }
-                EnderecoController ec = new EnderecoController();
-                List<Endereco> lde = ec.mostraEndereco("fornecedor");
+                EnderecoDao ed = new EnderecoDao();
+                List<Endereco> lde = ed.mostraEndereco("fornecedor");
                 for(int i = 0;i < lde.size();i++){
                     if(lde.get(i).getIdEndereco() == Long.valueOf(forncedores[4])){
                         fornecedor.setEndereco(lde.get(i));
