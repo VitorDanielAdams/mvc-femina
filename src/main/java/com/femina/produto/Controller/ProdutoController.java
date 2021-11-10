@@ -7,9 +7,9 @@ import java.util.List;
 
 public class ProdutoController {
 
-    public void cadastrarProduto(Produto prod){
+    public Produto cadastrarProduto(Produto prod){
         ProdutoDao pd = new ProdutoDao();
-        pd.gravaProduto(prod);
+        return pd.gravaProduto(prod);
     }
 
     public List<Produto> listarProdutos(){
@@ -20,13 +20,19 @@ public class ProdutoController {
 
     public void editarProduto(List<Produto> lpd){
         ProdutoDao pd = new ProdutoDao();
-        pd.updelProd(lpd);
+        pd.updateProd(lpd);
 
     }
 
     public void removerProduto(List<Produto> lpd){
         ProdutoDao pd = new ProdutoDao();
-        pd.updelProd(lpd);
+        pd.delProd(lpd);
+    }
+
+    public Produto pegaIdProduto(int index){
+        ProdutoDao pd = new ProdutoDao();
+        List<Produto> lpd = pd.retornaProdutos();
+        return lpd.get(index-1);
     }
 
 }

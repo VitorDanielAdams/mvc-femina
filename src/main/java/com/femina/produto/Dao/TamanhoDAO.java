@@ -64,6 +64,7 @@ public class TamanhoDAO {
                 Tamanho tamanho = new Tamanho();
                 tamanho.setId(dadosInt);
                 tamanho.setTam(dadosFuncionario[1]);
+                tamanho.setIdProduto(Integer.valueOf(dadosFuncionario[2]));
                 listaDeTamanhos.add(tamanho);
             }
         }

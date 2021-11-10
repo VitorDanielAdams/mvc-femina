@@ -22,8 +22,10 @@ public class CorDao {
 
             for(int i = 0;i < cor.size();i++) {
                 if(cor.get(i).getId() != Long.valueOf(i)+1) {
-                    cor.get(i).setId(Long.valueOf(i)+1);
-                    printWriter.println(cor.get(i));
+                    if(corExiste(cor.get(i))) {
+                        cor.get(i).setId(Long.valueOf(i) + 1);
+                        printWriter.println(cor.get(i));
+                    }
                 }
             }
 
@@ -60,6 +62,7 @@ public class CorDao {
             cores.setId(Long.valueOf(cs[0]));
             cores.setNome(cs[1]);
             cores.setHexadecimal(cs[2]);
+            cores.setIdProduto(Long.valueOf(cs[3]));
 
             listaCores.add(cores);
         }
@@ -99,5 +102,31 @@ public class CorDao {
         gravaArq.close();
         arquivoTxt.close();
 
+    }
+
+    public List<Cor> listarId(Long idProd) throws IOException {
+
+        List<Cor> coresProd = new ArrayList<>();
+        List<Cor> cores = mostraCor();
+
+        for (int i = 0;i < cores.size();i++){
+            if (cores.get(i).getIdProduto() == idProd){
+                coresProd.add(cores.get(i));
+            }
+        }
+
+        return coresProd;
+
+    }
+
+    public boolean corExiste(Cor cor) throws IOException {
+        List<Cor> cores = mostraCor();
+
+        for (int i = 0; i < cores.size();i++){
+            if (cores.get(i).getNome() == cor.getNome() || cores.get(i).getHexadecimal() == cor.getHexadecimal()){
+                return false;
+            }
+        }
+        return true;
     }
 }
