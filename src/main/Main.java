@@ -31,7 +31,7 @@ public class Main {
 //        pv.cadastro();
 //        pv.mostrarProdutos();
 //        pv.alterarProduto();
-        corView.cadastro(pv.acessarProduto());
+        //corView.cadastro(pv.acessarProduto());
 //        pv.deletarProduto();
 //        pv.mostrarProdutos();
 //        marca.cadastrarMarca();
@@ -44,7 +44,7 @@ public class Main {
 
         //produtosComDescontoView.cadastrarDesconto();
 
-        produtosComDescontoView.cadastrarDesconto();
+        //produtosComDescontoView.cadastrarDesconto();
       //  produtosComDescontoView.mostraListaDeDescontos();
         ofertasView.cadastrarOfertas();
 

@@ -20,8 +20,8 @@ public class OfertasView {
 
     public void cadastrarOfertas() throws IOException {
         List<ProdutoDesconto> listaOfertas = new ArrayList<>();
-        int tamanhoListaProd = 1;//chamo a função que lista o produtos com desconto ex:listarProdDesc.size(); e atribuo o valor a variavel
         List<ProdutoDesconto> produtoDescontoList = produtoDescontoController.mostrarListaDeDescontos();
+        int tamanhoListaProd = produtoDescontoList.size();
         ofertas.setProdutoDescontoList(produtoDescontoList);
         for(int i = 0; i < tamanhoListaProd; i++){
             System.out.println(produtoDescontoList.get(i));

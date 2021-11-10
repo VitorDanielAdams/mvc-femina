@@ -55,7 +55,6 @@ public class ProdutosComDescontoDao {
 
             listaDeDescontos.add(descontos);
         }
-        System.out.println(listaDeDescontos);
         return listaDeDescontos;
     }
 

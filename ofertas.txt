@@ -1,0 +1,1 @@
+ProdutoDesconto{preco=52.0, idProduto=2}
