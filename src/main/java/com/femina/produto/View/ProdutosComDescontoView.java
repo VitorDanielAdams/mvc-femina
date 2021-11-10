@@ -18,8 +18,6 @@ public class ProdutosComDescontoView {
     public void cadastrarDesconto() throws IOException {
 
         ProdutoDesconto produtoDesconto = new ProdutoDesconto();
-        Produto produto = new Produto();
-
         ProdutoController produtoController = new ProdutoController();
         List<Produto> listaDeProdutos = produtoController.listarProdutos();
 

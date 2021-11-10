@@ -14,11 +14,17 @@ public class TamanhoView {
     TamanhoController tamanhoController = new TamanhoController();
     List<Tamanho> tamanhos = new ArrayList<>();
 
+<<<<<<< HEAD
     public void cadastrarTamanho(){
+=======
+
+    public void cadastrarTamanho(int idProd){
+>>>>>>> b2a4e311fcdf25525a6ff16c8fc45c290fbc18a8
         Tamanho tamanho = new Tamanho();
         System.out.println("Tamanho:");
         String tamanhoValue = entrada.next();
         tamanho.setTam(tamanhoValue.toUpperCase(Locale.ROOT));
+        tamanho.setIdProduto(idProd);
         tamanhos.add(tamanho);
         System.out.println("Deseja continuar?\n1 - SIM\n2 - NÃO");
         int continuar = entrada.nextInt();
@@ -26,7 +32,7 @@ public class TamanhoView {
             System.out.println(tamanhos);
             tamanhoController.cadastrarTamanho(tamanhos);
         }else{
-            cadastrarTamanho();
+            cadastrarTamanho(idProd);
         }
     }
 

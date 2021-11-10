@@ -29,5 +29,10 @@ public class CorController {
         CorDao corDao = new CorDao();
         corDao.delCor(cor);
     }
+
+    public List<Cor> listarCoresPeloId(Long idProd) throws IOException {
+        CorDao corDao = new CorDao();
+        return corDao.listarId(idProd);
+    }
 }
 

@@ -21,7 +21,6 @@ public class Main {
 
         TamanhoView tamanhoView = new TamanhoView();
 
-
 //        corView.cadastro();
 //        corView.mostrarCor();
 //        corView.editaCor();
@@ -32,6 +31,7 @@ public class Main {
 //        pv.cadastro();
 //        pv.mostrarProdutos();
 //        pv.alterarProduto();
+        corView.cadastro(pv.acessarProduto());
 //        pv.deletarProduto();
 //        pv.mostrarProdutos();
 //        marca.cadastrarMarca();
@@ -41,8 +41,10 @@ public class Main {
 //        marca.mostrarMarcas();
 //        lojasView.cadastrarLoja();
 //        tamanhoView.cadastrarTamanho();
-
+        
         //produtosComDescontoView.cadastrarDesconto();
+
+        produtosComDescontoView.cadastrarDesconto();
       //  produtosComDescontoView.mostraListaDeDescontos();
         ofertasView.cadastrarOfertas();
 

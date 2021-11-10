@@ -13,7 +13,7 @@ public class Produto {
     private Fornecedor fornecedor; // obj
 
     private List<ModelosDosProdutos> modeloDosProdutos = new ArrayList<ModelosDosProdutos>();
-    private List<Cor> cor = new ArrayList<Cor>();
+    private List<Cor> cor = new ArrayList<>();
     private List<Tamanho> tamanho = new ArrayList<Tamanho>();
 
     public Produto() {}
@@ -121,7 +121,8 @@ public class Produto {
 //                ", modeloDosProdutos=" + modeloDosProdutos +
 //                ", categoria=" + categoria.getNome() +
 //                ", tamanho=" + tamanho +
-                fornecedor.toMostra();
+                fornecedor.toMostra() +
+                "Cores - " + cor;
     }
 
     @Override

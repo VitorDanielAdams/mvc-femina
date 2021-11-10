@@ -8,24 +8,29 @@ import main.java.com.femina.produto.Controller.FornecedorController;
 
 public class ProdutoDao {
 
-    public void gravaProduto(Produto prod){
+    public Produto gravaProduto(Produto prod){
+
+        List<Produto> listProd = retornaProdutos();
 
         try {
             FileWriter fileWriter = new FileWriter("produtos.txt", true);
             PrintWriter printWriter = new PrintWriter(fileWriter);
 
-            printWriter.print(prod.getId() + ";");
-            printWriter.print(prod.getCodigo() + ";");
-            printWriter.print(prod.getNome() + ";");
-            printWriter.print(prod.getPreco() + ";");
-            printWriter.print(prod.getQtd() + ";");
-            printWriter.println(prod.getFornecedor().getId());
+            listProd.add(prod);
+            for(int i = 0;i < listProd.size();i++){
+                if(listProd.get(i).getId() != i+1) {
+                    listProd.get(i).setId(i + 1);
+                    printWriter.println(listProd.get(i));
+                }
+            }
 
             printWriter.flush();
             printWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        return prod;
     }
 
     public List<Produto> retornaProdutos(){
@@ -77,13 +82,35 @@ public class ProdutoDao {
         return produtos;
     }
 
-    public void updelProd(List<Produto> prod){
+    public void updateProd(List<Produto> prod){
         try {
 
             FileWriter fileWriter = new FileWriter("produtos.txt", false);
             PrintWriter printWriter = new PrintWriter(fileWriter);
 
             for (int list = 0; list < prod.size(); list++) {
+                printWriter.println(prod.get(list));
+            }
+
+            printWriter.flush();
+            printWriter.close();
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void delProd(List<Produto> prod){
+        try {
+
+            FileWriter fileWriter = new FileWriter("produtos.txt", false);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+
+            for (int list = 0; list < prod.size(); list++) {
+                if(prod.get(list).getCor().get(list).getIdProduto() != 1){
+                    prod.get(list).getCor().get(list).setIdProduto(prod.get(list).getCor().get(list).getIdProduto()-1);
+                }
+                prod.get(list).setId(list+1);
                 printWriter.println(prod.get(list));
             }
 

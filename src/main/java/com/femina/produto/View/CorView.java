@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class CorView {
-    public void cadastro() throws IOException {
+    public Cor cadastro(long idProd) throws IOException {
 
         Cor cor = new Cor();
         Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);;
@@ -21,12 +21,15 @@ public class CorView {
         System.out.println("Informe o Hexadecimal:");
         cor.setHexadecimal(entrada.next());
 
+        cor.setIdProduto(idProd);
+
         List<Cor> ldc = cc.mostraCorCadastrada();
         ldc.add(cor);
 
         cc.cadastraCor(ldc);
 
         System.out.println("Cor cadastrada com sucesso" );
+        return cor;
     }
     public void mostrarCor() throws IOException {
 
@@ -39,12 +42,12 @@ public class CorView {
         }
 
     }
-    public void editaCor()  throws IOException {
+    public void editaCor(Long idProd)  throws IOException {
 
         Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
         CorController cd = new CorController();
 
-        List<Cor> cores = cd.mostraCorCadastrada();
+        List<Cor> cores = cd.listarCoresPeloId(idProd);
 
         for(int i = 0;i < cores.size();i++){
             System.out.println((i+1) + " - " + cores.get(i).toMostra());
@@ -69,26 +72,32 @@ public class CorView {
         System.out.println("Cor editada com sucesso!");
     }
 
-    public void removeCor() throws IOException {
+    public void removeCor(Long idProd) throws IOException {
 
         Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
         CorController cd = new CorController();
 
-        List<Cor> cores = cd.mostraCorCadastrada();
+        List<Cor> cores = cd.listarCoresPeloId(idProd);
 
         for(int i = 0;i < cores.size();i++){
             System.out.println((i+1) + " - " + cores.get(i).toMostra());
         }
 
-        System.out.println("Escolha qual cor quer deletar:");
-        int select = entrada.nextInt();
-
-        cores.remove(select - 1);
+        for(int i = 0;i < cores.size();i++) {
+            if (cores.get(i).getIdProduto() == idProd) {
+                cores.remove(cores.get(i));
+            }
+        }
 
         cd.apagaCores(cores);
 
         System.out.println("Cor deletada com sucesso!");
 
+    }
+
+    public List<Cor> listaCorDoProduto(Long idProd) throws IOException {
+        CorController cd = new CorController();
+        return cd.listarCoresPeloId(idProd);
     }
 
 }

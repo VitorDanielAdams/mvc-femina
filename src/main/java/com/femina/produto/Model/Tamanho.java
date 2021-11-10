@@ -4,6 +4,7 @@ public class Tamanho {
 
     private int id;
     private String tam;
+    private int idProduto;
 
     public Tamanho(String tam, int id) {
         this.tam = tam;
@@ -29,8 +30,16 @@ public class Tamanho {
         this.id = id;
     }
 
+    public int getIdProduto() {
+        return idProduto;
+    }
+
+    public void setIdProduto(int idProduto) {
+        this.idProduto = idProduto;
+    }
+
     @Override
     public String toString() {
-        return id + ";" + tam;
+        return id + ";" + tam + ";" + idProduto;
     }
 }
