@@ -24,11 +24,27 @@ public class OfertasView {
         int tamanhoListaProd = produtoDescontoList.size();
         ofertas.setProdutoDescontoList(produtoDescontoList);
         for(int i = 0; i < tamanhoListaProd; i++){
-            System.out.println(produtoDescontoList.get(i));
+            System.out.println((i+1) + " "+produtoDescontoList.get(i));
         }
         System.out.println("Escolha o produto para adicionar as ofertas:");
         int produtoSelecionado = entrada.nextInt();
         listaOfertas.add(ofertas.getProdutoDescontoList().get((produtoSelecionado - 1)));
+        System.out.println(listaOfertas);
         ofertasController.cadastrarOfertas(listaOfertas);
+    }
+
+    public void excluirOferta() throws IOException {
+        int tamanhoListaOferta = ofertasController.listarOfertas().size();
+        for(int i = 0; i < tamanhoListaOferta; i++){
+            System.out.println((i+1)+" "+ofertasController.listarOfertas().get(i));
+        }
+        System.out.println("Escolha a oferta a ser excluída:");
+        int produtoSelecionado = entrada.nextInt();
+        if(ofertasController.excluirOferta((produtoSelecionado-1))){
+            System.out.println("Oferta deletada com sucesso!");
+        }else{
+            System.out.println("Erro ao deletar oferta!");
+        }
+
     }
 }

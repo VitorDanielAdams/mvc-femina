@@ -1,1 +1,2 @@
 ProdutoDesconto{preco=52.0, idProduto=2}
+ProdutoDesconto{preco=52.0, idProduto=2}

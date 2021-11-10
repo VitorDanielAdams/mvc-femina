@@ -46,7 +46,7 @@ public class Main {
 
         //produtosComDescontoView.cadastrarDesconto();
       //  produtosComDescontoView.mostraListaDeDescontos();
-        ofertasView.cadastrarOfertas();
+        ofertasView.excluirOferta();
 
     }
 }
