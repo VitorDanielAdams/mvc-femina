@@ -15,6 +15,7 @@ public class Main {
         ClienteView cv = new ClienteView();
         LojasView lojasView = new LojasView();
         ProdutosComDescontoView produtosComDescontoView = new ProdutosComDescontoView();
+        OfertasView ofertasView = new OfertasView();
 
         CorView corView = new CorView();
 
@@ -41,8 +42,9 @@ public class Main {
 //        lojasView.cadastrarLoja();
 //        tamanhoView.cadastrarTamanho();
 
-        produtosComDescontoView.cadastrarDesconto();
+        //produtosComDescontoView.cadastrarDesconto();
       //  produtosComDescontoView.mostraListaDeDescontos();
+        ofertasView.cadastrarOfertas();
 
     }
 }
