@@ -125,8 +125,6 @@ public class Produto {
                 "Cores - " + cor;
     }
 
-
-
     @Override
     public String toString() {
         return ""+ id + ';' +

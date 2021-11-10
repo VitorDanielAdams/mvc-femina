@@ -32,7 +32,7 @@ public class ProdutoController {
     public Produto pegaIdProduto(int index){
         ProdutoDao pd = new ProdutoDao();
         List<Produto> lpd = pd.retornaProdutos();
-        return lpd.get(index-1);
+        return lpd.get(index);
     }
 
 }

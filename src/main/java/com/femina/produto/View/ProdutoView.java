@@ -131,18 +131,25 @@ public class ProdutoView {
         pc.removerProduto(lpd);
     }
 
-    public long acessarProduto(){
+    public long acessarProduto() throws IOException {
         ProdutoController pc = new ProdutoController();
+        CorView cv = new CorView();
         Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
         List<Produto> lpd = pc.listarProdutos();
 
         for(int i = 0; i < lpd.size();i++){
+            List<Cor> cores = cv.listaCorDoProduto(Long.valueOf(lpd.get(i).getId()));
+            for(int j = 0;j < cores.size();j++){
+                lpd.get(i).getCor().add(cores.get(j));
+            }
             System.out.println((i+1)+" - "+lpd.get(i).toMostra());
         }
 
         System.out.println("Escolha qual produto acessar: ");
 
         long idProduto = pc.pegaIdProduto(entrada.nextInt()-1).getId();
+
+        System.out.println("Produto selecionado:" + lpd.get((int) (idProduto-1)).toMostra());
 
         return idProduto;
     }

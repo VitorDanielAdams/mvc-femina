@@ -30,8 +30,9 @@ public class Main {
 //        pv.cadastro();
 //        pv.mostrarProdutos();
 //        pv.alterarProduto();
-        pv.deletarProduto();
-        pv.mostrarProdutos();
+        corView.cadastro(pv.acessarProduto());
+//        pv.deletarProduto();
+//        pv.mostrarProdutos();
 //        marca.cadastrarMarca();
 //        marca.cadastrarMarca();
 //        marca.editarMarcas();
@@ -41,7 +42,7 @@ public class Main {
 //        tamanhoView.cadastrarTamanho();
 
 
-        produtosComDescontoView.cadastrarDesconto();
+//        produtosComDescontoView.cadastrarDesconto();
       //  produtosComDescontoView.mostraListaDeDescontos();
 
     }
