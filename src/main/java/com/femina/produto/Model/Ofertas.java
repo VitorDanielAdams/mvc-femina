@@ -6,33 +6,20 @@ import java.util.List;
 
 public class Ofertas {
 
-    private long id;
-    private List<ProdutoDesconto> produtoComDesconto = new ArrayList<ProdutoDesconto>(); // lista de produtosDesconto
+    private List<ProdutoDesconto> produtoDescontoList = new ArrayList<>();
 
-    public Ofertas(long id) {
-        this.id = id;
+    public List<ProdutoDesconto> getProdutoDescontoList() {
+        return produtoDescontoList;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public List<ProdutoDesconto> getProdutoComDesconto() {
-        return produtoComDesconto;
-    }
-
-    public void setProdutoComDesconto(List<ProdutoDesconto> produtoComDesconto) {
-        this.produtoComDesconto = produtoComDesconto;
+    public void setProdutoDescontoList(List<ProdutoDesconto> produtoDescontoList) {
+        this.produtoDescontoList = produtoDescontoList;
     }
 
     @Override
     public String toString() {
         return "Ofertas{" +
-                "id=" + id +
+                "produtoDescontoList=" + produtoDescontoList +
                 '}';
     }
 }

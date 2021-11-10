@@ -13,14 +13,11 @@ public class ProdutosComDescontoDao {
         FileWriter descontoFile = new FileWriter("descontos.txt",true);
         PrintWriter printaDesconto = new PrintWriter(descontoFile);
 
-
         for(int i = 0; i < descontoList.size();i++) {
             descontoList.get(i).setPreco(precoComDesconto);
             printaDesconto.println(descontoList.get(i));
 
         }
-
-
 
         printaDesconto.flush();
         printaDesconto.close();
@@ -57,6 +54,21 @@ public class ProdutosComDescontoDao {
         }
         return listaDeDescontos;
     }
+
+    public void editaDeletaDesconto(List<ProdutoDesconto> produtoDescontos) throws IOException {
+        FileWriter fileWriter = new FileWriter("descontos.txt",false);
+        PrintWriter printWriter = new PrintWriter(fileWriter);
+
+        for (int listDescontos = 0; listDescontos < produtoDescontos.size(); listDescontos++) {
+            printWriter.println(produtoDescontos.get(listDescontos));
+        }
+
+        printWriter.flush();
+        printWriter.close();
+        fileWriter.close();
+    }
+
+
 
 
 

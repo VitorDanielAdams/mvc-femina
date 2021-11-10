@@ -16,7 +16,6 @@ public class ProdutosComDescontoView {
     ProdutoDescontoController produtoDescontoController = new ProdutoDescontoController();
 
     public void cadastrarDesconto() throws IOException {
-
         ProdutoDesconto produtoDesconto = new ProdutoDesconto();
         ProdutoController produtoController = new ProdutoController();
         List<Produto> listaDeProdutos = produtoController.listarProdutos();
@@ -33,7 +32,7 @@ public class ProdutosComDescontoView {
         System.out.println("Digite o desconto do produto: ");
         Double porcentagemDesconto = leitor.nextDouble();
 
-        Double precoComDesconto = listaDeProdutos.get(idProdutoSelecionado).getPreco() * (porcentagemDesconto / 100);
+        Double precoComDesconto = listaDeProdutos.get(idProdutoSelecionado - 1).getPreco() * (porcentagemDesconto / 100);
 
         produtoDesconto.setPreco(precoComDesconto);
 
@@ -48,7 +47,45 @@ public class ProdutosComDescontoView {
         return listaDeDescontos;
     }
 
+    public void editarDescontoByIdProduto() throws IOException {
+        ProdutoController produtoController = new ProdutoController();
+        List<Produto> listaDeProdutos = produtoController.listarProdutos();
 
+        System.out.println(listaDeProdutos);
 
+        System.out.println("Qual produto você quer editar o desconto: ");
+        int idProdutoSelecionado = leitor.nextInt();
+
+        System.out.println("Qual o novo desconto: ");
+        Double novoDesc = leitor.nextDouble() / 100;
+
+        List<ProdutoDesconto> listaDeProdutosComDesconto = mostraListaDeDescontos();
+
+        for (int i = 0; i < listaDeProdutosComDesconto.size();i++) {
+            if(listaDeProdutosComDesconto.get(i).getIdProduto() == listaDeProdutos.get(idProdutoSelecionado - 1).getId()) {
+                listaDeProdutosComDesconto.get(i).setPreco(novoDesc);
+            }
+        }
+        produtoDescontoController.removeDesconto(listaDeProdutosComDesconto);
+    }
+
+    public void removerDescontoByIdProduto() throws IOException {
+        ProdutoController produtoController = new ProdutoController();
+        List<Produto> listaDeProdutos = produtoController.listarProdutos();
+
+        System.out.println(listaDeProdutos);
+
+        System.out.println("Qual produto você quer remover o desconto: ");
+        int idProdutoSelecionado = leitor.nextInt();
+
+        List<ProdutoDesconto> listaDeProdutosComDesconto = mostraListaDeDescontos();
+
+        for (int i = 0; i < listaDeProdutosComDesconto.size();i++) {
+            if(listaDeProdutosComDesconto.get(i).getIdProduto() == listaDeProdutos.get(idProdutoSelecionado - 1).getId()) {
+                listaDeProdutosComDesconto.remove(i);
+            }
+        }
+        produtoDescontoController.removeDesconto(listaDeProdutosComDesconto);
+    }
 
 }

@@ -14,7 +14,6 @@ public class TamanhoView {
     TamanhoController tamanhoController = new TamanhoController();
     List<Tamanho> tamanhos = new ArrayList<>();
 
-
     public void cadastrarTamanho(int idProd){
         Tamanho tamanho = new Tamanho();
         System.out.println("Tamanho:");

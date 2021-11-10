@@ -15,6 +15,7 @@ public class Main {
         ClienteView cv = new ClienteView();
         LojasView lojasView = new LojasView();
         ProdutosComDescontoView produtosComDescontoView = new ProdutosComDescontoView();
+        OfertasView ofertasView = new OfertasView();
 
         CorView corView = new CorView();
 
@@ -34,6 +35,9 @@ public class Main {
 //        corView.cadastro(pv.acessarProduto());
         pv.deletarProduto();
         pv.mostrarProdutos();
+        //corView.cadastro(pv.acessarProduto());
+//        pv.deletarProduto();
+//        pv.mostrarProdutos();
 //        marca.cadastrarMarca();
 //        marca.cadastrarMarca();
 //        marca.editarMarcas();
@@ -42,9 +46,14 @@ public class Main {
 //        lojasView.cadastrarLoja();
 //        tamanhoView.cadastrarTamanho();
 
+        //produtosComDescontoView.cadastrarDesconto();
 
 //        produtosComDescontoView.cadastrarDesconto();
-      //  produtosComDescontoView.mostraListaDeDescontos();
+        //produtosComDescontoView.cadastrarDesconto();
 
+      //  produtosComDescontoView.mostraListaDeDescontos();
+        ofertasView.cadastrarOfertas();
+
+        produtosComDescontoView.editarDescontoByIdProduto();
     }
 }

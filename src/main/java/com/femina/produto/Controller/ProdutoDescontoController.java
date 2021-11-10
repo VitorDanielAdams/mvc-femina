@@ -22,18 +22,11 @@ public class ProdutoDescontoController {
         return descontos;
     }
 
-    public List<ProdutoDesconto> getDescontoByIdProduto(long idProduto) {
-
-        List<ProdutoDesconto> listaDeProdutosComDescontos = new ArrayList<ProdutoDesconto>();
-
-        for(int i = 0; i < descontos.size();i++) {
-            if(descontos.get(i).getIdProduto() == idProduto) {
-                listaDeProdutosComDescontos.add(descontos.get(i));
-            }
-        }
-
-        return listaDeProdutosComDescontos;
-
+    public void editaDesconto(List<ProdutoDesconto> produtoDescontos) throws IOException {
+        produtosComDescontoDao.editaDeletaDesconto(produtoDescontos);
     }
 
+    public void removeDesconto(List<ProdutoDesconto> produtoDescontos) throws IOException {
+        produtosComDescontoDao.editaDeletaDesconto(produtoDescontos);
+    }
 }
