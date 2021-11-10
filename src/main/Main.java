@@ -42,7 +42,7 @@ public class Main {
 //        tamanhoView.cadastrarTamanho();
 
 
-//        produtosComDescontoView.cadastrarDesconto();
+        produtosComDescontoView.cadastrarDesconto();
       //  produtosComDescontoView.mostraListaDeDescontos();
 
     }

@@ -13,12 +13,14 @@ public class ProdutosComDescontoDao {
         FileWriter descontoFile = new FileWriter("descontos.txt",true);
         PrintWriter printaDesconto = new PrintWriter(descontoFile);
 
+
         for(int i = 0; i < descontoList.size();i++) {
             descontoList.get(i).setPreco(precoComDesconto);
+            printaDesconto.println(descontoList.get(i));
+
         }
 
-//        printaDesconto.print(descontoList.getPreco() + ";");
-//        printaDesconto.println(descontoList.getIdProduto());
+
 
         printaDesconto.flush();
         printaDesconto.close();
