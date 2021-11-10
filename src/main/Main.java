@@ -14,6 +14,7 @@ public class Main {
         MarcaView marca = new MarcaView();
         ClienteView cv = new ClienteView();
         LojasView lojasView = new LojasView();
+        ProdutosComDescontoView produtosComDescontoView = new ProdutosComDescontoView();
 
         CorView corView = new CorView();
 
@@ -38,7 +39,10 @@ public class Main {
 //        marca.deletaMarca();
 //        marca.mostrarMarcas();
 //        lojasView.cadastrarLoja();
-        tamanhoView.cadastrarTamanho();
+//        tamanhoView.cadastrarTamanho();
+
+        produtosComDescontoView.cadastrarDesconto();
+      //  produtosComDescontoView.mostraListaDeDescontos();
 
     }
 }
