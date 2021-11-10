@@ -28,7 +28,6 @@ public class CorView {
 
         cc.cadastraCor(ldc);
 
-        System.out.println("Cor cadastrada com sucesso" );
         return cor;
     }
     public void mostrarCor() throws IOException {
@@ -47,10 +46,12 @@ public class CorView {
         Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
         CorController cd = new CorController();
 
-        List<Cor> cores = cd.listarCoresPeloId(idProd);
+        List<Cor> coresId = cd.listarCoresPeloId(idProd);
 
-        for(int i = 0;i < cores.size();i++){
-            System.out.println((i+1) + " - " + cores.get(i).toMostra());
+        List<Cor> cores = cd.mostraCorCadastrada();
+
+        for(int i = 0;i < coresId.size();i++){
+            System.out.println((i+1) + " - " + coresId.get(i).toMostra());
         }
 
         System.out.println("Escolha qual cor quer editar");
@@ -59,10 +60,10 @@ public class CorView {
         int selectItem = entrada.nextInt();
         switch (selectItem) {
             case 1:
-                cores.get(select-1).setNome(entrada.next());
+                cores.get((int)coresId.get(select-1).getId()-1).setNome(entrada.next());
                 break;
             case 2:
-                cores.get(select-1).setHexadecimal(entrada.next());
+                cores.get((int)coresId.get(select-1).getId()-1).setHexadecimal(entrada.next());
                 break;
             default:
                 System.out.println("Opção inválida");
@@ -77,19 +78,16 @@ public class CorView {
         Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
         CorController cd = new CorController();
 
-        List<Cor> cores = cd.listarCoresPeloId(idProd);
-
-        for(int i = 0;i < cores.size();i++){
-            System.out.println((i+1) + " - " + cores.get(i).toMostra());
-        }
+        List<Cor> cores = cd.mostraCorCadastrada();
+        List<Cor> coresNew = new ArrayList<>();
 
         for(int i = 0;i < cores.size();i++) {
-            if (cores.get(i).getIdProduto() == idProd) {
-                cores.remove(cores.get(i));
+            if (cores.get(i).getIdProduto() != idProd) {
+                coresNew.add(cores.get(i));
             }
         }
 
-        cd.apagaCores(cores);
+        cd.apagaCores(coresNew);
 
         System.out.println("Cor deletada com sucesso!");
 

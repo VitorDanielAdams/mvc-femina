@@ -1,5 +1,6 @@
 package main.java.com.femina.produto.Controller;
 
+import main.java.com.femina.produto.Dao.CorDao;
 import main.java.com.femina.produto.Dao.ModeloDao;
 import main.java.com.femina.produto.Model.ModelosDosProdutos;
 
@@ -8,7 +9,7 @@ import java.util.List;
 
 public class ModeloController {
 
-    public void cadastraModelo(ModelosDosProdutos modelo) throws IOException {
+    public void cadastraModelo(List<ModelosDosProdutos> modelo) throws IOException {
         ModeloDao modeloDao = new ModeloDao();
         modeloDao.cadastraModelo(modelo);
     }
@@ -21,12 +22,17 @@ public class ModeloController {
 
     public void editaModelo(List<ModelosDosProdutos> modelosDosProdutos) throws IOException {
         ModeloDao modeloDao = new ModeloDao();
-        modeloDao.editaDeletaModelo(modelosDosProdutos);
+        modeloDao.editaModelo(modelosDosProdutos);
     }
 
     public void deletaModelo(List<ModelosDosProdutos> modelosDosProdutos) throws IOException {
         ModeloDao modeloDao = new ModeloDao();
-        modeloDao.editaDeletaModelo(modelosDosProdutos);
+        modeloDao.deletaModelo(modelosDosProdutos);
+    }
+
+    public List<ModelosDosProdutos> listarModelosPeloIdProd(Long idProd) throws IOException {
+        ModeloDao modeloDao = new ModeloDao();
+        return modeloDao.listarId(idProd);
     }
 
 }

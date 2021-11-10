@@ -12,9 +12,9 @@ public class Produto {
     private Categoria categoria;
     private Fornecedor fornecedor; // obj
 
-    private List<ModelosDosProdutos> modeloDosProdutos = new ArrayList<ModelosDosProdutos>();
+    private List<ModelosDosProdutos> modeloDosProdutos = new ArrayList<>();
     private List<Cor> cor = new ArrayList<>();
-    private List<Tamanho> tamanho = new ArrayList<Tamanho>();
+    private List<Tamanho> tamanho = new ArrayList<>();
 
     public Produto() {}
 
@@ -114,15 +114,11 @@ public class Produto {
                "Nome - " + nome + "\n" +
                "Preço - " + preco + "\n" +
                "Quantidade - " + qtd + "\n" +
-//                modeloDosProdutos + ';' +
-//                cor.txt + ';' +
-//                categoria.getNome() + ';' +
-//                tamanho + ';' +
-//                ", modeloDosProdutos=" + modeloDosProdutos +
 //                ", categoria=" + categoria.getNome() +
 //                ", tamanho=" + tamanho +
                 fornecedor.toMostra() +
-                "Cores - " + cor;
+                "Cores - " + cor + "\n" +
+                "Modelos - " + modeloDosProdutos;
     }
 
     @Override
@@ -132,13 +128,7 @@ public class Produto {
                 nome + ';' +
                 preco + ';' +
                 qtd + ';' +
-//                modeloDosProdutos + ';' +
-//                cor.txt + ';' +
-//                categoria.getNome() + ';' +
-//                tamanho + ';' +
-//                ", modeloDosProdutos=" + modeloDosProdutos +
 //                ", categoria=" + categoria.getNome() +
-//                ", tamanho=" + tamanho +
                 fornecedor.getId();
     }
 }

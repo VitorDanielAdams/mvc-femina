@@ -28,11 +28,12 @@ public class Main {
 //        cv.cadastro();
 //        cv.mostrarClientes();
 //        pv.cadastro();
+//        pv.cadastro();
 //        pv.mostrarProdutos();
 //        pv.alterarProduto();
-        corView.cadastro(pv.acessarProduto());
-//        pv.deletarProduto();
-//        pv.mostrarProdutos();
+//        corView.cadastro(pv.acessarProduto());
+        pv.deletarProduto();
+        pv.mostrarProdutos();
 //        marca.cadastrarMarca();
 //        marca.cadastrarMarca();
 //        marca.editarMarcas();
@@ -42,7 +43,7 @@ public class Main {
 //        tamanhoView.cadastrarTamanho();
 
 
-        produtosComDescontoView.cadastrarDesconto();
+//        produtosComDescontoView.cadastrarDesconto();
       //  produtosComDescontoView.mostraListaDeDescontos();
 
     }

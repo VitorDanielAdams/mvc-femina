@@ -13,18 +13,22 @@ public class ModeloView {
 
     Scanner leitor = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
 
-    public void cadastrarModelos() throws IOException {
-        ModeloController modeloController = new ModeloController();
+    public ModelosDosProdutos cadastrarModelos(Long idProd) throws IOException {
 
-        System.out.println("Digite o Id do modelo: ");
-        long id = leitor.nextLong();
+        ModeloController modeloController = new ModeloController();
+        ModelosDosProdutos modelosDosProdutos = new ModelosDosProdutos();
 
         System.out.println("Digite o nome do modelo: ");
-        String nomeModelo = leitor.next();
+        modelosDosProdutos.setNomeTipo(leitor.next());
 
-        ModelosDosProdutos modelosDosProdutos = new ModelosDosProdutos(id, nomeModelo);
+        modelosDosProdutos.setIdProduto(idProd);
 
-        modeloController.cadastraModelo(modelosDosProdutos);
+        List<ModelosDosProdutos> listModelos = modeloController.mostraModelos();
+        listModelos.add(modelosDosProdutos);
+
+        modeloController.cadastraModelo(listModelos);
+
+        return modelosDosProdutos;
     }
 
     public void mostrarModelos(List<ModelosDosProdutos> modelosDosProdutos)  throws IOException {
@@ -34,47 +38,54 @@ public class ModeloView {
        List<ModelosDosProdutos> listaModelos = modeloController.mostraModelos();
 
        for(int i = 0; i < listaModelos.size();i++) {
-           System.out.println(listaModelos.get(i));
+           System.out.println((i+1) + " - " + listaModelos.get(i).toMostra());
        }
 
     }
 
-    public void editaModelo() throws IOException {
+    public void editaModelo(Long idProd) throws IOException {
 
         ModeloController modeloController = new ModeloController();
 
-        List<ModelosDosProdutos> listaDeModelos = modeloController.mostraModelos();
+        List<ModelosDosProdutos> listaDeModelos = modeloController.listarModelosPeloIdProd(idProd);
+
+        List<ModelosDosProdutos> listModelosTotal = modeloController.mostraModelos();
 
         for (int i = 0; i < listaDeModelos.size();i++) {
-            System.out.println(listaDeModelos.get(i));
+            System.out.println((i+1) + " - " + listaDeModelos.get(i).toMostra());
         }
 
         System.out.println("Escolha qual modelo você quer editar: ");
         int opModelo = leitor.nextInt();
 
         System.out.println("Digite o novo nome do modelo:");
-        listaDeModelos.get(opModelo - 1).setNomeTipo(leitor.next());
+        listModelosTotal.get((int)listaDeModelos.get(opModelo-1).getId()-1).setNomeTipo(leitor.next());
 
-        modeloController.editaModelo(listaDeModelos);
+        modeloController.editaModelo(listModelosTotal);
     }
 
-    public void deletaModelo () throws IOException {
+    public void deletaModelo (Long idProd) throws IOException {
 
         ModeloController modeloController = new ModeloController();
 
         List<ModelosDosProdutos> modelosDosProdutos = modeloController.mostraModelos();
+        List<ModelosDosProdutos> novalist = new ArrayList<>();
 
-        for (int i = 0; i < modelosDosProdutos.size();i++) {
-            System.out.println(modelosDosProdutos.get(i));
+        for(int i = 0;i < modelosDosProdutos.size();i++) {
+            if (modelosDosProdutos.get(i).getIdProduto() != idProd) {
+                novalist.add(modelosDosProdutos.get(i));
+            }
         }
 
-        System.out.println("Escolha qual modelo você quer deletar: ");
-        int opModelo = leitor.nextInt();
+        System.out.println(novalist);
 
-        modelosDosProdutos.remove(opModelo - 1);
+        modeloController.deletaModelo(novalist);
 
-        modeloController.deletaModelo(modelosDosProdutos);
+    }
 
+    public List<ModelosDosProdutos> listarModelosDoProduto(Long idProd) throws IOException {
+        ModeloController modeloController = new ModeloController();
+        return modeloController.listarModelosPeloIdProd(idProd);
     }
 
 }

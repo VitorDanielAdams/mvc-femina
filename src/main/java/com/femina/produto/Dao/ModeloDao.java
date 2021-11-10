@@ -1,5 +1,6 @@
 package main.java.com.femina.produto.Dao;
 
+import main.java.com.femina.produto.Model.Cor;
 import main.java.com.femina.produto.Model.ModelosDosProdutos;
 
 import java.io.*;
@@ -8,15 +9,29 @@ import java.util.List;
 
 public class ModeloDao {
 
-    public void cadastraModelo(ModelosDosProdutos modelo) throws IOException {
-        FileWriter fileWriter = new FileWriter("modeloDosProdutos.txt", true);
-        PrintWriter printWriter = new PrintWriter(fileWriter);
+    public void cadastraModelo(List<ModelosDosProdutos> modelo) throws IOException {
+        try {
+            File arquivo = new File("modeloDosProdutos.txt");
 
-        printWriter.print(modelo.getId() + ";");
-        printWriter.println(modelo.getNomeTipo());
+            if(arquivo.isFile() ==  false){
+                arquivo.createNewFile();
+            }
 
-        printWriter.flush();
-        printWriter.close();
+            FileWriter fileWriter = new FileWriter(arquivo, true);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+
+            for(int i = 0;i < modelo.size();i++) {
+                if(modelo.get(i).getId() != Long.valueOf(i)+1) {
+                    modelo.get(i).setId(Long.valueOf(i) + 1);
+                    printWriter.println(modelo.get(i));
+                }
+            }
+
+            printWriter.flush();
+            printWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public List<ModelosDosProdutos> mostraModelo() throws IOException {  // retorna uma lista
@@ -46,13 +61,14 @@ public class ModeloDao {
 
             models.setId(Long.valueOf(model[0]));
             models.setNomeTipo(model[1]);
+            models.setIdProduto(Long.valueOf(model[2]));
 
             listaDeModelos.add(models);
         }
         return listaDeModelos;
     }
 
-    public void editaDeletaModelo(List<ModelosDosProdutos> modelosDosProdutos) throws IOException {
+    public void editaModelo(List<ModelosDosProdutos> modelosDosProdutos) throws IOException {
         FileWriter fileWriter = new FileWriter("modeloDosProdutos.txt",false);
         PrintWriter printWriter = new PrintWriter(fileWriter);
 
@@ -63,6 +79,36 @@ public class ModeloDao {
         printWriter.flush();
         printWriter.close();
         fileWriter.close();
+    }
+
+    public void deletaModelo(List<ModelosDosProdutos> modelosDosProdutos) throws IOException {
+        FileWriter fileWriter = new FileWriter("modeloDosProdutos.txt",false);
+        PrintWriter printWriter = new PrintWriter(fileWriter);
+
+        for (int l = 0; l < modelosDosProdutos.size();l++) {
+            if(modelosDosProdutos.get(l).getIdProduto() != 1){
+                modelosDosProdutos.get(l).setIdProduto(modelosDosProdutos.get(l).getIdProduto()-1);
+            }
+            modelosDosProdutos.get(l).setId(Long.valueOf(l)+1);
+            printWriter.println(modelosDosProdutos.get(l));
+        }
+
+        printWriter.flush();
+        printWriter.close();
+        fileWriter.close();
+    }
+
+    public List<ModelosDosProdutos> listarId(Long idProd) throws IOException {
+        List<ModelosDosProdutos> modelsProd = new ArrayList<>();
+        List<ModelosDosProdutos> models = mostraModelo();
+
+        for (int i = 0;i < models.size();i++){
+            if (models.get(i).getIdProduto() == idProd){
+                modelsProd.add(models.get(i));
+            }
+        }
+
+        return modelsProd;
     }
 
 }

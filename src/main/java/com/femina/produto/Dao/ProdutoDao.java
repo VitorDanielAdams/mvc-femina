@@ -107,9 +107,6 @@ public class ProdutoDao {
             PrintWriter printWriter = new PrintWriter(fileWriter);
 
             for (int list = 0; list < prod.size(); list++) {
-                if(prod.get(list).getCor().get(list).getIdProduto() != 1){
-                    prod.get(list).getCor().get(list).setIdProduto(prod.get(list).getCor().get(list).getIdProduto()-1);
-                }
                 prod.get(list).setId(list+1);
                 printWriter.println(prod.get(list));
             }

@@ -38,6 +38,13 @@ public class Tamanho {
         this.idProduto = idProduto;
     }
 
+    public String toMostra() {
+        return  "Tamanho: \n" +
+                "Id - " + id + "; " +
+                "Tamanho - " + tam +
+                "\n";
+    }
+
     @Override
     public String toString() {
         return id + ";" + tam + ";" + idProduto;
