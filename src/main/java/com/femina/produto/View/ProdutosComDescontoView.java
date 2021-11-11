@@ -43,7 +43,6 @@ public class ProdutosComDescontoView {
 
     public List<ProdutoDesconto> mostraListaDeDescontos() throws IOException {
         List<ProdutoDesconto> listaDeDescontos = produtoDescontoController.mostrarListaDeDescontos();
-
         System.out.println(listaDeDescontos);
         return listaDeDescontos;
     }

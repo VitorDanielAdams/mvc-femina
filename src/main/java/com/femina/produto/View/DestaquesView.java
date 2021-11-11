@@ -4,8 +4,10 @@ import main.java.com.femina.produto.Controller.DestaquesController;
 import main.java.com.femina.produto.Controller.ProdutoController;
 import main.java.com.femina.produto.Model.Destaques;
 import main.java.com.femina.produto.Model.Produto;
+import main.java.com.femina.produto.Model.ProdutoDesconto;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -31,7 +33,31 @@ public class DestaquesView {
         destaquesController.cadastraDestaque(destaques);
     }
 
-    public void mostraDestaques() {
+    public List<Destaques> mostraDestaques() throws IOException {
+        List<Destaques> listaDeDestaques = destaquesController.mostraListaDeDestaques();
+        System.out.println(listaDeDestaques);
+        return listaDeDestaques;
+    }
+
+    public void removeDestaque() throws IOException {
+        ProdutoController produtoController = new ProdutoController();
+        List<Produto> listaDeProdutos = produtoController.listarProdutos();
+
+        System.out.println(listaDeProdutos);
+
+        System.out.println("Qual produto você quer remover o desconto: ");
+        int idProdutoSelecionado = leitor.nextInt();
+
+        List<Destaques> listaDeDestaques = mostraDestaques();
+
+        for (int i = 0; i < listaDeDestaques.size();i++) {
+            if(listaDeDestaques.get(i).getIdProduto() == listaDeProdutos.get(idProdutoSelecionado - 1).getId()) {
+                listaDeDestaques.remove(i);
+            }
+        }
+        destaquesController.removeDestaque(listaDeDestaques);
+
+
 
     }
 

@@ -17,5 +17,14 @@ public class DestaquesController {
         destaquesDao.cadastraDestaque(listaDeDestaques);
     }
 
+    public List<Destaques> mostraListaDeDestaques() throws IOException {
+        listaDeDestaques = destaquesDao.mostraListaDeDestaques();
+        return listaDeDestaques;
+    }
+
+    public void removeDestaque(List<Destaques> destaques) throws IOException {
+        destaquesDao.removeDestaque(destaques);
+    }
+
 
 }
