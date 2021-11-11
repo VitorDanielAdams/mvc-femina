@@ -51,6 +51,8 @@ public class ViewFuncionarios {
 
         List<Funcionarios> listaFuncionarios = funcionariosController.mostrarFuncionarios();
 
+        System.out.println(listaFuncionarios);
+
         System.out.println("Escolha o funcionario que deseja editar.");
         int editFunc = entrada.nextInt();
 
@@ -70,13 +72,12 @@ public class ViewFuncionarios {
                     case 1:
                         System.out.println("Digite o novo nome:");
                         String nome = entrada.next();
-                        listaFuncionarios.get(editFunc).setNome(nome);
-
+                        listaFuncionarios.get(editFunc-1).setNome(nome);
                         break;
                     case 2:
                         System.out.println("Digite o novo cargo:");
                         String cargo = entrada.next();
-                        listaFuncionarios.get(editFunc).setCargo(cargo);
+                        listaFuncionarios.get(editFunc-1).setCargo(cargo);
                         break;
                     case 3:
                         //FUNCAO QUE EDITA O ENDEREÇO
@@ -85,33 +86,21 @@ public class ViewFuncionarios {
                     case 4:
                         System.out.println("Digite a nova empresa:");
                         int novaEmpresa = entrada.nextInt();
-
-                        listaFuncionarios.get(editFunc).setIdEmpresa(novaEmpresa);
+                        listaFuncionarios.get(editFunc-1).setIdEmpresa(novaEmpresa);
                         break;
-
                 }
-
                 break;
-
             case 2:
-
                 FuncionariosController funcionariosController1 = new FuncionariosController();
-
-                listaFuncionarios.remove(editFunc);
-
+                listaFuncionarios.remove(editFunc-1);
                 funcionariosController1.editFuncionarios(listaFuncionarios);
-
-
-            break;
-
+                break;
             case 0:
-
                 editFuncionarios();
-
-            break;
+                break;
         }
 
-        listaFuncionarios = funcionariosController.editFuncionarios(listaFuncionarios);
+        funcionariosController.editFuncionarios(listaFuncionarios);
 
         System.out.println("Lista editada com sucesso!\n" + listaFuncionarios);
 

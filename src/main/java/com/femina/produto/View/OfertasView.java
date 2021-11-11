@@ -45,6 +45,12 @@ public class OfertasView {
         }else{
             System.out.println("Erro ao deletar oferta!");
         }
+    }
 
+    public void listarOfertas(){
+        int tamanhoListaOferta = ofertasController.listarOfertas().size();
+        for(int i = 0; i < tamanhoListaOferta; i++){
+            System.out.println((i+1)+" "+ofertasController.listarOfertas().get(i));
+        }
     }
 }
