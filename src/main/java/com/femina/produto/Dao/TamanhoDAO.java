@@ -83,9 +83,6 @@ public class TamanhoDAO {
                 newList.add(listaTotal.get(i));
             }
         }
-
-        System.out.println(listaTotal);
-        System.out.println(newList);
         return newList;
     }
 

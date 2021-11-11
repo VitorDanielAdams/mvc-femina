@@ -70,7 +70,7 @@ public class CorView {
         }
 
         cd.editaCores(cores);
-        System.out.println("Cor editada com sucesso!");
+
     }
 
     public void removeCor(Long idProd) throws IOException {
@@ -88,8 +88,6 @@ public class CorView {
         }
 
         cd.apagaCores(coresNew);
-
-        System.out.println("Cor deletada com sucesso!");
 
     }
 
