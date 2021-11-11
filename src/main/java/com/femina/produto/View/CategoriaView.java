@@ -15,7 +15,7 @@ public class CategoriaView {
     Scanner leitor = new Scanner(System.in).useLocale(Locale.US);
     CategoriaController categoriaController = new CategoriaController();
 
-    public void cadastrarDesconto() throws IOException {
+    public void cadastrarCategoria() throws IOException {
 
         Categoria categoria = new Categoria();
         CategoriaController categoriaController = new CategoriaController();
@@ -71,7 +71,7 @@ public class CategoriaView {
         categoriaController.removeCategoria(listaDeCategorias);
     }
 
-    public void removerDescontoByIdProduto() throws IOException {
+    public void removerCategoriaByIdProduto() throws IOException {
         ProdutoController produtoController = new ProdutoController();
         List<Produto> listaDeProdutos = produtoController.listarProdutos();
 

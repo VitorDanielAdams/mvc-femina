@@ -101,12 +101,37 @@ public class MenuView {
     }
 
     public void menuCategorias(long idLoja) throws IOException {
+
+         CategoriaView CV = new CategoriaView();
+
         Scanner entrada = new Scanner(System.in);
-        System.out.println("Em andamento.");
-        System.out.println("0 - Sair");
+        System.out.println("-----------------------");
+        System.out.println("1 - Cadastrar Categoria");
+        System.out.println("2 - Ver Categorias      ");
+        System.out.println("3 - Editar Categoria   ");
+        System.out.println("4 - Remover Categoria  ");
+        System.out.println("0 - Voltar             ");
+        System.out.println("-----------------------");
+
         int escolha = entrada.nextInt();
         switch (escolha){
             case 0:
+                menuDeLoja(idLoja);
+                break;
+            case 1:
+                CV.cadastrarCategoria();
+                menuDeLoja(idLoja);
+                break;
+            case 2:
+                CV.mostrarListaDeCategorias();
+                menuDeLoja(idLoja);
+                break;
+            case 3:
+                CV.editarCategoriaByIdProduto();
+                menuDeLoja(idLoja);
+                break;
+            case 4:
+                CV.removerCategoriaByIdProduto();
                 menuDeLoja(idLoja);
                 break;
         }
