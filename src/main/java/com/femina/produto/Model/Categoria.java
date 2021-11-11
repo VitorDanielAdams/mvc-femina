@@ -44,10 +44,7 @@ public class Categoria {
 
     @Override
     public String toString() {
-        return nome + ";" +
-                id + ";" +idProduto;
+        return "" + id + ";" + nome + ";" + +idProduto;
     }
 
-    public void setNome() {
-    }
 }

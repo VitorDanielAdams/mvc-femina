@@ -35,9 +35,9 @@ public class ProdutoController {
         return lpd.get(index);
     }
 
-    public List<Produto> listarProdutosPeloId(Long idLoja){
+    public List<Produto> listarProdutosPeloId(Long idLoja, List<Produto> list){
         ProdutoDao pd = new ProdutoDao();
-        return pd.retornaProdutosPeloIdLoja(idLoja);
+        return pd.retornaProdutosPeloIdLoja(idLoja,list);
     }
 
 }

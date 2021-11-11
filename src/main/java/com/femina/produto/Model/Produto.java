@@ -124,8 +124,8 @@ public class Produto {
                "Nome - " + nome + "\n" +
                "Preço - " + preco + "\n" +
                "Quantidade - " + qtd + "\n" +
-//                ", categoria=" + categoria.getNome() +
-                fornecedor.toMostra() +
+                "Categoria - " + categoria.getNome() +
+                fornecedor.getNome() +
                 "Cores - " + cor + "\n" +
                 "Tamanho - " + tamanho + "\n" +
                 "Modelos - " + modeloDosProdutos;
@@ -138,8 +138,8 @@ public class Produto {
                 nome + ';' +
                 preco + ';' +
                 qtd + ';' +
-//                ", categoria=" + categoria.getNome() +
                 fornecedor.getId() + ';' +
-                idLoja;
+                idLoja + ';' +
+                categoria.getId();
     }
 }

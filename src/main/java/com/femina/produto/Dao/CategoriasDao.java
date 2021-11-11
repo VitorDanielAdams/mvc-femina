@@ -14,7 +14,7 @@ public class CategoriasDao {
             PrintWriter printaCategoria = new PrintWriter(categoriaFile);
 
             for(int i = 0; i < categorias.size();i++) {
-                categorias.get(i).setNome();
+
                 printaCategoria.println(categorias.get(i));
 
             }

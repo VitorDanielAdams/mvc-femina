@@ -65,6 +65,8 @@ public class ProdutoView {
         List<Fornecedor> lfd = fv.mostrarFornecedores();
         prod.setFornecedor(lfd.get(entrada.nextInt() - 1));
 
+        prod.setIdLoja(idLoja);
+
         prod = pc.cadastrarProduto(prod);
 
         cv.cadastro(prod.getId());
@@ -72,6 +74,8 @@ public class ProdutoView {
         mv.cadastrarModelos(prod.getId());
 
         tv.cadastrarTamanho((int) prod.getId());
+
+
     }
 
     public void mostrarProdutos() throws IOException {
@@ -178,11 +182,11 @@ public class ProdutoView {
 
     public List<Produto> listarProdutosDaLoja(Long idLoja){
         ProdutoController pc = new ProdutoController();
-
-        for (int i = 0;i < lpd.size();i++){
-            System.out.println(lpd.get(i).toMostra());
+        List<Produto> lpdNew = pc.listarProdutosPeloId(idLoja, lpd);
+        for (int i = 0;i < lpdNew.size();i++){
+            System.out.println(lpdNew.get(i).toMostra());
         }
 
-        return lpd;
+        return lpdNew;
     }
 }

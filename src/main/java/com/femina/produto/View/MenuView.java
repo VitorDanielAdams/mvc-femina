@@ -158,7 +158,7 @@ public class MenuView {
                 menuProdutos(idLoja);
                 break;
             case 2:
-                produtoView.mostrarProdutos();
+                produtoView.listarProdutosDaLoja(idLoja);
                 menuProdutos(idLoja);
                 break;
             case 3:
