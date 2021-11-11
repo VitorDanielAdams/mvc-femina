@@ -5,27 +5,27 @@ import java.util.List;
 
 public class Outlet {
 
-     private List<ProdutoDesconto> produtoComDesconto = new ArrayList<ProdutoDesconto>();
-     private List<Lojas> lojas = new ArrayList<Lojas>();
+     private long idProdutoDesconto;
+     private long idLoja;
 
-    public List<ProdutoDesconto> getProdutoComDesconto() {
-        return produtoComDesconto;
+    public long getIdProdutoDesconto() {
+        return idProdutoDesconto;
     }
 
-    public void setProdutoComDesconto(List<ProdutoDesconto> produtoComDesconto) {
-        this.produtoComDesconto = produtoComDesconto;
+    public void setIdProdutoDesconto(long idProdutoDesconto) {
+        this.idProdutoDesconto = idProdutoDesconto;
     }
 
-    public List<Lojas> getLojas() {
-        return lojas;
+    public long getIdLoja() {
+        return idLoja;
     }
 
-    public void setLojas(List<Lojas> lojas) {
-        this.lojas = lojas;
+    public void setIdLoja(long idLoja) {
+        this.idLoja = idLoja;
     }
 
     @Override
     public String toString() {
-        return "" + produtoComDesconto + ";" + lojas;
+        return idLoja + ";" + idProdutoDesconto;
     }
 }
