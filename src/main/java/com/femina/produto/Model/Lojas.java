@@ -7,9 +7,8 @@ public class Lojas {
     private long id;
     private String nome;
     private Endereco endereco;
-    private List<Contatos> contatos = new ArrayList<Contatos>();
+    private Contatos contatos;
     private List<Funcionarios> funcionarios = new ArrayList<Funcionarios>();
-    private List<Produto> produtos = new ArrayList<Produto>();
 
     public Lojas() {
     }
@@ -24,7 +23,6 @@ public class Lojas {
         this.nome = nome;
         this.endereco = endereco;
     }
-
 
 
     public long getId() {
@@ -51,11 +49,11 @@ public class Lojas {
         this.endereco = endereco;
     }
 
-    public List<Contatos> getContatos() {
+    public Contatos getContatos() {
         return contatos;
     }
 
-    public void setContatos(List<Contatos> contatos) {
+    public void setContatos(Contatos contatos) {
         this.contatos = contatos;
     }
 
@@ -67,16 +65,8 @@ public class Lojas {
         this.funcionarios = funcionarios;
     }
 
-    public List<Produto> getProdutos() {
-        return produtos;
-    }
-
-    public void setProdutos(List<Produto> produtos) {
-        this.produtos = produtos;
-    }
-
     @Override
     public String toString() {
-        return id + ";" + nome + ";" + endereco + ";" + contatos + ";" + funcionarios + ";" + produtos ;
+        return id + ";" + nome + ";" + endereco + ";" + contatos + ";" + funcionarios;
     }
 }
