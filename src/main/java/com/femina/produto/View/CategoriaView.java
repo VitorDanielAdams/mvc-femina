@@ -15,17 +15,17 @@ public class CategoriaView {
     Scanner leitor = new Scanner(System.in).useLocale(Locale.US);
     CategoriaController categoriaController = new CategoriaController();
 
-    public void cadastrarDesconto() throws IOException {
+    public void cadastrarCategoria() throws IOException {
 
         Categoria categoria = new Categoria();
-        CategoriaController categoriaController = new CategoriaController();
-        List<Categoria> listaCategoria = categoriaController.mostrarListaDeCategoria();
+        ProdutoController ProdutoController = new ProdutoController();
+        List<Produto> listaProdutos = ProdutoController.listarProdutos();
 
-        for(int i = 0; i < listaCategoria.size();i++) {
-            System.out.println(listaCategoria.get(i));
+        for(int i = 0; i < listaProdutos.size();i++) {
+            System.out.println(listaProdutos.get(i));
         }
 
-        System.out.println("Qual porduto você quer adicionar desconto: ");
+        System.out.println("Em porduto você quer adicionar uma categoria: ");
 
         int idProdutoSelecionado = leitor.nextInt();
         categoria.setIdProduto(Long.valueOf(idProdutoSelecionado));
@@ -71,7 +71,7 @@ public class CategoriaView {
         categoriaController.removeCategoria(listaDeCategorias);
     }
 
-    public void removerDescontoByIdProduto() throws IOException {
+    public void removerCategoriaByIdProduto() throws IOException {
         ProdutoController produtoController = new ProdutoController();
         List<Produto> listaDeProdutos = produtoController.listarProdutos();
 

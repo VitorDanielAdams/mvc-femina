@@ -1,9 +1,6 @@
 package main.java.com.femina.produto.Controller;
-
 import main.java.com.femina.produto.Dao.CategoriasDao;
-import main.java.com.femina.produto.Dao.ProdutosComDescontoDao;
 import main.java.com.femina.produto.Model.Categoria;
-import main.java.com.femina.produto.Model.ProdutoDesconto;
 
 import java.io.IOException;
 import java.util.ArrayList;

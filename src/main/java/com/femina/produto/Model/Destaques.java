@@ -5,35 +5,26 @@ import java.util.List;
 
 public class Destaques {
 
-    private String nomeColecao;
-    private List<Produto> produto = new ArrayList<Produto>();
+    private Long idProduto;
+
+    public Destaques(Long idProduto) {
+        this.idProduto = idProduto;
+    }
 
     public Destaques() {
     }
 
-    public Destaques(String nomeColecao) {
-        this.nomeColecao = nomeColecao;
+    public Long getIdProduto() {
+        return idProduto;
     }
 
-    public String getNomeColecao() {
-        return nomeColecao;
-    }
-
-    public void setNomeColecao(String nomeColecao) {
-        this.nomeColecao = nomeColecao;
-    }
-
-    public List<Produto> getProdutos() {
-        return produto;
-    }
-
-    public void setCursos(List<Produto> cursos) {
-        this.produto = cursos;
+    public void setIdProduto(Long idProduto) {
+        this.idProduto = idProduto;
     }
 
     @Override
     public String toString() {
-        return "" + nomeColecao + ';' + produto;
+        return idProduto + ";";
     }
 }
 
