@@ -31,13 +31,10 @@ public class Main {
 //        pv.cadastro();
 //        pv.cadastro();
 //        pv.mostrarProdutos();
-//        pv.alterarProduto();
-//        corView.cadastro(pv.acessarProduto());
-//        pv.deletarProduto();
-//        pv.mostrarProdutos();
-        //corView.cadastro(pv.acessarProduto());
-//        pv.deletarProduto();
-//        pv.mostrarProdutos();
+        pv.alterarProduto();
+        corView.cadastro(pv.acessarProduto());
+        pv.deletarProduto();
+        pv.mostrarProdutos();
 //        marca.cadastrarMarca();
 //        marca.cadastrarMarca();
 //        marca.editarMarcas();

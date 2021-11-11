@@ -1,10 +1,7 @@
 package main.java.com.femina.produto.View;
 
 
-import main.java.com.femina.produto.Model.Cor;
-import main.java.com.femina.produto.Model.Fornecedor;
-import main.java.com.femina.produto.Model.ModelosDosProdutos;
-import main.java.com.femina.produto.Model.Produto;
+import main.java.com.femina.produto.Model.*;
 import main.java.com.femina.produto.Controller.ProdutoController;
 import main.java.com.femina.produto.View.FornecedorView;
 
@@ -19,6 +16,7 @@ public class ProdutoView {
         FornecedorView fv = new FornecedorView();
         CorView cv = new CorView();
         ModeloView mv = new ModeloView();
+        TamanhoView tv = new TamanhoView();
 
         Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
 
@@ -46,12 +44,15 @@ public class ProdutoView {
         cv.cadastro(prod.getId());
 
         mv.cadastrarModelos(prod.getId());
+
+        tv.cadastrarTamanho((int) prod.getId());
     }
 
     public void mostrarProdutos() throws IOException {
         ProdutoController pc = new ProdutoController();
         CorView cv = new CorView();
         ModeloView mv = new ModeloView();
+        TamanhoView tv = new TamanhoView();
 
         List<Produto> lpd = pc.listarProdutos();
 
@@ -63,6 +64,10 @@ public class ProdutoView {
             List<ModelosDosProdutos> models = mv.listarModelosDoProduto(Long.valueOf(lpd.get(i).getId()));
             for(int j = 0;j < models.size();j++){
                 lpd.get(i).getModeloDosProdutos().add(models.get(j));
+            }
+            List<Tamanho> tamanhos = tv.listarTamanhosDoProduto((int) lpd.get(i).getId());
+            for(int j = 0;j < tamanhos.size();j++){
+                lpd.get(i).getTamanho().add(tamanhos.get(j));
             }
             System.out.println((i+1) + " - " + lpd.get(i).toMostra());
         }
@@ -73,7 +78,9 @@ public class ProdutoView {
         FornecedorView fv = new FornecedorView();
         CorView cv = new CorView();
         ModeloView mv = new ModeloView();
+        TamanhoView tv = new TamanhoView();
         Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
+
         List<Produto> lpd = pc.listarProdutos();
         for(int i = 0; i < lpd.size();i++){
             List<Cor> cores = cv.listaCorDoProduto(Long.valueOf(lpd.get(i).getId()));
@@ -83,6 +90,10 @@ public class ProdutoView {
             List<ModelosDosProdutos> models = mv.listarModelosDoProduto(Long.valueOf(lpd.get(i).getId()));
             for(int j = 0;j < models.size();j++){
                 lpd.get(i).getModeloDosProdutos().add(models.get(j));
+            }
+            List<Tamanho> tamanhos = tv.listarTamanhosDoProduto((int) lpd.get(i).getId());
+            for(int j = 0;j < tamanhos.size();j++){
+                lpd.get(i).getTamanho().add(tamanhos.get(j));
             }
             System.out.println((i+1)+" - "+lpd.get(i).toMostra());
         }
@@ -129,7 +140,9 @@ public class ProdutoView {
         ProdutoController pc = new ProdutoController();
         CorView cv = new CorView();
         ModeloView mv = new ModeloView();
+        TamanhoView tv = new TamanhoView();
         Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
+
         List<Produto> lpd = pc.listarProdutos();
         for(int i = 0; i < lpd.size();i++){
             List<Cor> cores = cv.listaCorDoProduto(Long.valueOf(lpd.get(i).getId()));
@@ -140,6 +153,10 @@ public class ProdutoView {
             for(int j = 0;j < models.size();j++){
                 lpd.get(i).getModeloDosProdutos().add(models.get(j));
             }
+            List<Tamanho> tamanhos = tv.listarTamanhosDoProduto((int) lpd.get(i).getId());
+            for(int j = 0;j < tamanhos.size();j++){
+                lpd.get(i).getTamanho().add(tamanhos.get(j));
+            }
             System.out.println((i+1)+" - "+lpd.get(i).toMostra());
         }
 
@@ -148,6 +165,7 @@ public class ProdutoView {
 
         cv.removeCor(lpd.get(select-1).getId());
         mv.deletaModelo(lpd.get(select-1).getId());
+        tv.deletarTamanho((int) lpd.get(select-1).getId());
 
         lpd.remove(select - 1);
 
@@ -158,7 +176,9 @@ public class ProdutoView {
         ProdutoController pc = new ProdutoController();
         CorView cv = new CorView();
         ModeloView mv = new ModeloView();
+        TamanhoView tv = new TamanhoView();
         Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
+
         List<Produto> lpd = pc.listarProdutos();
 
         for(int i = 0; i < lpd.size();i++){
@@ -169,6 +189,10 @@ public class ProdutoView {
             List<ModelosDosProdutos> models = mv.listarModelosDoProduto(Long.valueOf(lpd.get(i).getId()));
             for(int j = 0;j < models.size();j++){
                 lpd.get(i).getModeloDosProdutos().add(models.get(j));
+            }
+            List<Tamanho> tamanhos = tv.listarTamanhosDoProduto((int) lpd.get(i).getId());
+            for(int j = 0;j < tamanhos.size();j++){
+                lpd.get(i).getTamanho().add(tamanhos.get(j));
             }
             System.out.println((i+1)+" - "+lpd.get(i).toMostra());
         }

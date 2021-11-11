@@ -115,9 +115,9 @@ public class Produto {
                "Preço - " + preco + "\n" +
                "Quantidade - " + qtd + "\n" +
 //                ", categoria=" + categoria.getNome() +
-//                ", tamanho=" + tamanho +
                 fornecedor.toMostra() +
                 "Cores - " + cor + "\n" +
+                "Tamanho - " + tamanho + "\n" +
                 "Modelos - " + modeloDosProdutos;
     }
 

@@ -77,8 +77,6 @@ public class ModeloView {
             }
         }
 
-        System.out.println(novalist);
-
         modeloController.deletaModelo(novalist);
 
     }

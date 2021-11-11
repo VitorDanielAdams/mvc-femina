@@ -1,8 +1,12 @@
 package main.java.com.femina.produto.View;
 
+
+import main.java.com.femina.produto.Controller.ModeloController;
 import main.java.com.femina.produto.Controller.TamanhoController;
+import main.java.com.femina.produto.Model.ModelosDosProdutos;
 import main.java.com.femina.produto.Model.Tamanho;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -31,4 +35,31 @@ public class TamanhoView {
         }
     }
 
+    public void mostrarTamanho(){
+        List<Tamanho> listaTamanhos = tamanhoController.listaTamanho();
+
+        for(int i = 0;i < listaTamanhos.size();i++){
+            System.out.println(listaTamanhos.get(i).toMostra());
+        }
+    }
+
+    public List<Tamanho> listarTamanhosDoProduto(int idProd) throws IOException {
+        return tamanhoController.listarTamanhosPeloIdProd(idProd);
+    }
+
+    public void deletarTamanho(int idProd) throws IOException {
+
+
+        List<Tamanho> tamanhoDosProdutos = tamanhoController.listaTamanho();
+        List<Tamanho> novalist = new ArrayList<>();
+
+        for(int i = 0;i < tamanhoDosProdutos.size();i++) {
+            if (tamanhoDosProdutos.get(i).getIdProduto() != idProd) {
+                novalist.add(tamanhoDosProdutos.get(i));
+            }
+        }
+
+        tamanhoController.deletaTamanho(novalist);
+
+    }
 }

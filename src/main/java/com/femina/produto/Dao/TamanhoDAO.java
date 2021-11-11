@@ -1,6 +1,7 @@
 package main.java.com.femina.produto.Dao;
 
 import main.java.com.femina.produto.Model.Funcionarios;
+import main.java.com.femina.produto.Model.ModelosDosProdutos;
 import main.java.com.femina.produto.Model.Tamanho;
 
 import java.io.File;
@@ -11,6 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class TamanhoDAO {
@@ -69,6 +71,39 @@ public class TamanhoDAO {
             }
         }
         return listaDeTamanhos;
+    }
+
+    public List<Tamanho> listTamanhosId(int idProd){
+
+        List<Tamanho> newList = new ArrayList<>();
+        List<Tamanho> listaTotal = listarTamanhos();
+
+        for(int i = 0;i < listaTotal.size();i++) {
+            if(listaTotal.get(i).getIdProduto() == idProd){
+                newList.add(listaTotal.get(i));
+            }
+        }
+
+        System.out.println(listaTotal);
+        System.out.println(newList);
+        return newList;
+    }
+
+    public void deletaTamanho(List<Tamanho> listaTamanho) throws IOException {
+        FileWriter fileWriter = new FileWriter("tamanhos.txt",false);
+        PrintWriter printWriter = new PrintWriter(fileWriter);
+
+        for (int l = 0; l < listaTamanho.size();l++) {
+            if(listaTamanho.get(l).getIdProduto() != 1){
+                listaTamanho.get(l).setIdProduto(listaTamanho.get(l).getIdProduto()-1);
+            }
+            listaTamanho.get(l).setId(Integer.valueOf(l)+1);
+            printWriter.println(listaTamanho.get(l));
+        }
+
+        printWriter.flush();
+        printWriter.close();
+        fileWriter.close();
     }
 
     public Tamanho validarId(Tamanho tamanho){
