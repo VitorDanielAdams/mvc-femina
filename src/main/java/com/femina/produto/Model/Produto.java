@@ -16,6 +16,8 @@ public class Produto {
     private List<Cor> cor = new ArrayList<>();
     private List<Tamanho> tamanho = new ArrayList<>();
 
+    private long idLoja;
+
     public Produto() {}
 
     public Produto(long id, int codigo, String nome, Double preco, int qtd, Fornecedor fornecedor, Categoria categoria) {
@@ -107,6 +109,14 @@ public class Produto {
         this.fornecedor = fornecedor;
     }
 
+    public long getIdLoja() {
+        return idLoja;
+    }
+
+    public void setIdLoja(long idLoja) {
+        this.idLoja = idLoja;
+    }
+
     public String toMostra() {
         return  "Produto: \n" +
                 "Id - "+ id + "\n" +
@@ -129,6 +139,7 @@ public class Produto {
                 preco + ';' +
                 qtd + ';' +
 //                ", categoria=" + categoria.getNome() +
-                fornecedor.getId();
+                fornecedor.getId() + ';' +
+                idLoja;
     }
 }

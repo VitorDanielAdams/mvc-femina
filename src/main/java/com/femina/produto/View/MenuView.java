@@ -36,7 +36,7 @@ public class MenuView {
         }
     }
 
-    public void menuDeLoja() throws IOException {
+    public void menuDeLoja(long idLoja) throws IOException {
         Scanner entrada = new Scanner(System.in);
         System.out.println("----------------------------");
         System.out.println("1 - Acessar Funcionarios    ");
@@ -50,19 +50,19 @@ public class MenuView {
         switch (escolha){
 
             case 1:
-                menuFuncionarios();
+                menuFuncionarios(idLoja);
                 break;
             case 2:
-                menuCategorias();
+                menuCategorias(idLoja);
                 break;
             case 3:
-                menuOfertas();
+                menuOfertas(idLoja);
                 break;
             case 4:
-                menuProdutos();
+                menuProdutos(idLoja);
                 break;
             case 5:
-                menuFornecedor();
+                menuFornecedor(idLoja);
                 break;
             case 0:
                 menuPrincipal();
@@ -70,7 +70,7 @@ public class MenuView {
         }
     }
 
-    public void menuFuncionarios() throws IOException {
+    public void menuFuncionarios(long idLoja) throws IOException {
         ViewFuncionarios viewFuncionarios = new ViewFuncionarios();
         Scanner entrada = new Scanner(System.in);
         System.out.println("-------------------------");
@@ -83,36 +83,36 @@ public class MenuView {
         switch (escolha){
             case 1:
                 viewFuncionarios.cadastrarFuncionarios();
-                menuFuncionarios();
+                menuFuncionarios(idLoja);
                 break;
             case 2:
                 viewFuncionarios.mostrarFuncionarios();
-                menuFuncionarios();
+                menuFuncionarios(idLoja);
                 break;
             case 3:
                 System.out.println("Com um bug na hora de salvar o funcionario editado");
 //                viewFuncionarios.editFuncionarios();
-                menuFuncionarios();
+                menuFuncionarios(idLoja);
                 break;
             case 0:
-                menuDeLoja();
+                menuDeLoja(idLoja);
                 break;
         }
     }
 
-    public void menuCategorias() throws IOException {
+    public void menuCategorias(long idLoja) throws IOException {
         Scanner entrada = new Scanner(System.in);
         System.out.println("Em andamento.");
         System.out.println("0 - Sair");
         int escolha = entrada.nextInt();
         switch (escolha){
             case 0:
-                menuDeLoja();
+                menuDeLoja(idLoja);
                 break;
         }
     }
 
-    public void menuOfertas() throws IOException {
+    public void menuOfertas(long idLoja) throws IOException {
         Scanner entrada = new Scanner(System.in);
         OfertasView ofertasView = new OfertasView();
         System.out.println("--------------------");
@@ -125,23 +125,23 @@ public class MenuView {
         switch (escolha){
             case 1:
                 ofertasView.cadastrarOfertas();
-                menuOfertas();
+                menuOfertas(idLoja);
                 break;
             case 2:
                 ofertasView.listarOfertas();
-                menuOfertas();
+                menuOfertas(idLoja);
                 break;
             case 3:
                 ofertasView.excluirOferta();
-                menuOfertas();
+                menuOfertas(idLoja);
                 break;
             case 0:
-                menuDeLoja();
+                menuDeLoja(idLoja);
                 break;
         }
     }
 
-    public void menuProdutos() throws IOException {
+    public void menuProdutos(long idLoja) throws IOException {
         Scanner entrada = new Scanner(System.in);
         ProdutoView produtoView = new ProdutoView();
         System.out.println("----------------------");
@@ -154,28 +154,28 @@ public class MenuView {
         int escolha = entrada.nextInt();
         switch (escolha){
             case 1:
-                produtoView.cadastro();
-                menuProdutos();
+                produtoView.cadastro(idLoja);
+                menuProdutos(idLoja);
                 break;
             case 2:
                 produtoView.mostrarProdutos();
-                menuProdutos();
+                menuProdutos(idLoja);
                 break;
             case 3:
                 produtoView.alterarProduto();
-                menuProdutos();
+                menuProdutos(idLoja);
                 break;
             case 4:
                 produtoView.deletarProduto();
-                menuProdutos();
+                menuProdutos(idLoja);
                 break;
             case 0:
-                menuDeLoja();
+                menuDeLoja(idLoja);
                 break;
         }
     }
 
-    public void menuFornecedor() throws IOException {
+    public void menuFornecedor(long idLoja) throws IOException {
         Scanner entrada = new Scanner(System.in);
         FornecedorView fornecedorView = new FornecedorView();
         System.out.println("-------------------------");
@@ -189,22 +189,22 @@ public class MenuView {
         switch (escolha){
             case 1:
                 fornecedorView.cadastro();
-                menuFornecedor();
+                menuFornecedor(idLoja);
                 break;
             case 2:
                 fornecedorView.mostrarFornecedores();
-                menuFornecedor();
+                menuFornecedor(idLoja);
                 break;
             case 3:
                 fornecedorView.alterarFornecedor();
-                menuFornecedor();
+                menuFornecedor(idLoja);
                 break;
             case 4:
                 fornecedorView.deletarFornecedor();
-                menuFornecedor();
+                menuFornecedor(idLoja);
                 break;
             case 0:
-                menuDeLoja();
+                menuDeLoja(idLoja);
                 break;
         }
     }

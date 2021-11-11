@@ -73,9 +73,9 @@ public class LojasView {
         verLojas();
 
         System.out.println("Escolha a loja:");
-        int escolha = entrada.nextInt();
+        long escolha = entrada.nextLong();
 
-        menuView.menuDeLoja();
+        menuView.menuDeLoja(escolha);
 
     }
 

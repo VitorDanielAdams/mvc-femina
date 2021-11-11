@@ -10,7 +10,33 @@ import java.util.*;
 
 public class ProdutoView {
 
-    public void cadastro() throws IOException {
+    private List<Produto> lpd = new ArrayList<>();
+
+    public ProdutoView() throws IOException {
+        CorView cv = new CorView();
+        ModeloView mv = new ModeloView();
+        TamanhoView tv = new TamanhoView();
+        ProdutoController pc = new ProdutoController();
+
+        lpd = pc.listarProdutos();
+        for(int i = 0; i < this.lpd.size();i++){
+            List<Cor> cores = cv.listaCorDoProduto(Long.valueOf(lpd.get(i).getId()));
+            for(int j = 0;j < cores.size();j++){
+                lpd.get(i).getCor().add(cores.get(j));
+            }
+            List<ModelosDosProdutos> models = mv.listarModelosDoProduto(Long.valueOf(lpd.get(i).getId()));
+            for(int j = 0;j < models.size();j++){
+                lpd.get(i).getModeloDosProdutos().add(models.get(j));
+            }
+            List<Tamanho> tamanhos = tv.listarTamanhosDoProduto((int) lpd.get(i).getId());
+            for(int j = 0;j < tamanhos.size();j++){
+                lpd.get(i).getTamanho().add(tamanhos.get(j));
+            }
+        }
+
+    }
+
+    public void cadastro(Long idLoja) throws IOException {
 
         ProdutoController pc = new ProdutoController();
         FornecedorView fv = new FornecedorView();
@@ -50,26 +76,9 @@ public class ProdutoView {
 
     public void mostrarProdutos() throws IOException {
         ProdutoController pc = new ProdutoController();
-        CorView cv = new CorView();
-        ModeloView mv = new ModeloView();
-        TamanhoView tv = new TamanhoView();
 
-        List<Produto> lpd = pc.listarProdutos();
-
-        for(int i = 0; i < lpd.size();i++){
-            List<Cor> cores = cv.listaCorDoProduto(Long.valueOf(lpd.get(i).getId()));
-            for(int j = 0;j < cores.size();j++){
-                lpd.get(i).getCor().add(cores.get(j));
-            }
-            List<ModelosDosProdutos> models = mv.listarModelosDoProduto(Long.valueOf(lpd.get(i).getId()));
-            for(int j = 0;j < models.size();j++){
-                lpd.get(i).getModeloDosProdutos().add(models.get(j));
-            }
-            List<Tamanho> tamanhos = tv.listarTamanhosDoProduto((int) lpd.get(i).getId());
-            for(int j = 0;j < tamanhos.size();j++){
-                lpd.get(i).getTamanho().add(tamanhos.get(j));
-            }
-            System.out.println((i+1) + " - " + lpd.get(i).toMostra());
+        for(int i = 0; i < this.lpd.size();i++){
+            System.out.println((i+1) + " - " + this.lpd.get(i).toMostra());
         }
     }
 
@@ -83,18 +92,6 @@ public class ProdutoView {
 
         List<Produto> lpd = pc.listarProdutos();
         for(int i = 0; i < lpd.size();i++){
-            List<Cor> cores = cv.listaCorDoProduto(Long.valueOf(lpd.get(i).getId()));
-            for(int j = 0;j < cores.size();j++){
-                lpd.get(i).getCor().add(cores.get(j));
-            }
-            List<ModelosDosProdutos> models = mv.listarModelosDoProduto(Long.valueOf(lpd.get(i).getId()));
-            for(int j = 0;j < models.size();j++){
-                lpd.get(i).getModeloDosProdutos().add(models.get(j));
-            }
-            List<Tamanho> tamanhos = tv.listarTamanhosDoProduto((int) lpd.get(i).getId());
-            for(int j = 0;j < tamanhos.size();j++){
-                lpd.get(i).getTamanho().add(tamanhos.get(j));
-            }
             System.out.println((i+1)+" - "+lpd.get(i).toMostra());
         }
         System.out.println("Escolha qual produto quer editar");
@@ -143,20 +140,7 @@ public class ProdutoView {
         TamanhoView tv = new TamanhoView();
         Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
 
-        List<Produto> lpd = pc.listarProdutos();
         for(int i = 0; i < lpd.size();i++){
-            List<Cor> cores = cv.listaCorDoProduto(Long.valueOf(lpd.get(i).getId()));
-            for(int j = 0;j < cores.size();j++){
-                lpd.get(i).getCor().add(cores.get(j));
-            }
-            List<ModelosDosProdutos> models = mv.listarModelosDoProduto(Long.valueOf(lpd.get(i).getId()));
-            for(int j = 0;j < models.size();j++){
-                lpd.get(i).getModeloDosProdutos().add(models.get(j));
-            }
-            List<Tamanho> tamanhos = tv.listarTamanhosDoProduto((int) lpd.get(i).getId());
-            for(int j = 0;j < tamanhos.size();j++){
-                lpd.get(i).getTamanho().add(tamanhos.get(j));
-            }
             System.out.println((i+1)+" - "+lpd.get(i).toMostra());
         }
 
@@ -179,21 +163,7 @@ public class ProdutoView {
         TamanhoView tv = new TamanhoView();
         Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
 
-        List<Produto> lpd = pc.listarProdutos();
-
         for(int i = 0; i < lpd.size();i++){
-            List<Cor> cores = cv.listaCorDoProduto(Long.valueOf(lpd.get(i).getId()));
-            for(int j = 0;j < cores.size();j++){
-                lpd.get(i).getCor().add(cores.get(j));
-            }
-            List<ModelosDosProdutos> models = mv.listarModelosDoProduto(Long.valueOf(lpd.get(i).getId()));
-            for(int j = 0;j < models.size();j++){
-                lpd.get(i).getModeloDosProdutos().add(models.get(j));
-            }
-            List<Tamanho> tamanhos = tv.listarTamanhosDoProduto((int) lpd.get(i).getId());
-            for(int j = 0;j < tamanhos.size();j++){
-                lpd.get(i).getTamanho().add(tamanhos.get(j));
-            }
             System.out.println((i+1)+" - "+lpd.get(i).toMostra());
         }
 
@@ -204,5 +174,15 @@ public class ProdutoView {
         System.out.println("Produto selecionado:" + lpd.get((int) (idProduto-1)).toMostra());
 
         return idProduto;
+    }
+
+    public List<Produto> listarProdutosDaLoja(Long idLoja){
+        ProdutoController pc = new ProdutoController();
+
+        for (int i = 0;i < lpd.size();i++){
+            System.out.println(lpd.get(i).toMostra());
+        }
+
+        return lpd;
     }
 }

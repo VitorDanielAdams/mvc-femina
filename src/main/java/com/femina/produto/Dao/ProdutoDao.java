@@ -1,8 +1,10 @@
 package main.java.com.femina.produto.Dao;
 import java.io.*;
+import java.net.PortUnreachableException;
 import java.util.*;
 
 import main.java.com.femina.produto.Model.Fornecedor;
+import main.java.com.femina.produto.Model.ModelosDosProdutos;
 import main.java.com.femina.produto.Model.Produto;
 import main.java.com.femina.produto.Controller.FornecedorController;
 
@@ -73,6 +75,7 @@ public class ProdutoDao {
                         p.setFornecedor(lfd.get(i));
                     }
                 }
+                p.setIdLoja(Long.valueOf(produts[6]));
 
                 produtos.add(p);
             }
@@ -117,6 +120,21 @@ public class ProdutoDao {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public List<Produto> retornaProdutosPeloIdLoja(Long idLoja){
+
+        List<Produto> novaListaProdutosIdLoja = new ArrayList<>();
+        List<Produto> listaDeProdutos = retornaProdutos();
+
+        for (int i = 0;i < listaDeProdutos.size();i++){
+            if (listaDeProdutos.get(i).getIdLoja() == idLoja){
+                novaListaProdutosIdLoja.add(listaDeProdutos.get(i));
+            }
+        }
+
+        return novaListaProdutosIdLoja;
+
     }
 
 }
