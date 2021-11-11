@@ -7,11 +7,15 @@ public class Categoria {
 
     private String nome;
     private long id;
-    private List<Produto> produto = new ArrayList<Produto>();
+    private long idProduto;
 
-    public Categoria(String nome, long id) {
+    public Categoria(String nome, long id, long idProduto) {
         this.nome = nome;
         this.id = id;
+        this.idProduto = idProduto;
+    }
+
+    public Categoria() {
     }
 
     public String getNome() {
@@ -30,18 +34,20 @@ public class Categoria {
         this.id = id;
     }
 
-    public List<Produto> getProduto() {
-        return produto;
+    public long getIdProduto() {
+        return idProduto;
     }
 
-    public void setProduto(List<Produto> produto) {
-        this.produto = produto;
+    public void setIdProduto(long idProduto) {
+        this.idProduto = idProduto;
     }
-
-    // sem métodos
 
     @Override
     public String toString() {
-        return "" + nome + ";" + id + ";" + produto;
+        return nome + ";" +
+                id + ";" +idProduto;
+    }
+
+    public void setNome() {
     }
 }
