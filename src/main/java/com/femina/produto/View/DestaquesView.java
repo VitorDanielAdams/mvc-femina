@@ -56,9 +56,6 @@ public class DestaquesView {
             }
         }
         destaquesController.removeDestaque(listaDeDestaques);
-
-
-
     }
 
 }
