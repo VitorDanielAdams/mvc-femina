@@ -32,6 +32,9 @@ public class FuncionariosDAO {
             gravaFuncionarios.println(funcionarios.get(i));
 
         }
+
+        fileWriter.close();
+        gravaFuncionarios.close();
         return funcionarios;
     }
 
@@ -74,6 +77,8 @@ public class FuncionariosDAO {
 
         gravaFuncionarios.println(listaFuncionarios);
 
+        fileWriter.close();
+        gravaFuncionarios.close();
         return null;
     }
 

@@ -16,7 +16,7 @@ public class ViewFuncionarios {
 
         List<Funcionarios> listaDeFuncionarios = funcionariosController.mostrarFuncionarios();
 
-        System.out.println();
+        System.out.println(listaDeFuncionarios);
 
     }
 
@@ -30,19 +30,16 @@ public class ViewFuncionarios {
         FuncionariosController funcionariosController = new FuncionariosController();
 
         System.out.println("Nome: ");
-        String nome = entrada.next();
+        funcionario.setNome(entrada.next());
 
         System.out.println("Cargo: ");
-        String cargo = entrada.next();
+        funcionario.setCargo(entrada.next());
 
-        //o objeto precisa receber os atributos ainda!!
-        funcionario = new Funcionarios();
         listaFuncionarios.add(funcionario);
 
         listaFuncionarios = funcionariosController.cadastrarFuncionario(listaFuncionarios);
 
         System.out.println("Cadastro de funcionario(s) realizado com sucesso!");
-        System.out.println(listaFuncionarios);
 
     }
 
@@ -57,7 +54,7 @@ public class ViewFuncionarios {
         System.out.println("Escolha o funcionario que deseja editar.");
         int editFunc = entrada.nextInt();
 
-        System.out.println("1 - Editar valores \n2 - Excluir\n 0 - Voltar");
+        System.out.println("1 - Editar valores \n2 - Excluir\n0 - Voltar");
         int escolha = entrada.nextInt();
 
         switch (escolha){
@@ -88,10 +85,6 @@ public class ViewFuncionarios {
                     case 4:
                         System.out.println("Digite a nova empresa:");
                         int novaEmpresa = entrada.nextInt();
-
-                        //
-                        //verificacao se a empresa existe
-                        //
 
                         listaFuncionarios.get(editFunc).setIdEmpresa(novaEmpresa);
                         break;

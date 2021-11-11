@@ -17,6 +17,7 @@ public class LojasView {
     EndereçoView endereçoView = new EndereçoView();
     LojasController lojasController = new LojasController();
     List<Lojas> lojasList = new ArrayList<>();
+    MenuView menuView = new MenuView();
 
     public List<Lojas> cadastrarLoja() throws IOException {
 
@@ -51,17 +52,30 @@ public class LojasView {
 
         System.out.println("Lojas cadastradas.");
 
-        if(lojasController.listarLojas().isEmpty()){
+        List<Lojas> lojas = lojasController.listarLojas();
+
+        if(lojas.isEmpty()){
 
             System.out.println("Nenhuma loja cadastrada.");
 
+        }else{
+            int tamanhoLista = lojasController.listarLojas().size();
+            for(int i = 0; i < tamanhoLista; i++){
+
+                System.out.println(lojasController.listarLojas().get(i));
+
+            }
         }
+    }
 
-        for(int i = 0; i < lojasController.listarLojas().size(); i++){
+    public void acessarLoja() throws IOException {
 
-            System.out.println(lojasController.listarLojas().get(i));
+        verLojas();
 
-        }
+        System.out.println("Escolha a loja:");
+        int escolha = entrada.nextInt();
+
+        menuView.menuDeLoja();
 
     }
 

@@ -62,7 +62,7 @@ public class LojasDAO {
 
 
     public List<Lojas> listarLojas() throws IOException {
-
+        List<Lojas> lojasListParaEditar2 = new ArrayList<>();
         File arq = new File("lojas.txt");
 
         FileReader fileReader = new FileReader(arq);
@@ -80,12 +80,11 @@ public class LojasDAO {
 
             lojas = new Lojas(Long.valueOf(valorEditar[0]), valorEditar[1]);
 
-            lojasListParaEditar.add(lojas);
+            lojasListParaEditar2.add(lojas);
 
         }
 
-
-        return lojasListParaEditar;
+        return lojasListParaEditar2;
     }
 
     public Lojas validarId(Lojas lojas) throws IOException {
