@@ -119,7 +119,7 @@ public class MenuView {
                 menuDeLoja(idLoja);
                 break;
             case 1:
-                CV.cadastrarCategoria();
+                CV.cadastrarCategoria(idLoja);
                 menuDeLoja(idLoja);
                 break;
             case 2:
@@ -127,11 +127,11 @@ public class MenuView {
                 menuDeLoja(idLoja);
                 break;
             case 3:
-                CV.editarCategoriaByIdProduto();
+                CV.editarCategoria();
                 menuDeLoja(idLoja);
                 break;
             case 4:
-                CV.removerCategoriaByIdProduto();
+                CV.removerCategoria();
                 menuDeLoja(idLoja);
                 break;
         }

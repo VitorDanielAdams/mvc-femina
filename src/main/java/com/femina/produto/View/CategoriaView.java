@@ -13,29 +13,17 @@ import java.util.Scanner;
 public class CategoriaView {
 
     Scanner leitor = new Scanner(System.in).useLocale(Locale.US);
-    CategoriaController categoriaController = new CategoriaController();
 
-    public void cadastrarCategoria() throws IOException {
+    public void cadastrarCategoria(Long idLoja) throws IOException {
+
+        CategoriaController categoriaController = new CategoriaController();
 
         Categoria categoria = new Categoria();
-        ProdutoController ProdutoController = new ProdutoController();
-        List<Produto> listaProdutos = ProdutoController.listarProdutos();
-
-        for(int i = 0; i < listaProdutos.size();i++) {
-            System.out.println(listaProdutos.get(i));
-        }
-
-        System.out.println("Em porduto você quer adicionar uma categoria: ");
-
-        int idProdutoSelecionado = leitor.nextInt();
-        categoria.setIdProduto(Long.valueOf(idProdutoSelecionado));
 
         System.out.println("Digite o nome da categoria ");
         categoria.setNome(leitor.next());
 
-        System.out.println("Digite o Id da categoria ");
-        categoria.setId(leitor.nextLong());
-
+        categoria.setIdLoja(idLoja);
 
         categoriaController.cadastrarCategoria(categoria);
     }
@@ -43,52 +31,57 @@ public class CategoriaView {
     public List<Categoria> mostrarListaDeCategorias() throws IOException {
 
         CategoriaController categoriaController = new CategoriaController();
-        List<Categoria>  listaDeCategorias = categoriaController.mostrarListaDeCategoria();
-        System.out.println(listaDeCategorias);
+
+        List<Categoria> listaDeCategorias = categoriaController.mostrarListaDeCategoria();
+
+        for(int i = 0;i < listaDeCategorias.size();i++){
+            System.out.println((i+1) + " - " + listaDeCategorias.get(i).toMostra());
+        }
+
         return listaDeCategorias;
     }
 
-    public void editarCategoriaByIdProduto() throws IOException {
-        ProdutoController produtoController = new ProdutoController();
-        List<Produto> listaDeProdutos = produtoController.listarProdutos();
+    public void editarCategoria() throws IOException {
 
-        System.out.println(listaDeProdutos);
+        CategoriaController categoriaController = new CategoriaController();
 
-        System.out.println("Qual produto você quer editar a categoria: ");
-        int idProdutoSelecionado = leitor.nextInt();
+        List<Categoria> listaDeCategorias = categoriaController.mostrarListaDeCategoria();
 
-        System.out.println("Qual a nova categoria: ");
-        String categoria = leitor.next();
-
-        List<Categoria> listaDeCategorias = mostrarListaDeCategorias();
-
-        for (int i = 0; i < listaDeCategorias.size();i++) {
-            if(listaDeCategorias.get(i).getIdProduto() == listaDeProdutos.get(idProdutoSelecionado - 1).getId()) {
-                listaDeCategorias.get(i).setNome();
-            }
+        for(int i = 0;i < listaDeCategorias.size();i++){
+            System.out.println(listaDeCategorias.get(i));
         }
 
-        categoriaController.removeCategoria(listaDeCategorias);
+        System.out.println("Escolha a categoria para editar: ");
+        int select = leitor.nextInt();
+
+        System.out.println("Digite o novo nome da categoria: ");
+        listaDeCategorias.get(select-1).setNome(leitor.next());
+
+        categoriaController.editaCategoria(listaDeCategorias);
     }
 
-    public void removerCategoriaByIdProduto() throws IOException {
-        ProdutoController produtoController = new ProdutoController();
-        List<Produto> listaDeProdutos = produtoController.listarProdutos();
+    public void removerCategoria() throws IOException {
 
-        System.out.println(listaDeProdutos);
+        CategoriaController categoriaController = new CategoriaController();
 
-        System.out.println("Qual produto você quer remover a categoria: ");
-        int idProdutoSelecionado = leitor.nextInt();
+        List<Categoria> listaDeCategorias = categoriaController.mostrarListaDeCategoria();
 
-        List<Categoria> listaDeCategorias = mostrarListaDeCategorias();
-
-        for (int i = 0; i < listaDeCategorias.size(); i++) {
-            if (listaDeCategorias.get(i).getIdProduto() == listaDeProdutos.get(idProdutoSelecionado - 1).getId()) {
-                listaDeCategorias.remove(i);
-            }
-            categoriaController.removeCategoria(listaDeCategorias);
+        for(int i = 0;i < listaDeCategorias.size();i++){
+            System.out.println(listaDeCategorias.get(i));
         }
 
-    } }
+        System.out.println("Qual categoria você quer remover: ");
+        int select = leitor.nextInt();
+
+        ProdutoView pv = new ProdutoView();
+
+        pv.removerProdutoCategoria(listaDeCategorias.get(select-1).getId());
+
+        listaDeCategorias.remove(select-1);
+
+        categoriaController.removeCategoria(listaDeCategorias);
+
+    }
+}
 
 

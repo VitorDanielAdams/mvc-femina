@@ -3,10 +3,8 @@ import java.io.*;
 import java.net.PortUnreachableException;
 import java.util.*;
 
-import main.java.com.femina.produto.Model.Categoria;
-import main.java.com.femina.produto.Model.Fornecedor;
-import main.java.com.femina.produto.Model.ModelosDosProdutos;
-import main.java.com.femina.produto.Model.Produto;
+import main.java.com.femina.produto.Model.*;
+import main.java.com.femina.produto.Dao.CategoriasDao;
 import main.java.com.femina.produto.Controller.FornecedorController;
 
 public class ProdutoDao {
@@ -84,13 +82,13 @@ public class ProdutoDao {
                     }
                 }
                 p.setIdLoja(Long.valueOf(produts[6]));
-//                CategoriaDao cd = new CategoriaDao();
-//                List<Categoria> lcd = cd.retornaCategoria();
-//                for (int i = 0;i < lcd.size();i++){
-//                    if(lcd.get(i).getId() == Integer.valueOf(produts[5])){
-//                        p.setCategoria(lcd.get(i));
-//                    }
-//                }
+                CategoriasDao cd = new CategoriasDao();
+                List<Categoria> lcd = cd.mostrarListaDeCategoria();
+                for (int i = 0;i < lcd.size();i++){
+                    if(lcd.get(i).getId() == Integer.valueOf(produts[6])){
+                        p.setCategoria(lcd.get(i));
+                    }
+                }
 
                 produtos.add(p);
             }

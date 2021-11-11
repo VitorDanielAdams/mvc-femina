@@ -7,12 +7,12 @@ public class Categoria {
 
     private String nome;
     private long id;
-    private long idProduto;
+    private long idLoja;
 
-    public Categoria(String nome, long id, long idProduto) {
+    public Categoria(String nome, long id, long idLoja) {
         this.nome = nome;
         this.id = id;
-        this.idProduto = idProduto;
+        this.idLoja = idLoja;
     }
 
     public Categoria() {
@@ -34,17 +34,24 @@ public class Categoria {
         this.id = id;
     }
 
-    public long getIdProduto() {
-        return idProduto;
+    public long getIdLoja() {
+        return idLoja;
     }
 
-    public void setIdProduto(long idProduto) {
-        this.idProduto = idProduto;
+    public void setIdLoja(long idLoja) {
+        this.idLoja = idLoja;
+    }
+
+    public String toMostra() {
+        return  "Categoria: \n" +
+                "Id - "+ id + "\n" +
+                "Nome da Categoria:" + nome + "\n";
+
     }
 
     @Override
     public String toString() {
-        return "" + id + ";" + nome + ";" + +idProduto;
+        return "" + id + ";" + nome + ";" + idLoja;
     }
 
 }

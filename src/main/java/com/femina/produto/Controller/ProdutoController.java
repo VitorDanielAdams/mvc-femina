@@ -21,7 +21,6 @@ public class ProdutoController {
     public void editarProduto(List<Produto> lpd){
         ProdutoDao pd = new ProdutoDao();
         pd.updateProd(lpd);
-
     }
 
     public void removerProduto(List<Produto> lpd){

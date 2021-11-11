@@ -8,27 +8,23 @@ import java.util.List;
 
 public class CategoriaController {
 
-    List<Categoria> categorias = new ArrayList<>();
     CategoriasDao categoriasDao = new CategoriasDao();
 
     public void cadastrarCategoria(Categoria categoria) throws IOException {
-        categorias.add(categoria);
-        categoriasDao.cadastrarCategoria(categorias);
+        categoriasDao.cadastrarCategoria(categoria);
     }
-
 
     public List<Categoria> mostrarListaDeCategoria() throws IOException {
-        categoriasDao.mostrarListaDeCategoria();
-        return categorias;
+        List<Categoria> list = categoriasDao.mostrarListaDeCategoria();
+        return list;
     }
 
-    public void editaDeletaCategoria(List<Categoria> produtoDescontos) throws IOException {
-        categoriasDao.editaDeletaCategorias(categorias);
+    public void editaCategoria(List<Categoria> categorias) throws IOException {
+        categoriasDao.editaCategorias(categorias);
     }
 
     public void removeCategoria(List<Categoria> categorias) throws IOException {
-        categoriasDao.editaDeletaCategorias(categorias);
+        categoriasDao.deletaCategorias(categorias);
     }
-
 
 }

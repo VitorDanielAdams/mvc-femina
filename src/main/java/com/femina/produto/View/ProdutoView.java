@@ -18,8 +18,8 @@ public class ProdutoView {
         TamanhoView tv = new TamanhoView();
         ProdutoController pc = new ProdutoController();
 
-        lpd = pc.listarProdutos();
-        for(int i = 0; i < this.lpd.size();i++){
+        List<Produto>lpd = pc.listarProdutos();
+        for(int i = 0; i < lpd.size();i++){
             List<Cor> cores = cv.listaCorDoProduto(Long.valueOf(lpd.get(i).getId()));
             for(int j = 0;j < cores.size();j++){
                 lpd.get(i).getCor().add(cores.get(j));
@@ -33,7 +33,7 @@ public class ProdutoView {
                 lpd.get(i).getTamanho().add(tamanhos.get(j));
             }
         }
-
+        this.lpd = lpd;
     }
 
     public void cadastro(Long idLoja) throws IOException {
@@ -43,6 +43,7 @@ public class ProdutoView {
         CorView cv = new CorView();
         ModeloView mv = new ModeloView();
         TamanhoView tv = new TamanhoView();
+        CategoriaView catView = new CategoriaView();
 
         Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
 
@@ -65,6 +66,11 @@ public class ProdutoView {
         List<Fornecedor> lfd = fv.mostrarFornecedores();
         prod.setFornecedor(lfd.get(entrada.nextInt() - 1));
 
+        System.out.println("Selecione uma Categoria");
+
+        List<Categoria> ldc = catView.mostrarListaDeCategorias();
+        prod.setCategoria(ldc.get(entrada.nextInt() - 1));
+
         prod.setIdLoja(idLoja);
 
         prod = pc.cadastrarProduto(prod);
@@ -74,7 +80,6 @@ public class ProdutoView {
         mv.cadastrarModelos(prod.getId());
 
         tv.cadastrarTamanho((int) prod.getId());
-
 
     }
 
@@ -91,16 +96,16 @@ public class ProdutoView {
         FornecedorView fv = new FornecedorView();
         CorView cv = new CorView();
         ModeloView mv = new ModeloView();
-        TamanhoView tv = new TamanhoView();
         Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
+        CategoriaView catView = new CategoriaView();
 
-        List<Produto> lpd = pc.listarProdutos();
-        for(int i = 0; i < lpd.size();i++){
-            System.out.println((i+1)+" - "+lpd.get(i).toMostra());
+        for(int i = 0; i < this.lpd.size();i++){
+            System.out.println((i+1) + " - " + this.lpd.get(i).toMostra());
         }
+
         System.out.println("Escolha qual produto quer editar");
         int select = entrada.nextInt();
-        System.out.println("Selecione: 1-Código;2-Nome;3-Preço;4-Quantidade;5-Trocar Fornecedor;6-Cor;7-Modelo");
+        System.out.println("Selecione: 1-Código;2-Nome;3-Preço;4-Quantidade;5-Trocar Fornecedor;6-Cor;7-Modelo;8-Trocar Categoria");
         int selectItem = entrada.nextInt();
         switch (selectItem) {
             case 1:
@@ -129,6 +134,11 @@ public class ProdutoView {
                 break;
             case 7:
                 mv.editaModelo(lpd.get(select-1).getId());
+                break;
+            case 8:
+                System.out.println("Selecione o novo fornecedor:");
+                List<Categoria> ldc = catView.mostrarListaDeCategorias();
+                lpd.get(select-1).setCategoria(ldc.get(entrada.nextInt()  - 1));
                 break;
             default:
                 System.out.println("Opção Inválida");
@@ -162,9 +172,6 @@ public class ProdutoView {
 
     public long acessarProduto() throws IOException {
         ProdutoController pc = new ProdutoController();
-        CorView cv = new CorView();
-        ModeloView mv = new ModeloView();
-        TamanhoView tv = new TamanhoView();
         Scanner entrada = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
 
         for(int i = 0; i < lpd.size();i++){
@@ -189,4 +196,28 @@ public class ProdutoView {
 
         return lpdNew;
     }
+
+    public List<Produto> listarProdutosDaCategoria(Long idCategoria){
+        ProdutoController pc = new ProdutoController();
+        List<Produto> lpdNew = pc.listarProdutosPeloId(idCategoria, lpd);
+        for (int i = 0;i < lpdNew.size();i++){
+            System.out.println(lpdNew.get(i).toMostra());
+        }
+
+        return lpdNew;
+    }
+
+    public void removerProdutoCategoria(Long idCategoria){
+        ProdutoController pc = new ProdutoController();
+        List<Produto> lpdNew = new ArrayList<>();
+
+        for (int i = 0; i < lpd.size();i++){
+            if(lpd.get(i).getCategoria().getId() != idCategoria){
+                lpdNew.add(lpd.get(i));
+            }
+        }
+
+        pc.removerProduto(lpd);
+    }
+
 }
