@@ -10,6 +10,5 @@ public class Main {
     public static void main(String[] args) throws IOException {
         MenuView menuView = new MenuView();
         menuView.menuPrincipal();
-        
     }
 }
