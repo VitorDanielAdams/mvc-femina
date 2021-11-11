@@ -4,31 +4,47 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Favoritos {
-
-    private List<Produto> Produtos = new ArrayList<Produto>();
-    private List<Cliente> Cliente = new ArrayList<Cliente>();
+    private long id;
+    private long idCliente;
+    private long idProduto;
 
     public Favoritos() {
     }
 
-    public List<Produto> getProdutos() {
-        return Produtos;
+    public Favoritos(long id, long idCliente, long idProduto) {
+        this.id = id;
+        this.idCliente = idCliente;
+        this.idProduto = idProduto;
     }
 
-    public void setProdutos(List<Produto> produtos) {
-        Produtos = produtos;
+    public long getId() {
+        return id;
     }
 
-    public List<main.java.com.femina.produto.Model.Cliente> getCliente() {
-        return Cliente;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public void setCliente(List<main.java.com.femina.produto.Model.Cliente> cliente) {
-        Cliente = cliente;
+    public long getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(long idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public long getIdProduto() {
+        return idProduto;
+    }
+
+    public void setIdProduto(long idProduto) {
+        this.idProduto = idProduto;
     }
 
     @Override
     public String toString() {
-        return "" + Produtos + ";" + Cliente;
+        return "" + id +
+                ";" + idCliente +
+                ";" + idProduto;
     }
 }
